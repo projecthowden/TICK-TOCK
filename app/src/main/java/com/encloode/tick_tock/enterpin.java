@@ -9,5 +9,7 @@ public class enterpin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterpin);
+
+        //whoever implement this it is their job to make sure the pin 4 digits and valid
     }
 }
