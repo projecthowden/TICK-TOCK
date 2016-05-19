@@ -17,8 +17,6 @@ public class timedisplay extends AppCompatActivity {
             Thread.currentThread().interrupt();
         }
 
-
-
         Intent intent = new Intent(this, MainActivity.class);
         this.startActivity ( intent );
     }
