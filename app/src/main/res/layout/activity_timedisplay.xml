@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src = "@drawable/jpeglogo"
+        android:src = "@drawable/encloode"
         android:adjustViewBounds="true"
         android:maxWidth="150dp"
         android:maxHeight="150dp"
