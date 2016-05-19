@@ -78,7 +78,7 @@
 
     </GridLayout>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DELETE"
@@ -88,7 +88,7 @@
         android:layout_toLeftOf="@+id/gridLayout"
         android:layout_toStartOf="@+id/gridLayout" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CLEAR"
@@ -97,7 +97,7 @@
         android:layout_below="@+id/gridLayout"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EXIT"
