@@ -43,6 +43,31 @@
         android:layout_below="@id/textClock"
 
         />
+    <GridLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/thankYouMessage"
+    android:layout_marginTop="20dp"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/hoursGrid"
+    android:columnCount="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hoursDescription"
+            android:textSize="30dp"
+            tools:text="Total Hours Worked: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalHours"
+            android:textSize="60dp"
+            android:textColor="#111111"
+            tools:text="60"/>
+</GridLayout>
+
+
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

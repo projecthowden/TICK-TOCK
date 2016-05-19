@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/jpeglogo"
+        android:src="@drawable/encloode"
         android:layout_below="@+id/textView"
         android:layout_toLeftOf="@+id/textView" />
 
