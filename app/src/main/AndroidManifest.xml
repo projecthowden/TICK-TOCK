@@ -5,7 +5,6 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -15,14 +14,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".enterpin" />
-        <activity android:name=".timedisplay" />
+        <activity android:name=".enterpin"
+                  android:label="ENTER PIN"/>
+        <activity android:name=".timedisplay"/>
         <activity android:name=".ownermenu" />
         <activity android:name=".timetable" />
         <activity android:name=".backlog" />
         <activity android:name=".adddelete_employee" />
         <activity android:name=".validate_confirm" />
-        <activity android:name=".displayemployees"></activity>
-    </application>
+        <activity android:name=".displayemployees"
+                  android:label="LIST OF OF ALL STAFF"/>
+         </application>
 
 </manifest>
