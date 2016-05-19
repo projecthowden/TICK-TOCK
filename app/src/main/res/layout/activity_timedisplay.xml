@@ -9,4 +9,50 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.timedisplay">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timedisplayMessage"
+        android:textSize="40dp"
+        android:text="You have successfully clocked in at:"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src = "@drawable/jpeglogo"
+        android:adjustViewBounds="true"
+        android:maxWidth="150dp"
+        android:maxHeight="150dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Thank you for logging in!"
+        android:id="@+id/textView2"
+        android:textSize="32dp"
+        android:layout_gravity="left|bottom"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/textClock"
+        android:layout_alignLeft="@+id/textClock"
+        android:layout_alignStart="@+id/textClock" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock"
+        android:textSize="100dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="126dp"
+        android:textColor="#2d374f"
+        android:layout_below="@+id/timedisplayMessage"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
