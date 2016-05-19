@@ -9,4 +9,130 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.enterpin">
 
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:rowCount="4"
+
+        android:paddingLeft = "50dp"
+        android:paddingRight = "50dp"
+        android:paddingTop = "50dp"
+
+        android:orientation="horizontal"
+        android:id="@+id/gridLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        // after the lay out has been created, all buttons can be modified //
+        <Button
+            android:layout_column="0"
+            android:text="1" />
+
+        <Button
+            android:layout_column="1"
+            android:text="2" />
+
+
+        <Button
+            android:layout_column="2"
+            android:text="3" />
+
+
+        <Button
+            android:layout_row="1"
+            android:layout_column="0"
+            android:text="4" />
+
+        <Button
+            android:layout_row="1"
+            android:layout_column="1"
+            android:text="5" />
+
+        <Button
+            android:layout_row="1"
+            android:layout_column="2"
+            android:text="6" />
+
+        <Button
+            android:layout_row="2"
+            android:layout_column="0"
+            android:text="7" />
+
+        <Button
+            android:layout_row="2"
+            android:layout_column="1"
+            android:text="8" />
+
+        <Button
+            android:layout_row="2"
+            android:layout_column="2"
+            android:text="9" />
+        <Button
+            android:layout_row="3"
+            android:layout_column="1"
+            android:text="0" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        android:id="@+id/textView"
+        android:textSize="35dp"
+        android:layout_below="@+id/gridLayout"
+        android:layout_toLeftOf="@+id/gridLayout"
+        android:layout_toStartOf="@+id/gridLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLEAR"
+        android:id="@+id/textView1"
+        android:textSize="35dp"
+        android:layout_below="@+id/gridLayout"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXIT"
+        android:id="@+id/textView2"
+        android:textSize="35dp"
+        android:layout_below="@+id/gridLayout"
+        android:layout_toRightOf="@+id/gridLayout"
+        android:layout_toEndOf="@+id/gridLayout"
+        android:layout_marginLeft="61dp"
+        android:layout_marginStart="61dp" />
+
+    <ImageView
+        android:id="@+id/phone_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/jpeglogo"
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/textView" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_above="@+id/gridLayout"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="ENTER YOUR ASSIGNED FOUR DIGIT PIN"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/editText"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>
