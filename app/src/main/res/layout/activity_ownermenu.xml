@@ -7,6 +7,77 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.encloode.tick_tock.ownermenu">
+    tools:context="com.encloode.tick_tock.ownermenu"
+    android:id="@+id/ownerMenu">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ownerInstruction"
+        android:text="SELECT AN OPTION"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"/>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:columnCount="2"
+        android:id="@+id/topGrid"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ownerInstruction">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/addEmployee"
+            android:text="ADD EMPLOYEE"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/deleteEmploye"
+            android:text="DELETE EMPLOYE" />
+    </GridLayout>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomGrid"
+        android:columnCount="3"
+        android:layout_below="@id/topGrid"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/summary"
+            android:text="ADD EMPLOYEE"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/stafflist"
+            android:text="DELETE EMPLOYE" />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/editTime"
+            android:text="EDIT TIME"/>
+    </GridLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="-20dp"
+        android:layout_alignTop="@+id/exitButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/exitButton"
+        android:layout_below="@id/bottomGrid"
+        android:layout_centerHorizontal="true"
+        android:text="EXIT"/>
+
+
 
 </RelativeLayout>

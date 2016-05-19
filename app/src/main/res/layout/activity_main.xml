@@ -7,13 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/main"
     tools:context="com.encloode.tick_tock.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:text="TICK-TOCK" />
     <ImageView
@@ -28,15 +29,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/instruction"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/ticktocklogo"
         android:text="CLICK TO BEGIN"/>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="-20dp"
         android:id="@+id/encloodelogo"
-        android:src="@drawable/encloodelogo"
+        android:src="@drawable/encloode"
         android:layout_below="@+id/ticktocklogo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
