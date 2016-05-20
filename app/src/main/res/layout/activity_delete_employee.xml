@@ -7,6 +7,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.encloode.tick_tock.deleteEmployee">
+    tools:context=".delete_employee">
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:id="@+id/delete_employee_gl_details">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/delete_employee_tv_instruction"
+            android:textSize="25sp"
+            android:text="Enter employee ID:"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete_employee_et_id"
+            android:ems="5"
+            android:imeOptions="actionNext"
+            android:inputType="number"/><!--This guy specifies the type of keyboard that pops up
+            on the tablet. This imeOption specifies the label of the action on the keypad-->
+    </GridLayout>
 
 </RelativeLayout>
