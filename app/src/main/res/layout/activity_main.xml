@@ -10,7 +10,8 @@
     android:id="@+id/main"
     tools:context="com.encloode.tick_tock.MainActivity"
     android:clickable="true"
-    android:backgroundTint="#23fd54">
+    android:backgroundTint="#23fd54"
+    android:onClick="onClick">
 
     <TextView
         android:layout_width="wrap_content"

@@ -13,7 +13,6 @@ public class EmployeeDatabase {
 
     static public int maxEmployeeSize = 10;
     static public int listOfAvailableIDs[];
-    static int masterCode = 1234;
 
     public EmployeeDatabase() {
         this.employees = new ArrayList<>();
@@ -132,6 +131,19 @@ public class EmployeeDatabase {
 
         for (int i=0; i< employees.size() ; i++) {
             if( employees.get(i).getID() == id) {
+                return employees.get(i);
+            }
+
+        }
+
+        return null;
+    }
+
+    //THIS METHOD TAKES A pin AND RETURNS THE EMPLOYEE OBJECT ASSOCIATED WITH IT
+    public Employee getEmployeebyPin(int pin) {
+
+        for (int i=0; i< employees.size() ; i++) {
+            if( employees.get(i).getPin() == pin) {
                 return employees.get(i);
             }
 
