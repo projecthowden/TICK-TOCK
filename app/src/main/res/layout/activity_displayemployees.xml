@@ -28,8 +28,6 @@
         android:layout_centerHorizontal="true">
 
 
-
-
         <TextView
             android:layout_column="0"
             android:layout_width="wrap_content"
@@ -65,8 +63,6 @@
             android:layout_column="1"
             android:layout_width="wrap_content" />
 
-
-
         <EditText
             android:layout_row="2"
             android:layout_column="0" />
@@ -74,8 +70,6 @@
             android:layout_row="2"
             android:layout_column="1"
             android:layout_width="wrap_content" />
-
-
 
         <EditText
             android:layout_row="3"
@@ -85,7 +79,6 @@
             android:layout_column="1"
             android:layout_width="wrap_content" />
 
-
         <EditText
             android:layout_row="4"
             android:layout_column="0" />
@@ -93,7 +86,6 @@
             android:layout_row="4"
             android:layout_column="1"
             android:layout_width="wrap_content" />
-
 
         <EditText
             android:layout_row="5"
@@ -106,7 +98,7 @@
     </GridLayout>
 
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EXIT"
@@ -115,7 +107,7 @@
         android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
@@ -125,7 +117,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PREVIOUS"
