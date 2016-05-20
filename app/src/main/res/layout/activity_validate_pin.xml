@@ -10,47 +10,51 @@
     tools:context="com.encloode.tick_tock.validatePin">
 
     <LinearLayout
+        android:id="@+id/validate_pin_ll_nameBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:id="@+id/nameBox"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true">
         <TextView
+            android:id="@+id/validate_pin_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/nameVerify"
             tools:text="ANDREW WYTE"
             android:textSize="50sp"/>
         <TextView
+            android:id="@+id/validate_pin_tv_questionMark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/questionMark"
             android:text=" \?"
             android:textSize="50sp"/>
     </LinearLayout>
 <GridLayout
+    android:id="@+id/validate_pin_gl_optionGrid"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_below="@id/nameBox"
+    android:layout_below="@id/validate_pin_ll_nameBox"
     android:layout_marginTop="20dp"
     android:layout_centerHorizontal="true"
-    android:id="@+id/optionGrid"
     android:columnCount="2">
     <Button
+        android:id="@+id/validate_pin_b_yes"
         android:layout_width="200dp"
         android:layout_height="100dp"
+        android:textSize="30sp"
         android:text="YES" />
     <Button
+        android:id="@+id/validate_pin_b_no"
         android:layout_width="200dp"
         android:layout_height="100dp"
+        android:textSize="30sp"
         android:text="NO"/>
 </GridLayout>
     <ImageView
+        android:id="@+id/validate_pin_im_encloodelogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        android:id="@+id/encloodelogo"
+        android:layout_marginTop="100dp"
         android:src="@drawable/encloode"
-        android:layout_below="@+id/optionGrid"/>
+        android:layout_below="@id/validate_pin_gl_optionGrid"/>
 </RelativeLayout>

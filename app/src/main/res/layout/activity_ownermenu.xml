@@ -19,14 +19,16 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true">
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/addEmployee"
+            android:textSize="20sp"
             android:text="ADD EMPLOYEE"/>
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/deleteEmploye"
+            android:textSize="20sp"
             android:text="DELETE EMPLOYE" />
     </GridLayout>
     <GridLayout
@@ -37,14 +39,16 @@
         android:layout_below="@id/topGrid"
         android:layout_centerHorizontal="true">
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/summary"
+            android:textSize="20sp"
             android:text="SUMMARY"/>
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/stafflist"
+            android:textSize="20sp"
             android:text="LIST OF STAFF" />
     </GridLayout>
     <GridLayout
@@ -55,19 +59,22 @@
         android:layout_below="@id/middleGrid"
         android:layout_centerHorizontal="true">
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
+            android:textSize="20sp"
             android:id="@+id/staffName"
             android:text="EDIT STAFF NAME" />
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
+            android:textSize="20sp"
             android:id="@+id/staffPin"
             android:text="CHANGE STAFF PIN" />
         <Button
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/staffTime"
+            android:textSize="20sp"
             android:text="EDIT STAFF TIME" />
 
     </GridLayout>
@@ -76,14 +83,12 @@
         android:layout_height="150dp"
         android:id="@+id/encloodelogo"
         android:src="@drawable/encloode"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@id/bottomGrid"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <Button
-        android:layout_width="200dp"
+        android:layout_width="210dp"
         android:layout_height="100dp"
         android:id="@+id/exitButton"
         android:layout_below="@id/bottomGrid"

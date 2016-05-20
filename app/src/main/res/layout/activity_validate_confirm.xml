@@ -8,5 +8,93 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.validate_confirm">
-
+<GridLayout
+    android:id="@+id/validate_confirm_gl_action"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true"
+    android:columnCount="3">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textColor="#ff0000"
+        tools:text="DELETE"/><!--This guy is just a tool so it will need to be update this element
+        with java-->
+</GridLayout>
+    <GridLayout
+        android:id="@+id/validate_confirm_gl_details"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/validate_confirm_gl_action"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/validate_confirm_tv_namelabel"
+            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#111111"
+            android:text="NAME: "/>
+        <TextView
+            android:id="@+id/validate_confirm_tv_name"
+            android:layout_column="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#111111"
+            tools:text="Andrew White"/><!--This guy is just a tool so it will need to be update this element
+        with java-->
+        <TextView
+            android:id="@+id/validate_confirm_tv_idlabel"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="#111111"
+            android:text="ID: "/>
+        <TextView
+            android:id="@+id/validate_confirm_tv_id"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="#111111"
+            android:textSize="30sp"
+            tools:text="41"/><!--This guy is just a tool so it will need to be update this element
+        with java-->
+    </GridLayout>
+    <GridLayout
+        android:id="@+id/validate_confirm_gl_option"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/validate_confirm_gl_details">
+        <Button
+            android:id="@+id/validate_confirm_b_yes"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="YES"
+            android:textSize="60sp" />
+        <Button
+            android:id="@+id/validate_confirm_b_no"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="NO"
+            android:textSize="60sp"/>
+    </GridLayout>
+    <ImageView
+        android:id="@+id/validate_confirm_im_encloodelogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/encloode"
+        android:layout_below="@id/validate_confirm_gl_option"/>
 </RelativeLayout>
