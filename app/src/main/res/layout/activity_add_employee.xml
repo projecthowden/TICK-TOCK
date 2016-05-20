@@ -7,66 +7,66 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".add_employee"
+    tools:context=".add_employee">
 
-    >
-
-
-    <EditText
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="54dp" />
-
-    <RadioButton
+        android:layout_marginBottom="100dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:id="@+id/add_employee_gl_details">
+        <TextView
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/add_employee_tv_nameinstruction"
+            android:textSize="25sp"
+            android:text="Enter new employee name:"/>
+        <EditText
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_employee_et_name"
+            android:ems="25"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"/><!--This guy specifies the type of keyboard that pops up
+            on the tablet. This imeOption specifies the label of the action on the keypad-->
+        <TextView
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/add_employee_tv_pininstruction"
+            android:textSize="25sp"
+            android:text="Enter 4 digit pin:"/>
+        <EditText
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_employee_et_pin"
+            android:ems="4"
+            android:imeOptions="actionNext"
+            android:inputType="numberPassword"/><!--This guy specifies the type of keyboard that pops up
+            on the tablet. This imeOption specifies the label of the action on the keypad-->
+    </GridLayout>
+    <Button
+        android:id="@+id/add_employee_b_addemployee"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Basic"
-        android:id="@+id/radioButton"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Advanced"
-        android:id="@+id/radioButton2"
-        android:layout_below="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_marginStart="51dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Access level:"
-        android:id="@+id/textView"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_height="150dp"
+        android:layout_below="@id/add_employee_gl_details"
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"
+        android:text="ADD EMPLOYEE"/>
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:src = "@drawable/encloode"
-        android:adjustViewBounds="true"
-        android:maxWidth="150dp"
-        android:maxHeight="150dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberPassword"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/add_employee_im_encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_below="@id/add_employee_b_addemployee"/>
 
 </RelativeLayout>
