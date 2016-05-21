@@ -69,5 +69,13 @@
         android:text="EXIT"
         android:textSize="30sp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:id="@+id/validate_pin_im_encloodelogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/encloode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/change_name_b_exit" />
 </RelativeLayout>
