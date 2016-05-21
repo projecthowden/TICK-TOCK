@@ -17,7 +17,7 @@ public class EmployeeDatabase {
     public EmployeeDatabase() {
         this.employees = new ArrayList<>();
 
-        listOfAvailableIDs = new int[EmployeeDatabase.maxEmployeeSize];
+        listOfAvailableIDs = new int[100];
 
         for(int i=0; i<100;i++)
             listOfAvailableIDs[i] = i;

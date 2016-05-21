@@ -20,7 +20,8 @@ public class Employee {
     public Employee(String name, int pin) {
 
         numOfEmployees++;
-        assignID();
+      //  assignID(); THIS ISNT WORKING PROPERLY
+        this.id = 1; // temp
         this.name = name;
         this.pin = pin;
         this.signedIn = false;
@@ -148,7 +149,7 @@ public class Employee {
             }
         }
 
-        assignID();
+      //  assignID();
 
     }
 

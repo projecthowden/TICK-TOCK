@@ -17,10 +17,10 @@ public class timedisplay extends AppCompatActivity {
         String name;
 
         idOfCurrentEmp= Integer.parseInt(getIntent().getExtras().getString("id"));
-        name = Global.accessDatabase().getNameOf(idOfCurrentEmp);
+       // name = Global.accessDatabase().getNameOf(idOfCurrentEmp);
 
         TextView tx = (TextView) findViewById(R.id.validate_pin_tv_name);
-        tx.setText(name);
+      //  tx.setText(name);
 
         try {
             Thread.sleep(4000);

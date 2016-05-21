@@ -41,7 +41,7 @@ public class add_employee extends AppCompatActivity {
         EditText editTextName = (EditText) findViewById(R.id.add_employee_et_name);
         String newEmployeeName = editTextName.getText().toString();
         //now we need to validate the pin.
-        if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize) {
+       if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize) {
             if (Global.accessDatabase().pinValid(pin)) {
                 //pin is valid...create a new employee and add it to it the employee database.
                 Employee newEmployee = new Employee(newEmployeeName, pin);
