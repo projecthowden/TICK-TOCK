@@ -42,13 +42,15 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:textSize="30sp"
-        android:text="YES" />
+        android:text="YES"
+        android:onClick="onClickYes" />
     <Button
         android:id="@+id/validate_pin_b_no"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:textSize="30sp"
-        android:text="NO"/>
+        android:text="NO"
+        android:onClick="onClickNo" />
 </GridLayout>
     <ImageView
         android:id="@+id/validate_pin_im_encloodelogo"
