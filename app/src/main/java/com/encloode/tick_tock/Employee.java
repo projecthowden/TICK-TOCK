@@ -52,11 +52,12 @@ public class Employee {
 
     public void setSignInTime(int signInTime) {
         this.signInTime = signInTime;
+        toggleSignIn();
     }
 
     public void setSignOutTime(int signOutTime) {
         this.signOutTime = signOutTime;
-
+        toggleSignIn();
         int weekOfYear = Calendar.WEEK_OF_YEAR;
         int dayOfWeek = Calendar.DAY_OF_WEEK;
 
