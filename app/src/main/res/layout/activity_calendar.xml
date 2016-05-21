@@ -11,9 +11,10 @@
     tools:context="com.encloode.tick_tock.calendar"
     android:weightSum="1">
 
-    <CalendarView
-        android:layout_width="813dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/calendar"
-        android:layout_weight="1.00" />
+    <DatePicker
+        android:id="@+id/calendar_dp_date"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:spinnersShown="false">
+    </DatePicker>
 </LinearLayout>
