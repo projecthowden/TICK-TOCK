@@ -9,4 +9,110 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.changePin">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter ID"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/textView"
+        android:maxLength="2"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name: "
+        android:id="@+id/textView27"
+        android:layout_alignTop="@+id/activity_change_pin_TF_name"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="*autofill*"
+        android:id="@+id/activity_change_pin_TF_name"
+        android:layout_above="@+id/activity_change_pin_TF_newPin"
+        android:layout_alignStart="@+id/activity_change_pin_TF_newPin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="New Pin:"
+        android:id="@+id/textView28"
+        android:layout_alignBottom="@+id/activity_change_pin_TF_newPin"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Retype Pin:"
+        android:id="@+id/textView44"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:id="@+id/activity_change_pin_TF_newPin"
+        android:maxLength="4"
+        android:layout_above="@+id/activity_change_pin_TF_reenterPin"
+        android:layout_toEndOf="@+id/enterpin_i_encloodelogo" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:ems="10"
+        android:id="@+id/activity_change_pin_TF_reenterPin"
+        android:maxLength="4"
+        android:layout_alignBottom="@+id/textView44"
+        android:layout_toEndOf="@+id/enterpin_i_encloodelogo" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="-50dp"
+        android:id="@+id/enterpin_i_encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_alignParentBottom="true" />
+
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/activity_change_pin_B_submit"
+        android:backgroundTint="@color/white"
+        android:textSize="30sp"
+        android:layout_marginEnd="149dp"
+        android:layout_alignTop="@+id/activity_change_pin_B_exit"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="EXIT"
+        android:backgroundTint="@color/white"
+        android:id="@+id/activity_change_pin_B_exit"
+        android:textSize="30sp"
+        android:layout_alignTop="@+id/enterpin_i_encloodelogo"
+        android:layout_alignEnd="@+id/activity_change_pin_TF_reenterPin" />
+
+
 </RelativeLayout>

@@ -29,7 +29,7 @@
             android:layout_height="100dp"
             android:id="@+id/deleteEmploye"
             android:textSize="20sp"
-            android:text="DELETE EMPLOYE" />
+            android:text="DELETE EMPLOYEE" />
     </GridLayout>
     <GridLayout
         android:layout_width="wrap_content"

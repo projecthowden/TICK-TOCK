@@ -16,7 +16,7 @@ public class validatePin extends AppCompatActivity {
 
         String name;
 
-        idOfCurrentEmp= Integer.parseInt(getIntent().getExtras().getString("id"));
+        idOfCurrentEmp= getIntent().getExtras().getInt("id");
         name = Global.accessDatabase().getNameOf(idOfCurrentEmp);
 
         TextView tx = (TextView) findViewById(R.id.validate_pin_tv_name);

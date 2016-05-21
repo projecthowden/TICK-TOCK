@@ -16,7 +16,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView tx = (TextView) findViewById(R.id.companyName);
-        tx.setText("Riko");
+        tx.setText("Encloode");
+
+
+
+        Employee newEmployee = new Employee("Riko Hamblin", 1111);
+        Global.accessDatabase().addEmployee(newEmployee);
 
     }
 
