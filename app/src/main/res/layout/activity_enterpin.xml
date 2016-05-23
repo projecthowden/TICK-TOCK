@@ -25,7 +25,8 @@
         android:id="@+id/enterpin_i_encloodelogo"
         android:src="@drawable/encloode"
         android:layout_above="@+id/enterpin_gl_options"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
 <GridLayout
     android:layout_width="wrap_content"

@@ -36,7 +36,6 @@ public class enterpin extends AppCompatActivity {
     }
 
 
-
     public void onClickForgotPassword(View view){
         Toast myToast = Toast.makeText(
                 getApplicationContext(), "Contact your manager", Toast.LENGTH_LONG);

@@ -20,7 +20,8 @@
             android:name=".enterpin"
             android:label="ENTER PIN"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateAlwaysVisible"
+            />
         <activity android:name=".timedisplay"
             android:label="@string/app_name"
             android:screenOrientation="landscape"/>
