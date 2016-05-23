@@ -38,8 +38,8 @@ public class EmployeeDatabase {
 
 
         for (int i=0; i<employees.size(); i++) {
-
-            if(!employees.get(i).isEmpty() && employees.get(i).getPin()== pin)
+    //!employees.get(i).isEmpty() &&
+            if(employees.get(i).getPin()== pin )
                 return false;
 
         }

@@ -21,7 +21,7 @@ public class Employee {
 
         numOfEmployees++;
       //  assignID(); THIS ISNT WORKING PROPERLY
-        this.id = 1; // temp
+        this.id = numOfEmployees; // temp
         this.name = name;
         this.pin = pin;
         this.signedIn = false;
@@ -104,7 +104,7 @@ public class Employee {
 
     }
 
-    public int calculateHoursWorkedToday (int weekOfYear, int dayOfWeek) {
+    public void calculateHoursWorkedToday (int weekOfYear, int dayOfWeek) {
 
         int temp;
         int hoursWorked;
@@ -116,7 +116,7 @@ public class Employee {
         daylyHours [weekOfYear-1][dayOfWeek-1] = daylyHours [weekOfYear-1][dayOfWeek-1]
                 + hoursWorked;
 
-        return hoursWorked;
+       // return hoursWorked;
     }
 
     public int getHoursWorkedForWeek (int weekWanted) {

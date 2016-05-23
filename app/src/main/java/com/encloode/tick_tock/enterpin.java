@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 
 public class enterpin extends AppCompatActivity {
 
@@ -16,24 +18,38 @@ public class enterpin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterpin);
 
-    }
-
-
-    public void onClick33(View view){
-
-        final EditText edittext = (EditText) findViewById(R.id.enterpin_TF_pin);
-        edittext.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_NUMPAD_4)) {
-                  //  method1();
+        EditText edittext = (EditText) findViewById(R.id.enterpin_TF_pin);
+        edittext.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                   method();
                     return true;
                 }
-                return false;
+                else {
+                    return false;
+                }
             }
         });
-    }
-    public void onClick1(View view){
 
+
+    }
+
+
+
+    public void onClickForgotPassword(View view){
+        Toast myToast = Toast.makeText(
+                getApplicationContext(), "Contact your manager", Toast.LENGTH_LONG);
+        myToast.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class) ;
+        startActivity(intent);
+    }
+
+    public void method(){
 
         int pin;
         int idOfCurrentEmp;
@@ -58,7 +74,9 @@ public class enterpin extends AppCompatActivity {
         else if(pin == Global.masterCode){
             // proceed onto new activity for master code.
             Intent intent2 = new Intent(this, ownermenu.class);
-           startActivity(intent2);
+            startActivity(intent2);
         }
-    }
+   }
+
 }
+
