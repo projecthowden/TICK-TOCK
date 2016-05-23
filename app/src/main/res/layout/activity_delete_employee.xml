@@ -26,7 +26,7 @@
             android:id="@+id/delete_employee_et_id"
             android:ems="5"
             android:maxLength="2"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:inputType="number"/><!--This guy specifies the type of keyboard that pops up
             on the tablet. This imeOption specifies the label of the action on the keypad-->
 
@@ -70,5 +70,14 @@
         android:id="@+id/activity_deleteEmp_TF_nameValue"
         android:layout_below="@+id/delete_employee_gl_details"
         android:layout_alignEnd="@+id/delete_employee_gl_details" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/delete_employee_B_exit"
+        android:layout_alignTop="@+id/add_employee_im_encloodelogo"
+        android:layout_alignStart="@+id/activity_delete_employee_B_delete"
+        android:onClick="onClickDeleteEmp" />
 
 </RelativeLayout>

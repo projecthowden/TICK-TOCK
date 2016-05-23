@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.encloode.tick_tock.displayemployees">
+    tools:context="com.encloode.tick_tock.displayemployees"
+    android:onClick="onClickExit">
 
 
 
@@ -24,8 +25,8 @@
 
         android:orientation="horizontal"
         android:id="@+id/gridLayout"
-        android:layout_above="@+id/textView1"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/textView3">
 
 
         <TextView
@@ -106,26 +107,8 @@
         android:textSize="35dp"
         android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"
-        android:id="@+id/textView1"
-        android:textSize="35dp"
-        android:layout_above="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PREVIOUS"
-        android:id="@+id/textView2"
-        android:textSize="35dp"
-        android:layout_below="@+id/gridLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickExit" />
 
     <ImageView
         android:id="@+id/phone_icon"
@@ -133,11 +116,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/encloode"
-        android:layout_below="@+id/textView2"
         android:layout_toLeftOf="@+id/gridLayout"
         android:layout_toStartOf="@+id/gridLayout"
         android:layout_marginRight="77dp"
-        android:layout_marginEnd="77dp" />
+        android:layout_marginEnd="77dp"
+        android:layout_below="@+id/gridLayout" />
 
 
 </RelativeLayout>

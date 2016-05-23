@@ -82,13 +82,15 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:text="YES"
-            android:textSize="60sp" />
+            android:textSize="60sp"
+            android:onClick="onClickYes" />
         <Button
             android:id="@+id/validate_confirm_b_no"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:text="NO"
-            android:textSize="60sp"/>
+            android:textSize="60sp"
+            android:onClick="onclickNo" />
     </GridLayout>
     <ImageView
         android:id="@+id/validate_confirm_im_encloodelogo"
