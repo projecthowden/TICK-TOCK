@@ -17,11 +17,12 @@ public class Employee {
     static int numOfEmployees = 0;
 
 
+
     public Employee(String name, int pin) {
 
         numOfEmployees++;
-      //  assignID(); THIS ISNT WORKING PROPERLY
-        this.id = 1; // temp
+       // assignID();
+        id = numOfEmployees;
         this.name = name;
         this.pin = pin;
         this.signedIn = false;
@@ -104,7 +105,7 @@ public class Employee {
 
     }
 
-    public int calculateHoursWorkedToday (int weekOfYear, int dayOfWeek) {
+    public void calculateHoursWorkedToday (int weekOfYear, int dayOfWeek) {
 
         int temp;
         int hoursWorked;
@@ -116,7 +117,7 @@ public class Employee {
         daylyHours [weekOfYear-1][dayOfWeek-1] = daylyHours [weekOfYear-1][dayOfWeek-1]
                 + hoursWorked;
 
-        return hoursWorked;
+       // return hoursWorked;
     }
 
     public int getHoursWorkedForWeek (int weekWanted) {
@@ -139,17 +140,17 @@ public class Employee {
          * it then checks through all available IDs and if the id is available it is assigned
          * if it goes thru the entire array and the id is not found then the process is restarted
          */
-        int rand = (int) (Math.random() * 99);
+        int rand = (int)(Math.random() * 100) ;
 
-        for(int i=0; i<100; i++) {
+       loop: for(int i=0; i<100; i++) {
             if(EmployeeDatabase.listOfAvailableIDs[i] == rand) {
                 this.id = rand;
                 EmployeeDatabase.listOfAvailableIDs[i] = 1000;
                 return;
             }
-        }
 
-      //  assignID();
+        }
+            assignID();
 
     }
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class validatePin extends AppCompatActivity {
 
@@ -33,5 +34,13 @@ public class validatePin extends AppCompatActivity {
     public void onClickNo(View view){
         Intent intent = new Intent(this, MainActivity.class) ;
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Toast myToast = Toast.makeText(
+                getApplicationContext(), "Disabled", Toast.LENGTH_LONG);
+        myToast.show();
     }
 }

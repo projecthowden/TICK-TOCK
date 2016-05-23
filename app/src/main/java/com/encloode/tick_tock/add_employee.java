@@ -13,52 +13,81 @@ public class add_employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
-
-        /* features:
-            1) if they are EmployeeDatabase.maxEmployeeSize current employee
-                then raise a toast
-
-         this is more or less the code but use your best judgement when implementing:
-
-                 String msg1 = "Maximum Number of employees have been met. ";
-                String msg2 = "Please contact Tech Support at encloode for more information";
-
-        if(EmployeeDatabase.getNumOfCurrentEmployees() == EmployeeDatabase.maxEmployeeSize) {
-
-         Toast myToast = Toast.makeText(
-                    getApplicationContext(), msg1 + msg2, Toast.LENGTH_LONG);
-            myToast.show();
-         */
-
-
     }
 
-    public void onClick(View v) {
+    public void onClickForAddingEmployees(View v) {
         EditText editTextPin = (EditText) findViewById(R.id.add_employee_et_pin); // creted an pbject of type edittext view and retrived
-        //and stored the value in a variable after typecasting.
-        int pin = Integer.parseInt(editTextPin.getText().toString());
-
+        EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
         EditText editTextName = (EditText) findViewById(R.id.add_employee_et_name);
-        String newEmployeeName = editTextName.getText().toString();
+
+
+
+        //check that fields are filled
+        if (isNull(editTextPin.getText().toString()) || isNull(editTextTypePinAgain.getText().toString()) || isNull(editTextName.getText().toString())) {
+
+            Toast myToast = Toast.makeText(
+                    getApplicationContext(), "Fill all fields", Toast.LENGTH_LONG);
+            myToast.show();
+        }
+
         //now we need to validate the pin.
-       if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize) {
-            if (Global.accessDatabase().pinValid(pin)) {
+       else if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize){//only allows 3 employees for now
+
+            //and stored the value in a variable after typecasting.
+            int pin = Integer.parseInt(editTextPin.getText().toString());
+            int pinRetyped = Integer.parseInt(editTextTypePinAgain.getText().toString());
+            String newEmployeeName = editTextName.getText().toString();
+
+           //pins do not match
+           if (!pinsMatch(pin,pinRetyped)) {
+               Toast myToast = Toast.makeText(
+                       getApplicationContext(), "Pins do not match", Toast.LENGTH_LONG);
+               myToast.show();
+           }
+
+           //pins match so check that it is valid
+           else if (Global.accessDatabase().pinValid(pin) && pin != Global.masterCode) {
                 //pin is valid...create a new employee and add it to it the employee database.
                 Employee newEmployee = new Employee(newEmployeeName, pin);
                 Global.accessDatabase().addEmployee(newEmployee);// new employee has been added to the database.
-                //research toaast.//go to owner menu activity
+
+               Toast myToast = Toast.makeText(
+                       getApplicationContext(), "Action Completed", Toast.LENGTH_LONG);
+               myToast.show();
+
+                //go to owner menu activity
                 Intent intent = new Intent(this, ownermenu.class);
                 startActivity(intent);
                 //employee is sucessfully
                 //now we return to the owner menu
             }
-            else {
-                //notify user that pin  is taken.
+            else { //pin matches but not valid OR THE PERSON ENTERS THE MASTER CODE
+                Toast myToast = Toast.makeText(
+                        getApplicationContext(), "Pin not valid", Toast.LENGTH_LONG);
+                myToast.show();
             }
         }
+
+       //max num of user already met
         else {
-            //contact encloode
+           String msg1 = "Maximum number of employees have been met. ";
+           String msg2 = "Please contact Tech Support at encloode for more information";
+
+           Toast myToast = Toast.makeText(
+                   getApplicationContext(), msg1 + msg2, Toast.LENGTH_LONG);
+           myToast.show();
+
 
         }
+    }
+
+    public boolean pinsMatch (int pin1, int pin2) {
+        if(pin1 == pin2 ) return true;
+        else return false;
+    }
+
+    public boolean isNull (String str) {
+        if(str.isEmpty()) return true;
+        else return false;
     }
 }

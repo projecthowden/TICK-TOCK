@@ -23,13 +23,15 @@
             android:layout_height="100dp"
             android:id="@+id/addEmployee"
             android:textSize="20sp"
-            android:text="ADD EMPLOYEE"/>
+            android:text="ADD EMPLOYEE"
+            android:onClick="onClick_addEmployee" />
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/deleteEmploye"
             android:textSize="20sp"
-            android:text="DELETE EMPLOYEE" />
+            android:text="DELETE EMPLOYEE"
+            android:onClick="onClick_deleteEmployee" />
     </GridLayout>
     <GridLayout
         android:layout_width="wrap_content"
@@ -42,14 +44,16 @@
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/summary"
-            android:textSize="20sp"
-            android:text="SUMMARY"/>
+            android:textSize="18sp"
+            android:text="SEE LOGGED HOURS"
+            android:onClick="onClick_seeLoggedHours" />
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/stafflist"
             android:textSize="20sp"
-            android:text="LIST OF STAFF" />
+            android:text="LIST OF STAFF"
+            android:onClick="onClick_listOfStaff" />
     </GridLayout>
     <GridLayout
         android:layout_width="wrap_content"
@@ -63,19 +67,24 @@
             android:layout_height="100dp"
             android:textSize="20sp"
             android:id="@+id/staffName"
-            android:text="EDIT STAFF NAME" />
+            android:text="EDIT STAFF NAME"
+            android:onClick="onClick_editName" />
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:textSize="20sp"
             android:id="@+id/staffPin"
-            android:text="CHANGE STAFF PIN" />
+            android:text="CHANGE STAFF PIN"
+            android:onClick="onClick_changePin" />
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/staffTime"
             android:textSize="20sp"
-            android:text="EDIT STAFF TIME" />
+            android:text="EDIT STAFF TIME"
+            android:nestedScrollingEnabled="false"
+            android:onClick="onClick_editTime"
+            android:clickable="true" />
 
     </GridLayout>
     <ImageView
@@ -96,7 +105,9 @@
         android:layout_marginTop="70dp"
         android:text="EXIT"
         android:textSize="20sp"
-        android:backgroundTint="@color/white" />
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:onClick="onClick_exit" />
 
 
 </RelativeLayout>
