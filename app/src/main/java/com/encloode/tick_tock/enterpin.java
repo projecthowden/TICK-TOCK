@@ -53,27 +53,33 @@ public class enterpin extends AppCompatActivity {
         int pin;
         int idOfCurrentEmp;
         TextView tx = (TextView) findViewById(R.id.enterpin_TF_pin);
-        pin = Integer.parseInt(tx.getText().toString());
+
+        if(!tx.getText().toString().equals("")) {
+            pin = Integer.parseInt(tx.getText().toString());
 
 
-        if(Global.accessDatabase().pinValid(pin) == false) {
+            if (Global.accessDatabase().pinValid(pin) == false) {
             /*send id to other screen*/
-            idOfCurrentEmp = Global.accessDatabase().getEmployeebyPin(pin).getID();
+                idOfCurrentEmp = Global.accessDatabase().getEmployeebyPin(pin).getID();
 
             /*send id to next activity*/
-            Intent intent1 = new Intent(this, validatePin.class);
-            intent1.putExtra("id",idOfCurrentEmp);
-            startActivity(intent1);
+                Intent intent1 = new Intent(this, validatePin.class);
+                intent1.putExtra("id", idOfCurrentEmp);
+                startActivity(intent1);
+            } else if (Global.accessDatabase().pinValid(pin) == true && pin != Global.masterCode) {
+                Toast myToast = Toast.makeText(
+                        getApplicationContext(), "WRONG PIN", Toast.LENGTH_LONG);
+                myToast.show();
+            } else if (pin == Global.masterCode) {
+                // proceed onto new activity for master code.
+                Intent intent2 = new Intent(this, ownermenu.class);
+                startActivity(intent2);
+            }
         }
-        else if (Global.accessDatabase().pinValid(pin) == true && pin!=Global.masterCode) {
+        else {
             Toast myToast = Toast.makeText(
-                    getApplicationContext(), "WRONG PIN", Toast.LENGTH_LONG);
+                    getApplicationContext(), "ENTER PIN", Toast.LENGTH_LONG);
             myToast.show();
-        }
-        else if(pin == Global.masterCode){
-            // proceed onto new activity for master code.
-            Intent intent2 = new Intent(this, ownermenu.class);
-            startActivity(intent2);
         }
    }
 
