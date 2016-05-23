@@ -24,7 +24,7 @@ public class delete_employee extends AppCompatActivity {
         textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     whenDoneIsClicked();
                     return true;
                 }
@@ -72,5 +72,10 @@ public class delete_employee extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+
+    public void onClickDeleteEmp() {
+        Intent intent = new Intent(this, MainActivity.class) ;
+        startActivity(intent);
     }
 }

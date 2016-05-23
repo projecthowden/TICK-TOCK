@@ -34,7 +34,7 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onClick_editName(View view){
-        Intent intent = new Intent(this, changeName.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

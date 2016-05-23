@@ -90,4 +90,9 @@ public class add_employee extends AppCompatActivity {
         if(str.isEmpty()) return true;
         else return false;
     }
+
+    public void onClickExitFromAddEmployee() {
+        Intent intent = new Intent(this, MainActivity.class) ;
+        startActivity(intent);
+    }
 }

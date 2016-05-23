@@ -61,7 +61,8 @@
     android:layout_below="@id/change_name_gl_grid"
     android:layout_centerHorizontal="true"
     android:textSize="30sp"
-    android:layout_marginTop="20dp"/>
+    android:layout_marginTop="20dp"
+    android:onClick="onClickChangeName" />
     <Button
         android:id="@+id/change_name_b_exit"
         android:layout_width="200dp"
@@ -69,7 +70,8 @@
         android:text="EXIT"
         android:textSize="30sp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onClicExitForChangeName" />
     <ImageView
         android:id="@+id/validate_pin_im_encloodelogo"
         android:layout_width="150dp"
