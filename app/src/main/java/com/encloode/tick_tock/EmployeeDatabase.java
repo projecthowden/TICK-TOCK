@@ -11,17 +11,11 @@ public class EmployeeDatabase {
 
     public ArrayList<Employee> employees ;
 
-    static public int maxEmployeeSize = 10;
+    static public int maxEmployeeSize = 5;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
         this.employees = new ArrayList<>();
-
-        listOfAvailableIDs = new int[100];
-
-        for(int i=0; i<100;i++)
-            listOfAvailableIDs[i] = i;
-
     }
 
     /**
@@ -38,8 +32,8 @@ public class EmployeeDatabase {
 
 
         for (int i=0; i<employees.size(); i++) {
-
-            if(!employees.get(i).isEmpty() && employees.get(i).getPin()== pin)
+    //!employees.get(i).isEmpty() &&
+            if(employees.get(i).getPin()== pin )
                 return false;
 
         }
