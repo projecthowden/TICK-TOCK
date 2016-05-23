@@ -43,6 +43,27 @@ public class EmployeeDatabase {
 
     }
 
+    public boolean idValid (int id) {
+
+        /*
+            Go through entire database of employees if the
+            pin is found then it is invalid
+            if it IS found then pin is valid
+        */
+
+
+        for (int i=0; i<employees.size(); i++) {
+            //!employees.get(i).isEmpty() &&
+            if(employees.get(i).getID()== id )
+                return false;
+
+        }
+        return true;
+
+
+
+    }
+
     //THIS METHOD TAKES AN ID AND SETS THE IN TIME OF THAT EMPLOYEE TO int time
     public void setInTimeOf(int id, int time) {
         getEmployee(id).setSignInTime(time);
