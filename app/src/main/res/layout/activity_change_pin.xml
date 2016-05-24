@@ -17,7 +17,7 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,18 +35,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name: "
         android:id="@+id/textView27"
-        android:layout_alignBaseline="@+id/change_pin_TF_name"
-        android:layout_alignBottom="@+id/change_pin_TF_name"
+        android:layout_below="@+id/change_pin_TF_idEntered"
+        android:layout_marginTop="15dp"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*autofill*"
+        tools:text=" "
         android:id="@+id/change_pin_TF_name"
         android:layout_below="@+id/imageButton"
-        android:layout_alignStart="@+id/activity_change_pin_TF_newPin" />
+        android:layout_toEndOf="@+id/textView27"
+        android:layout_marginTop="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,18 +55,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="New Pin:"
         android:id="@+id/textView28"
-        android:layout_alignBottom="@+id/activity_change_pin_TF_newPin"
+        android:layout_below="@+id/change_pin_TF_name"
+        android:layout_marginTop="15dp"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Retype Pin:"
-        android:id="@+id/textView44"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,8 +65,19 @@
         android:ems="10"
         android:id="@+id/activity_change_pin_TF_newPin"
         android:maxLength="4"
-        android:layout_above="@+id/activity_change_pin_TF_reenterPin"
-        android:layout_toEndOf="@+id/enterpin_i_encloodelogo" />
+        android:layout_toEndOf="@+id/textView28"
+        android:layout_below="@+id/change_pin_TF_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Retype Pin:"
+        android:id="@+id/textView44"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="false"/>
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -83,8 +86,8 @@
         android:ems="10"
         android:id="@+id/activity_change_pin_TF_reenterPin"
         android:maxLength="4"
-        android:layout_alignBottom="@+id/textView44"
-        android:layout_toEndOf="@+id/enterpin_i_encloodelogo" />
+        android:layout_toEndOf="@+id/textView44"
+        android:layout_below="@+id/textView28"/>
 
     <ImageView
         android:layout_width="150dp"
@@ -95,26 +98,7 @@
         android:layout_alignParentBottom="true" />
 
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/activity_change_pin_B_submit"
-        android:backgroundTint="@color/white"
-        android:textSize="30sp"
-        android:onClick="onClickSubmit"
-        android:layout_alignBottom="@+id/textView44"
-        android:layout_alignStart="@+id/imageButton" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="EXIT"
-        android:backgroundTint="@color/white"
-        android:id="@+id/activity_change_pin_B_exit"
-        android:textSize="30sp"
-        android:layout_above="@+id/enterpin_i_encloodelogo"
-        android:layout_toEndOf="@+id/change_pin_TF_idEntered" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -124,9 +108,9 @@
         android:background="@color/background_material_light"
         android:clickable="true"
         android:onClick="onClickExit"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/imageButton2"
         android:layout_toStartOf="@+id/imageButton2"
-        android:layout_marginEnd="25dp" />
+        android:layout_marginEnd="43dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -134,8 +118,17 @@
         android:id="@+id/imageButton2"
         android:src="@drawable/exit"
         android:background="@color/background_material_light"
-        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/textView27"
         android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:background="@color/background_material_light"
+        android:src="@drawable/correct"
+        android:layout_below="@+id/activity_change_pin_TF_newPin"
+        android:layout_alignStart="@+id/imageButton" />
 
 
 </RelativeLayout>
