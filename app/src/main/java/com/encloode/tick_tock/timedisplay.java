@@ -34,14 +34,14 @@ public class timedisplay extends AppCompatActivity {
         if(Global.accessDatabase().getEmployee(idOfCurrentEmp).isSignedIn() == false)  {
             Global.accessDatabase().setInTimeOf(idOfCurrentEmp,currentTime);
 
-            tx1.setText("You have successfully clocked in at:");
+            tx1.setText("CLOCKED IN AT:");
             tx2.setText("Thank you for logging in!");
         }
 
         else {
             Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,currentTime);
 
-            tx1.setText("You have successfully clocked out at:");
+            tx1.setText("CLOCKED OUT AT:");
             tx2.setText("Thank you for logging out!");
             tx3.setText(Integer.toString(Global.accessDatabase().getHoursWorkedTodayFor(idOfCurrentEmp)));
             tx4.setText("Total Hours Worked Thus Far:");

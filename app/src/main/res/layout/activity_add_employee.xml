@@ -80,12 +80,13 @@
             android:id="@+id/add_employee_et_Reenterpin"
             android:ems="4"
             android:maxLength="4"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:inputType="numberPassword"
             android:layout_alignBaseline="@+id/add_employee_b_addemployee"
             android:layout_alignBottom="@+id/add_employee_b_addemployee"
             android:layout_toEndOf="@+id/add_employee_im_encloodelogo"
-            android:layout_marginStart="0dp" />
+            android:layout_marginStart="0dp"
+            />
 
         <!--This guy specifies the type of keyboard that pops up
             on the tablet. This imeOption specifies the label of the action on the keypad-->
