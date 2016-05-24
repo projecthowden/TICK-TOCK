@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -17,16 +18,8 @@
         android:textSize="30sp"
         android:textColor="#111111"
         android:id="@+id/enterpin_t_instruction"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/enterpin_i_encloodelogo"
-        android:src="@drawable/encloode"
-        android:layout_above="@+id/enterpin_gl_options"
-        android:layout_alignParentStart="true"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
 <GridLayout
     android:layout_width="wrap_content"
@@ -49,19 +42,25 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Forgot Pin?"
         android:id="@+id/textView30"
         android:clickable="true"
         android:onClick="onClickForgotPassword"
-        android:layout_alignBottom="@+id/enterpin_i_encloodelogo"
-        android:layout_alignEnd="@+id/enterpin_TF_pin"
-        android:layout_marginBottom="32dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/enterpin_TF_pin"
+        android:layout_marginTop="60dp"
+        android:gravity="center" />
 
-    // The only to disable the settings button is to make a keypad from scratch and not create those
-    buttons.
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/encloode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        />
 
 
 </RelativeLayout>
