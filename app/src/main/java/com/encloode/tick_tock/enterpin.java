@@ -63,7 +63,7 @@ public class enterpin extends AppCompatActivity {
                 startActivity(intent1);
             } else if (Global.accessDatabase().pinValid(pin) == true && pin != Global.masterCode) {
                 Toast myToast = Toast.makeText(
-                        getApplicationContext(), "WRONG PIN", Toast.LENGTH_LONG);
+                        getApplicationContext(), "No Employee Exist With That Pin", Toast.LENGTH_LONG);
                 myToast.show();
             } else if (pin == Global.masterCode) {
                 // proceed onto new activity for master code.
@@ -74,7 +74,7 @@ public class enterpin extends AppCompatActivity {
         }
         else {
             Toast myToast = Toast.makeText(
-                    getApplicationContext(), "ENTER PIN", Toast.LENGTH_LONG);
+                    getApplicationContext(), "Enter Pin", Toast.LENGTH_LONG);
             myToast.show();
         }
    }

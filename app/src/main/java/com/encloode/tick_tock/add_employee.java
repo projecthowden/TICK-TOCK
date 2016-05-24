@@ -41,7 +41,7 @@ public class add_employee extends AppCompatActivity {
            //pins do not match
            if (!pinsMatch(pin,pinRetyped)) {
                Toast myToast = Toast.makeText(
-                       getApplicationContext(), "Pins do not match", Toast.LENGTH_LONG);
+                       getApplicationContext(), "Pins Do Not Match", Toast.LENGTH_LONG);
                myToast.show();
            }
 
@@ -63,7 +63,7 @@ public class add_employee extends AppCompatActivity {
             }
             else { //pin matches but not valid OR THE PERSON ENTERS THE MASTER CODE
                 Toast myToast = Toast.makeText(
-                        getApplicationContext(), "Pin not valid", Toast.LENGTH_LONG);
+                        getApplicationContext(), "Pin Taken", Toast.LENGTH_LONG);
                 myToast.show();
             }
         }
@@ -72,9 +72,10 @@ public class add_employee extends AppCompatActivity {
         else {
            String msg1 = "Maximum number of employees have been met. ";
            String msg2 = "Please contact Tech Support at encloode for more information";
+           String msg3 = "info@encloode.com";
 
            Toast myToast = Toast.makeText(
-                   getApplicationContext(), msg1 + msg2, Toast.LENGTH_LONG);
+                   getApplicationContext(), msg1 + msg2 + msg3, Toast.LENGTH_LONG);
            myToast.show();
 
 
