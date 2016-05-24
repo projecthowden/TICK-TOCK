@@ -27,7 +27,7 @@
         <EditText
             android:layout_row="0"
             android:layout_column="1"
-            android:layout_width="488dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:id="@+id/add_employee_et_name"
             android:ems="25"
@@ -87,39 +87,39 @@
             android:layout_toEndOf="@+id/add_employee_im_encloodelogo"
             android:layout_marginStart="0dp" />
 
-        <Button
-            android:id="@+id/add_employee_b_addemployee"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:textSize="30sp"
-            android:text="ADD"
-            android:layout_gravity="right"
-            android:onClick="onClickForAddingEmployees"
-            android:layout_alignBottom="@+id/add_employee_gl_details"
-            android:layout_toEndOf="@+id/add_employee_gl_details"
-            android:layout_row="2"
-            android:layout_column="2" />
-
         <!--This guy specifies the type of keyboard that pops up
             on the tablet. This imeOption specifies the label of the action on the keypad-->
     </GridLayout>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EXIT"
-        android:id="@+id/addEmployee_b_exit"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/add_employee_gl_details"
-        android:onClick="onClickExitFromAddEmployee" />
     <ImageView
         android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:id="@+id/enterpin_i_encloodelogo"
+        android:layout_height="40dp"
+        android:id="@+id/add_employee_im_encloodelogo"
         android:src="@drawable/encloode"
+        android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        />
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:src="@drawable/add"
+        android:clickable="true"
+        android:background="@color/background_material_light"
+        android:onClick="onClickForAddingEmployees"
+        android:layout_alignBottom="@+id/add_employee_gl_details"
+        android:layout_alignStart="@+id/imageButton5" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton5"
+        android:src="@drawable/back"
+        android:onClick="onClickExitFromAddEmployee"
+        android:background="@color/background_material_light"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

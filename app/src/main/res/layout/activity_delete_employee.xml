@@ -33,16 +33,14 @@
 
     </GridLayout>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DELETE"
-        android:id="@+id/activity_delete_employee_B_delete"
-        android:layout_alignBottom="@+id/activity_deleteEmp_TF_nameValue"
-        android:layout_toEndOf="@+id/delete_employee_gl_details"
-        android:layout_marginStart="186dp"
-        android:onClick="onClickDelete" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/add_employee_im_encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="52dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,21 +60,27 @@
         android:layout_below="@+id/delete_employee_gl_details"
         android:layout_alignEnd="@+id/delete_employee_gl_details" />
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit"
-        android:id="@+id/delete_employee_B_exit"
-        android:layout_alignStart="@+id/activity_delete_employee_B_delete"
-        android:onClick="onClickDeleteEmp" />
+        android:id="@+id/activity_delete_employee_B_delete"
+        android:src="@drawable/garbage"
+        android:background="@color/background_material_light"
+        android:onClick="onClickDelete"
+        android:layout_marginEnd="176dp"
+        android:layout_below="@+id/activity_deleteEmp_TF_nameValue"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="29dp" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:id="@+id/enterpin_i_encloodelogo"
-        android:src="@drawable/encloode"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete_employee_B_exit"
+        android:src="@drawable/back"
+        android:background="@color/background_material_light"
+        android:onClick="onClickDeleteEmp"
+        android:clickable="true"
+        android:layout_alignTop="@+id/delete_employee_gl_details"
+        android:layout_alignStart="@+id/activity_delete_employee_B_delete" />
 
 </RelativeLayout>
