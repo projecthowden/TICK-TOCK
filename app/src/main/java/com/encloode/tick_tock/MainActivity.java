@@ -23,10 +23,9 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0; i<100;i++)
             EmployeeDatabase.listOfAvailableIDs[i] = i;
 
-
-        Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
+      /*  Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
-        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
+        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));*/
 
     }
 
@@ -38,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        Toast myToast = Toast.makeText(
-                getApplicationContext(), "Disabled", Toast.LENGTH_LONG);
-        myToast.show();
     }
 
 }

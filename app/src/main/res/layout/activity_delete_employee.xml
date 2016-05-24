@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*autofill*"
+        tools:text="*autofill*"
         android:id="@+id/activity_deleteEmp_TF_nameValue"
         android:layout_below="@+id/delete_employee_gl_details"
         android:layout_alignEnd="@+id/delete_employee_gl_details" />

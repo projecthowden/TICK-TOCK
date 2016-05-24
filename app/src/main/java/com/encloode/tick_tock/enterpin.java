@@ -42,11 +42,6 @@ public class enterpin extends AppCompatActivity {
         myToast.show();
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class) ;
-        startActivity(intent);
-    }
 
     public void method(){
 
@@ -73,6 +68,7 @@ public class enterpin extends AppCompatActivity {
             } else if (pin == Global.masterCode) {
                 // proceed onto new activity for master code.
                 Intent intent2 = new Intent(this, ownermenu.class);
+
                 startActivity(intent2);
             }
         }
@@ -82,6 +78,13 @@ public class enterpin extends AppCompatActivity {
             myToast.show();
         }
    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class) ;
+        startActivity(intent);
+    }
+
 
 }
 

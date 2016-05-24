@@ -11,7 +11,7 @@ public class EmployeeDatabase {
 
     public ArrayList<Employee> employees ;
 
-    static public int maxEmployeeSize = 5;
+    static public int maxEmployeeSize = 3;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
@@ -43,6 +43,10 @@ public class EmployeeDatabase {
 
     }
 
+    /**
+     *  THIS METHOD TAKES AN ID AND CHECKS THAT IT DOESNT EXIST
+     *  false = ID IS TAKEN , true = ID IS AVAILABLE
+     */
     public boolean idValid (int id) {
 
         /*
@@ -184,7 +188,7 @@ public class EmployeeDatabase {
             EmployeeDatabase.listOfAvailableIDs[e.getID()] = e.getID();
 
             Employee.numOfEmployees -- ;
-            employees.remove(e);
+            employees.remove(Global.accessDatabase().getEmployee(e.getID()));
             return true;
 
         } catch (Exception ex) { return false ;}

@@ -1,5 +1,8 @@
 package com.encloode.tick_tock;
 
+import android.content.Intent;
+import android.view.View;
+
 /**
  * Created by Riko Hamblin on 05/20/16.
  */

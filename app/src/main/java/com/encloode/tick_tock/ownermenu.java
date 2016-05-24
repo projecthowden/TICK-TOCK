@@ -49,7 +49,7 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onClick_exit(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class); //xxxxxxxxxxxxxxxxxxx
         startActivity(intent);
     }
 
