@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ public class changePin extends AppCompatActivity {
         setContentView(R.layout.activity_change_pin);
 
         EditText pin = (EditText) findViewById(R.id.change_pin_TF_idEntered);
+        EditText reenterPin = (EditText) findViewById(R.id.activity_change_pin_TF_reenterPin);
 
         // listner after the done button (pin) has been pressed.
         pin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -27,6 +30,20 @@ public class changePin extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
                     method();
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        });
+
+        reenterPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    ImageButton submit = (ImageButton) findViewById(R.id.imageButton3);
+                    submit.performClick();
                     return true;
                 }
                 else {
