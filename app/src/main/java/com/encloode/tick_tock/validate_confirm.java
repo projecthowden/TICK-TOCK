@@ -18,20 +18,29 @@ public class validate_confirm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validate_confirm);
+
         Intent intent=getIntent();
         id = intent.getExtras().getInt("id");
         TextView textViewName=(TextView)findViewById(R.id.validate_confirm_tv_name);
         TextView textViewId = (TextView) findViewById(R.id.validate_confirm_tv_id);
+        TextView msg = (TextView) findViewById(R.id.validateConfirmMessage);
+        msg.setVisibility(View.VISIBLE);
+        msg.setText("DELETE?");
+
         textViewName.setText(Global.accessDatabase().getEmployee(id).getName());
         textViewId.setText(Integer.toString(id));
 
     }
     public void onClickYes(View view){
         //get the employee using the get and delete employee methods.
-        //Global.accessDatabase().deleteEmployee(Global.accessDatabase().getEmployee(id));
-        Toast.makeText(getApplicationContext(),"Employee "+Global.accessDatabase().getNameOf(id)+" Deleted",Toast.LENGTH_LONG).show();
+            String name;
+        name = Global.accessDatabase().getNameOf(id);
+           Global.accessDatabase().deleteEmployee(Global.accessDatabase().getEmployee(id));
+
+           Toast.makeText(getApplicationContext(),"Employee "+name+" Deleted",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(validate_confirm.this,ownermenu.class);
         startActivity(intent);
+
     }
     public void onclickNo(View view){
         //since no, there is no deletion to execute.

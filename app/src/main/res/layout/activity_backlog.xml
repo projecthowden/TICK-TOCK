@@ -41,7 +41,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/change_pin_TF_idEntered"
         android:layout_alignParentEnd="true"
         android:text="                              "
         android:layout_alignBottom="@+id/editText2"
@@ -53,8 +53,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="NAME:"
         android:id="@+id/textView27"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
+        android:layout_alignBottom="@+id/change_pin_TF_idEntered"
+        android:layout_toStartOf="@+id/change_pin_TF_idEntered" />
 
     <DatePicker
         android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
         android:text="SUBMIT"
         android:id="@+id/button4"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/editText" />
+        android:layout_toStartOf="@+id/change_pin_TF_idEntered" />
 
     <Button
         android:layout_width="wrap_content"

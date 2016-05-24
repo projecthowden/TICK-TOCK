@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/change_pin_TF_idEntered"
         android:layout_alignBottom="@+id/textView"
         android:maxLength="2"
         android:layout_toEndOf="@+id/textView" />
@@ -34,7 +34,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name: "
         android:id="@+id/textView27"
-        android:layout_alignTop="@+id/activity_change_pin_TF_name"
+        android:layout_alignBaseline="@+id/change_pin_TF_name"
+        android:layout_alignBottom="@+id/change_pin_TF_name"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="*autofill*"
-        android:id="@+id/activity_change_pin_TF_name"
+        android:id="@+id/change_pin_TF_name"
         android:layout_above="@+id/activity_change_pin_TF_newPin"
         android:layout_alignStart="@+id/activity_change_pin_TF_newPin" />
 
@@ -102,7 +103,8 @@
         android:textSize="30sp"
         android:layout_marginEnd="149dp"
         android:layout_alignTop="@+id/activity_change_pin_B_exit"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onClickSubmit" />
 
     <Button
         android:layout_width="150dp"

@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textColor="#ff0000"
-        tools:text="DELETE"/><!--This guy is just a tool so it will need to be update this element
+        tools:text="DELETE"
+        android:id="@+id/validateConfirmMessage" /><!--This guy is just a tool so it will need to be update this element
         with java-->
 </GridLayout>
     <GridLayout

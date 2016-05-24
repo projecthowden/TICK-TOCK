@@ -91,7 +91,7 @@ public class add_employee extends AppCompatActivity {
         else return false;
     }
 
-    public void onClickExitFromAddEmployee() {
+    public void onClickExitFromAddEmployee(View view) {
         Intent intent = new Intent(this, MainActivity.class) ;
         startActivity(intent);
     }
