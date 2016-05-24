@@ -45,9 +45,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text=" "
         android:id="@+id/change_pin_TF_name"
-        android:layout_below="@+id/imageButton"
-        android:layout_toEndOf="@+id/textView27"
-        android:layout_marginTop="15dp"/>
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_toEndOf="@+id/textView27" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -127,7 +126,7 @@
         android:id="@+id/imageButton3"
         android:background="@color/background_material_light"
         android:src="@drawable/correct"
-        android:layout_below="@+id/activity_change_pin_TF_newPin"
+        android:layout_alignBottom="@+id/textView44"
         android:layout_alignStart="@+id/imageButton" />
 
 
