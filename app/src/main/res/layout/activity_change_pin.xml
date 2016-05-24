@@ -35,8 +35,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name: "
         android:id="@+id/textView27"
-        android:layout_below="@+id/change_pin_TF_idEntered"
-        android:layout_marginTop="15dp"
+        android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -107,16 +106,7 @@
         android:background="@color/background_material_light"
         android:clickable="true"
         android:onClick="onClickExit"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_toStartOf="@+id/imageButton2"
-        android:layout_marginEnd="43dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:src="@drawable/exit"
-        android:background="@color/background_material_light"
+        android:layout_marginEnd="27dp"
         android:layout_alignBottom="@+id/textView27"
         android:layout_alignParentEnd="true" />
 
@@ -127,7 +117,8 @@
         android:background="@color/background_material_light"
         android:src="@drawable/correct"
         android:layout_alignBottom="@+id/textView44"
-        android:layout_alignStart="@+id/imageButton" />
+        android:layout_alignStart="@+id/imageButton"
+        android:onClick="onClickSubmit" />
 
 
 </RelativeLayout>
