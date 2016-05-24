@@ -52,14 +52,16 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Forgot Password?"
+        android:text="Forgot Pin?"
         android:id="@+id/textView30"
         android:clickable="true"
         android:onClick="onClickForgotPassword"
-        android:layout_below="@+id/enterpin_TF_pin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
-    // The only to disable the settings button is to make a keypad from scratch and not create those buttons.
+        android:layout_alignBottom="@+id/enterpin_i_encloodelogo"
+        android:layout_alignEnd="@+id/enterpin_TF_pin"
+        android:layout_marginBottom="32dp" />
+
+    // The only to disable the settings button is to make a keypad from scratch and not create those
+    buttons.
 
 
 </RelativeLayout>
