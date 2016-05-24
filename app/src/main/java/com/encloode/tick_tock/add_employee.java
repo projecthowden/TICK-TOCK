@@ -93,7 +93,7 @@ public class add_employee extends AppCompatActivity {
     }
 
     public void onClickExitFromAddEmployee(View view) {
-        Intent intent = new Intent(this, MainActivity.class) ;
+        Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
     }
 }

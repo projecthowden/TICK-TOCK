@@ -53,10 +53,9 @@
         android:onClick="onClickNo" />
 </GridLayout>
     <ImageView
-        android:id="@+id/validate_pin_im_encloodelogo"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="50dp"
         android:src="@drawable/encloode"
-        android:layout_below="@id/validate_pin_gl_optionGrid"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -94,10 +94,9 @@
             android:onClick="onclickNo" />
     </GridLayout>
     <ImageView
-        android:id="@+id/validate_confirm_im_encloodelogo"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
         android:src="@drawable/encloode"
-        android:layout_below="@id/validate_confirm_gl_option"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

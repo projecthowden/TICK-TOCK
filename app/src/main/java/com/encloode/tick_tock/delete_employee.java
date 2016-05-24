@@ -82,7 +82,7 @@ public class delete_employee extends AppCompatActivity {
 
     public void onClickDeleteEmp(View view) {
 
-        Intent intent = new Intent(this, MainActivity.class) ;
+        Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
 
     }
