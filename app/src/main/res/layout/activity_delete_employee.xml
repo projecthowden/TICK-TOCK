@@ -44,15 +44,6 @@
         android:layout_marginStart="186dp"
         android:onClick="onClickDelete" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:id="@+id/add_employee_im_encloodelogo"
-        android:src="@drawable/encloode"
-        android:layout_below="@+id/textView27"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,8 +67,16 @@
         android:layout_height="wrap_content"
         android:text="Exit"
         android:id="@+id/delete_employee_B_exit"
-        android:layout_alignTop="@+id/add_employee_im_encloodelogo"
         android:layout_alignStart="@+id/activity_delete_employee_B_delete"
         android:onClick="onClickDeleteEmp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/enterpin_i_encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>

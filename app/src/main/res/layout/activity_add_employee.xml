@@ -104,15 +104,6 @@
             on the tablet. This imeOption specifies the label of the action on the keypad-->
     </GridLayout>
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:id="@+id/add_employee_im_encloodelogo"
-        android:src="@drawable/encloode"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:clickable="true" />
-
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -122,5 +113,13 @@
         android:layout_centerVertical="true"
         android:layout_alignEnd="@+id/add_employee_gl_details"
         android:onClick="onClickExitFromAddEmployee" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:id="@+id/enterpin_i_encloodelogo"
+        android:src="@drawable/encloode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
