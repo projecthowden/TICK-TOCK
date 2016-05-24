@@ -108,9 +108,9 @@
         android:background="@color/background_material_light"
         android:clickable="true"
         android:onClick="onClickExit"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_toStartOf="@+id/imageButton2"
-        android:layout_marginEnd="43dp" />
+        android:layout_marginEnd="42dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toStartOf="@+id/imageButton2" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
         android:id="@+id/imageButton2"
         android:src="@drawable/exit"
         android:background="@color/background_material_light"
-        android:layout_alignBottom="@+id/textView27"
+        android:layout_alignTop="@+id/imageButton"
         android:layout_alignParentEnd="true" />
 
     <ImageButton
@@ -127,7 +127,7 @@
         android:id="@+id/imageButton3"
         android:background="@color/background_material_light"
         android:src="@drawable/correct"
-        android:layout_below="@+id/activity_change_pin_TF_newPin"
+        android:layout_alignTop="@+id/textView28"
         android:layout_alignStart="@+id/imageButton" />
 
 

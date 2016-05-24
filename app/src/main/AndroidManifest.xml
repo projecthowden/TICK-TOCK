@@ -20,33 +20,50 @@
             android:name=".enterpin"
             android:label="ENTER PIN"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:windowSoftInputMode="adjustResize"
             />
         <activity android:name=".timedisplay"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            />
         <activity android:name=".ownermenu"
-            android:label="SETTINGS"/>
+            android:label="SETTINGS"
+            android:screenOrientation="landscape"/>
         <activity android:name=".changePin"
-            android:label="CHANGE PIN"/>
+            android:label="CHANGE PIN"
+
+            android:screenOrientation="landscape"/>
         <activity android:name=".changeName"
-            android:label="CHANGE NAME"/>
+            android:label="CHANGE NAME"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="landscape"/>
         <activity android:name=".timetable"
-            android:label="EMPLOYEE HOURS"/>
+            android:label="EMPLOYEE HOURS"
+            android:screenOrientation="landscape"/>
         <activity android:name=".backlog"
-            android:label="EDIT TIME OF LAST ACTIVITY"/>
+            android:label="EDIT TIME OF LAST ACTIVITY"
+            android:screenOrientation="landscape"/>
         <activity android:name=".add_employee"
-            android:label="ADD EMPLOYEE"/>
+            android:label="ADD EMPLOYEE"
+            android:screenOrientation="landscape"/>
         <activity android:name=".validate_confirm"
-            android:label="CONFIRM ACTION"/>
+            android:label="CONFIRM ACTION"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="landscape"/>
         <activity android:name=".displayemployees"
-            android:label="LIST OF OF ALL STAFF"/>
+            android:label="LIST OF OF ALL STAFF"
+            android:screenOrientation="landscape"
+            />
         <activity android:name=".calendar"
-            android:label="CALENDER"/>
+            android:label="CALENDER"
+            android:screenOrientation="landscape"/>
         <activity android:name=".validatePin"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"/>
         <activity android:name=".delete_employee"
-            android:label="DELETE EMPLOYEE"/>
+            android:label="DELETE EMPLOYEE"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
