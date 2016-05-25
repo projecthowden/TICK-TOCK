@@ -15,29 +15,40 @@ import android.widget.Toast;
 public class changePin extends AppCompatActivity {
     private String id;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pin);
 
-        EditText pin = (EditText) findViewById(R.id.change_pin_TF_idEntered);
+        final EditText idEntered = (EditText) findViewById(R.id.change_pin_TF_idEntered);
         EditText reenterPin = (EditText) findViewById(R.id.activity_change_pin_TF_reenterPin);
 
-        // listner after the done button (pin) has been pressed.
-        pin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        // listener after the done button has been pressed.
+        idEntered.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                if (actionId == EditorInfo.IME_ACTION_NEXT ) {
                     method();
                     return true;
                 }
+
                 else {
                     return false;
                 }
             }
         });
 
+        // listener for the editText losing focus.
+        idEntered.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    method();;
+                }
+            }
+        });
+
+        // listener for the done button being pressed for the reEnterPin editText.
         reenterPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -54,17 +65,15 @@ public class changePin extends AppCompatActivity {
     }
 
     public void method(){
-        EditText pin = (EditText) findViewById(R.id.change_pin_TF_idEntered);
-        String secondpin;
-        secondpin =  pin.getText().toString();
-        id = secondpin;
-       ////////////////////////////
-        /////////////////////////////
-        if(pin.getText().toString().equals("")) {
+        EditText idEntered = (EditText) findViewById(R.id.change_pin_TF_idEntered);
+
+        id = idEntered.getText().toString();
+
+        if(idEntered.getText().toString().equals("")) {
            Toast.makeText(getApplicationContext(),"Please Enter an Id", Toast.LENGTH_LONG).show();
         }
         else if( Global.accessDatabase().idValid(Integer.parseInt(id))) {
-           Toast.makeText(getApplicationContext(),"DOES NOT EXIST", Toast.LENGTH_LONG).show();
+           Toast.makeText(getApplicationContext(),"No User Has That ID", Toast.LENGTH_LONG).show();
         }
         else {
 
@@ -113,6 +122,8 @@ public class changePin extends AppCompatActivity {
             }
         }
     }
+    @Override
+    public void onBackPressed() {}
 
-    }
+}
 

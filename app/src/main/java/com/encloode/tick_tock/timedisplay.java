@@ -72,10 +72,6 @@ public class timedisplay extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        Toast myToast = Toast.makeText(
-                getApplicationContext(), "Disabled", Toast.LENGTH_LONG);
-        myToast.show();
     }
 }
 

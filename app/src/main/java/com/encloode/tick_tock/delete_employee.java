@@ -86,4 +86,6 @@ public class delete_employee extends AppCompatActivity {
         startActivity(intent);
 
     }
+    @Override
+    public void onBackPressed() {}
 }

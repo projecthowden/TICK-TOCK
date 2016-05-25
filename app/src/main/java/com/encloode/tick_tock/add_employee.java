@@ -115,4 +115,6 @@ public class add_employee extends AppCompatActivity {
         Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {}
 }

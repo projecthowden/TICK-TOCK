@@ -10,4 +10,6 @@ public class backlog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backlog);
     }
+    @Override
+    public void onBackPressed() {}
 }

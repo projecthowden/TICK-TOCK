@@ -87,6 +87,25 @@
             android:clickable="true" />
 
     </GridLayout>
+    <LinearLayout
+        android:layout_below="@id/bottomGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Number Of Employees In Database:"
+            android:textColor="#111111"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/no_employees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="45"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
     <ImageButton
         android:layout_width="wrap_content"
