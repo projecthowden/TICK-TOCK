@@ -10,4 +10,6 @@ public class timetable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
     }
+    @Override
+    public void onBackPressed() {}
 }

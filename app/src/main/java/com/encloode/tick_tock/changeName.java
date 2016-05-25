@@ -74,5 +74,7 @@ public class changeName extends AppCompatActivity {
         if(str.isEmpty()) return true;
         else return false;
     }
+    @Override
+    public void onBackPressed() {}
 
 }

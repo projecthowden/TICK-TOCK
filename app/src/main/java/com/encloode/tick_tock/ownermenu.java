@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ownermenu extends AppCompatActivity {
 
@@ -11,6 +13,8 @@ public class ownermenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownermenu);
+        TextView textView= (TextView) findViewById(R.id.no_employees);
+        textView.setText(""+EmployeeDatabase.getNumOfCurrentEmployees());
     }
 
     public void onClick_addEmployee(View view){
@@ -54,8 +58,6 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class) ;
-        startActivity(intent);
     }
 
 

@@ -11,7 +11,7 @@ public class EmployeeDatabase {
 
     public ArrayList<Employee> employees ;
 
-    static public int maxEmployeeSize = 3;
+    static public int maxEmployeeSize = 100;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
@@ -198,6 +198,12 @@ public class EmployeeDatabase {
     //THIS METHOD RETURNS THE CURRENT AMOUNT OF EMPLOYEES
     static int getNumOfCurrentEmployees(){
         return Employee.numOfEmployees;
+    }
+
+    //THIS METHOD RETURNS THE ARRAY LIST CONTAINING ALL THE EMPLOYEES IN THE DATABASE
+    public ArrayList<Employee> getEmployeeList(){
+
+      return employees;
     }
 
 }
