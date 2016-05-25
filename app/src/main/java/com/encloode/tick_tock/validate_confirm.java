@@ -10,10 +10,6 @@ import android.widget.Toast;
 
 public class validate_confirm extends AppCompatActivity {
     private int id;
-    //this disables the android back buttpon
-    @Override
-    public void onBackPressed() {
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +44,8 @@ public class validate_confirm extends AppCompatActivity {
         Intent intent=new Intent(validate_confirm.this,delete_employee.class);
         startActivity(intent);
     }
-
+    //this disables the android back buttpon
+    @Override
+    public void onBackPressed() {
+    }
 }

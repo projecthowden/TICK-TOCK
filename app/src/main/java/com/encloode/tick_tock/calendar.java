@@ -10,5 +10,7 @@ public class calendar extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
     }
+    @Override
+    public void onBackPressed() {}
 }
 

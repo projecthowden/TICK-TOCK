@@ -34,7 +34,6 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".changeName"
             android:label="CHANGE NAME"
-            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="landscape"/>
         <activity android:name=".timetable"
             android:label="EMPLOYEE HOURS"

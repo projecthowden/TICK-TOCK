@@ -3,8 +3,12 @@ package com.encloode.tick_tock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class add_employee extends AppCompatActivity {
@@ -13,6 +17,21 @@ public class add_employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+        EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
+
+        editTextTypePinAgain.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    ImageButton submit = (ImageButton) findViewById(R.id.imageButton4);
+                    submit.performClick();
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        });
     }
 
     public void onClickForAddingEmployees(View v) {
@@ -52,7 +71,7 @@ public class add_employee extends AppCompatActivity {
                 Global.accessDatabase().addEmployee(newEmployee);// new employee has been added to the database.
 
                Toast myToast = Toast.makeText(
-                       getApplicationContext(), "Action Completed", Toast.LENGTH_LONG);
+                       getApplicationContext(), "Successfully Added " + Global.accessDatabase().getNameOf(Global.accessDatabase().getEmployeebyPin(pin).getID()), Toast.LENGTH_LONG);
                myToast.show();
 
                 //go to owner menu activity
@@ -96,4 +115,6 @@ public class add_employee extends AppCompatActivity {
         Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {}
 }
