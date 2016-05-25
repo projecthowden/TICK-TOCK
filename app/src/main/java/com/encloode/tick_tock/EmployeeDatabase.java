@@ -5,9 +5,10 @@
 package com.encloode.tick_tock;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EmployeeDatabase {
+public class EmployeeDatabase implements Serializable {
 
     public ArrayList<Employee> employees ;
 

@@ -48,4 +48,10 @@ public class validate_confirm extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Global.saveState(this);
+    }
 }

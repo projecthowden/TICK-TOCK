@@ -8,12 +8,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            Global.loadState(this);
+        } catch (IOException e) { }
+
 
         TextView tx = (TextView) findViewById(R.id.companyName);
         tx.setText("Encloode");
@@ -23,7 +30,17 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0; i<100;i++)
             EmployeeDatabase.listOfAvailableIDs[i] = i;
 
-       Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
+
+    }
+
+    public void onClick(View view){
+        Intent intent = new Intent(MainActivity.this, enterpin.class) ;
+        startActivity(intent);
+
+    }
+
+    public void onClickAddEmps(View view){
+        Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
         Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
         Global.accessDatabase().addEmployee(new Employee("Mary", 4412));
@@ -37,12 +54,6 @@ public class MainActivity extends AppCompatActivity {
         Global.accessDatabase().addEmployee(new Employee("Joke", 4559));
 
 
-
-    }
-
-    public void onClick(View view){
-        Intent intent = new Intent(MainActivity.this, enterpin.class) ;
-        startActivity(intent);
 
     }
 

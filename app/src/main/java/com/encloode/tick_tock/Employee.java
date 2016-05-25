@@ -3,9 +3,10 @@
  * @author Riko Hamblin
  */
 package com.encloode.tick_tock;
+import java.io.Serializable;
 import java.util.Calendar ;
 
-public class Employee {
+public class Employee implements Serializable {
 
     private    String name;
     private    int id;
