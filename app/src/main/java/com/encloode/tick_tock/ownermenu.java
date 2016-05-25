@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class ownermenu extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onClick_seeLoggedHours(View view){
-        Intent intent = new Intent(this, calendar.class);
+        Intent intent = new Intent(this, displayTotalTimeWorked.class);
         startActivity(intent);
     }
 
@@ -48,7 +47,7 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onClick_editTime(View view){
-        Intent intent = new Intent(this, backlog.class);
+        Intent intent = new Intent(this, editTime.class);
         startActivity(intent);
     }
 

@@ -11,7 +11,7 @@ public class EmployeeDatabase {
 
     public ArrayList<Employee> employees ;
 
-    static public int maxEmployeeSize = 100;
+    static public int maxEmployeeSize = 15;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
