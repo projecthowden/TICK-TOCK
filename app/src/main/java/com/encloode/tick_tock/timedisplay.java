@@ -44,7 +44,7 @@ public class timedisplay extends AppCompatActivity {
             tx1.setText("CLOCKED OUT AT:");
             tx2.setText("Thank you for logging out!");
             tx3.setText(Integer.toString(Global.accessDatabase().getHoursWorkedTodayFor(idOfCurrentEmp)));
-            tx4.setText("Total Hours Worked Thus Far:");
+            tx4.setText("Total Hours Worked Today:");
             tx3.setVisibility(View.VISIBLE);
             tx4.setVisibility(View.VISIBLE);
 

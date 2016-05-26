@@ -23,9 +23,19 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0; i<100;i++)
             EmployeeDatabase.listOfAvailableIDs[i] = i;
 
-      /* Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
+       Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
-        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));*/
+        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
+        Global.accessDatabase().addEmployee(new Employee("Mary", 4412));
+        Global.accessDatabase().addEmployee(new Employee("Jane", 4421));
+        Global.accessDatabase().addEmployee(new Employee("Jay", 4453));
+        Global.accessDatabase().addEmployee(new Employee("Ricky", 1879));
+        Global.accessDatabase().addEmployee(new Employee("Renny", 1919));
+        Global.accessDatabase().addEmployee(new Employee("Joesph", 8484));
+        Global.accessDatabase().addEmployee(new Employee("Khalia", 4582));
+        Global.accessDatabase().addEmployee(new Employee("Jacob", 1541));
+        Global.accessDatabase().addEmployee(new Employee("Joke", 4559));
+
 
 
     }
