@@ -1,5 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/edittime_three_TF_topMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textColor="#ff0000"
+        tools:text="DELETE/SAVE?"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO"
+        android:textSize="30dp"
+        android:id="@+id/button4"
+        android:layout_alignTop="@+id/button5"
+        android:layout_toEndOf="@+id/gridLayout"
+        android:layout_marginStart="243dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YES"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:id="@+id/button5"
+        android:layout_below="@+id/gridLayout"
+        android:layout_alignEnd="@+id/gridLayout"
+        android:layout_marginTop="27dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="CHANGE SUMMARY"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/textView11"
+        android:layout_below="@+id/edittime_three_TF_topMsg"
+        android:layout_marginTop="10dp"/>
+
+    <GridLayout
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_marginTop="10dp"
+        android:rowCount="4"
+        android:columnCount="2"
+        android:id="@+id/gridLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Employee:"
+            android:textStyle="bold"
+            android:id="@+id/textView6"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/edittime_three_ET_employee"
+            android:layout_row="0"
+            android:layout_column="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Date:"
+            android:textStyle="bold"
+            android:id="@+id/textView9"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:layout_marginTop="5dp"
+            android:id="@+id/edittime_three_ET_date"
+            android:layout_row="1"
+            android:layout_column="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Previous Time:"
+            android:textStyle="bold"
+            android:id="@+id/textView12"
+            android:layout_marginTop="5dp"
+
+            android:layout_row="2"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="5dp"
+            android:text="Large Text"
+            android:id="@+id/edittime_three_ET_previousTime"
+            android:layout_row="2"
+            android:layout_column="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="New Total Time:"
+
+            android:textStyle="bold"
+            android:id="@+id/textView14"
+            android:layout_marginTop="5dp"
+            android:layout_row="3"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/edittime_three_ET_newTime"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_marginTop="5dp"/>
+
+
+
+
+    </GridLayout>
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:src="@drawable/encloode"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:id="@+id/imageView4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+
+        />
+
 
 </RelativeLayout>
