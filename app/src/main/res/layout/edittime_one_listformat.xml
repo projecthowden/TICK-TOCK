@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/edittime_one_listViewName"
+        android:layout_width="800dp"
+        android:layout_height="40dp"
+        android:text=" Andrew Whyte"
+        android:textAlignment="viewStart"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#111111"
+        />
+
+</LinearLayout>
