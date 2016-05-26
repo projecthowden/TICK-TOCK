@@ -125,5 +125,11 @@ public class changePin extends AppCompatActivity {
     @Override
     public void onBackPressed() {}
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Global.saveState(this);
+    }
+
 }
 

@@ -9,13 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
  * Created by Ibukun on 5/24/2016.
  */
-    public class ListAdapter extends ArrayAdapter<Employee>{
+    public class ListAdapter extends ArrayAdapter<Employee> implements Serializable{
     public ListAdapter(Context context, ArrayList<Employee> employees){
         super(context,0, employees);
     }
