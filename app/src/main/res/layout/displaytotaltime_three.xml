@@ -2,4 +2,126 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="EMPLOYEE HOURS "
+        android:id="@+id/textView13"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="FROM DATE:"
+        android:id="@+id/textView14"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="12/08/16"
+        android:id="@+id/textView15"
+        android:layout_alignTop="@+id/textView14"
+        android:layout_toEndOf="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="END DATE:"
+        android:id="@+id/textView16"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="12/08/22"
+        android:id="@+id/textView17"
+        android:layout_marginStart="64dp"
+        android:layout_alignTop="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/listView2"
+        android:layout_above="@+id/textView18"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="DATE SELECTED: "
+        android:id="@+id/textView18"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="* AUTO FILL"
+        android:id="@+id/textView19"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton9"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/back"
+        android:background="@color/background_material_light"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/forward"
+        android:layout_alignParentStart="false"
+        android:background="@color/background_material_light"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView35"
+        android:layout_above="@+id/listView2"
+        android:layout_toEndOf="@+id/textView14"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView36"
+        android:layout_above="@+id/listView2"
+        android:layout_alignStart="@+id/textView19"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView37"
+        android:layout_alignTop="@+id/textView36"
+        android:layout_toEndOf="@+id/textView17"
+        android:textSize="25dp"/>
 </RelativeLayout>

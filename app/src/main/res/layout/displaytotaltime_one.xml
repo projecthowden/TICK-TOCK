@@ -2,4 +2,94 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendarView"
+        android:layout_marginTop="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/calendarView2" />
+
+    <CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendarView2"
+        android:layout_marginEnd="135dp"
+        android:layout_alignTop="@+id/calendarView"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="TOTAL NUMBER OF DAYS :"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/calendarView"
+        android:layout_alignStart="@+id/calendarView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="* AUTO FILL"
+        android:id="@+id/textView3"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="START DATE: "
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="* AUTO FILL"
+        android:id="@+id/textView5"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="END DATE:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="* AUTO FILL"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:layout_alignTop="@+id/calendarView"
+        android:src="@drawable/back"
+        android:background="@color/background_material_light"
+        android:layout_marginLeft="30dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton6"
+        android:src="@drawable/forward"
+        android:background="@color/background_material_light"
+        android:layout_alignTop="@+id/calendarView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"/>
+
+
 </RelativeLayout>

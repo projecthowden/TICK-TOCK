@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="EMPLOYEE NAME:"
+        android:id="@+id/textView8"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="226dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="* AUTO FILL"
+        android:id="@+id/textView10"
+        android:layout_marginStart="101dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView8" />
+
+    <ListView
+        android:layout_width="900dp"
+        android:layout_height="300dp"
+        android:id="@+id/listView"
+        android:layout_above="@+id/textView9"
+        android:layout_alignStart="@+id/imageButton7" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton7"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/back"
+        android:background="@color/background_material_light"
+        android:layout_marginLeft="30dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton8"
+        android:layout_alignBottom="@+id/imageButton7"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/forward"
+        android:background="@color/background_material_light"
+        android:layout_marginRight="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="EMP SELECTED"
+        android:id="@+id/textView9"
+        android:layout_marginStart="49dp"
+        android:layout_above="@+id/textView12"
+        android:layout_toEndOf="@+id/imageButton7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="*AUTO FILL"
+        android:id="@+id/textView11"
+        android:layout_marginStart="51dp"
+        android:layout_above="@+id/textView12"
+        android:layout_toEndOf="@+id/textView10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="HIT NEXT TO CONTINUE..."
+        android:id="@+id/textView12"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="NAME:"
+        android:id="@+id/textView38"
+        android:layout_above="@+id/listView"
+        android:layout_toStartOf="@+id/textView12"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="HOURS:"
+        android:id="@+id/textView39"
+        android:layout_above="@+id/listView"
+        android:layout_toEndOf="@+id/textView12"
+        android:textSize="25dp"/>
+
+
+</RelativeLayout>
