@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/displaytotaltime_three_listDate"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:text="12/06/2016"/>
+    <TextView
+        android:id="@+id/displaytotaltime_three_listDay"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:text="TUESDAY"/>
+    <TextView
+        android:id="@+id/displaytotaltime_three_listHours"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text="12"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text=" Hours "
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/displaytotaltime_three_listMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text="12"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text=" Minutes"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+
+</LinearLayout>

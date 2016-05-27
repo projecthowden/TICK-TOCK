@@ -2,109 +2,136 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp">
 
+<LinearLayout
+    android:id="@+id/edittime_two_ll_empoyeename"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20dp">
     <TextView
-        android:id="@+id/edittime_two_TF_statementofdatechoosen"
+        android:id="@+id/edittime_two_TV_Emolyeechoosen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:text="John's Hours For:           12/08/2016"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-      />
-
-    <TextView
-        android:id="@+id/edittime_two_TF_previousTimeWorked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:text="Previous Time Worked:  12hrs 5mins"
-
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/edittime_two_TF_statementofdatechoosen"
-        android:layout_alignStart="@+id/edittime_two_TF_statementofdatechoosen" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Change Time To:"
-        android:id="@+id/textView3"
-        android:layout_alignBottom="@+id/edittime_two_ET_hours"
-        android:layout_alignStart="@+id/edittime_two_TF_previousTimeWorked" />
-
-    <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/edittime_two_ET_hours"
-        android:layout_marginStart="31dp"
-        tools:text="12"
-        android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@+id/edittime_two_TF_previousTimeWorked"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_marginTop="22dp" />
-
+        tools:text="Andrew's Activity for: " />
+    <TextView
+        android:id="@+id/edittime_two_TV_datechoosen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="12/04/2016"/>
+</LinearLayout>
+<LinearLayout
+    android:id="@+id/edittime_two_LL_previous"
+    android:layout_below="@id/edittime_two_ll_empoyeename"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hours"
-        android:id="@+id/textView5"
-        android:layout_alignTop="@+id/edittime_two_ET_hours"
-        android:layout_toEndOf="@+id/edittime_two_ET_hours"
-        android:layout_marginTop="10dp"/>
-
-    <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        tools:text="58"
-        android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:id="@+id/edittime_two_ET_minutes"
-        android:layout_alignTop="@+id/edittime_two_ET_hours"
-        android:layout_alignEnd="@+id/edittime_two_TF_previousTimeWorked" />
-
+        tools:text="Previous Time Worked: "/>
+    <TextView
+        android:id="@+id/edittime_two_TV_previousHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="12"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Minutes"
-        android:id="@+id/textView8"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_toEndOf="@+id/edittime_two_ET_minutes" />
-
-    <Button
-
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text=" Hours "/>
+    <TextView
+        android:id="@+id/edittime_two_TV_previousMiniutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE "
-        android:id="@+id/button2"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginLeft="300dp"
-        android:layout_above="@+id/imageView4"
-        android:layout_alignEnd="@+id/edittime_two_ET_minutes"
-        android:layout_marginBottom="59dp" />
-
-    <Button
+        android:text="50"/>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DISCARD"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:id="@+id/button3"
-        android:layout_alignTop="@+id/button2"
-        android:layout_toEndOf="@+id/textView8" />
+        android:text=" Minutes"/>
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/edittime_two_LL_change"
+        android:layout_below="@id/edittime_two_LL_previous"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Change Time To:"
+            android:id="@+id/textView3"/>
+        <EditText
+            android:id="@+id/edittime_two_ET_changeHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="4"
+            android:textColor="#ff0000"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            tools:text="15"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text=" Hours "/>
+        <EditText
+            android:id="@+id/edittime_two_ET_changeMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="4"
+            android:textColor="#ff0000"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            tools:text="35"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text=" Minutes"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/edittime_two_LL_options"
+        android:layout_below="@id/edittime_two_LL_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:textSize="40sp"
+            android:text="SAVE"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:textSize="40sp"
+            android:text="DISCARD"/>
+    </LinearLayout>
 
     <ImageView
         android:layout_width="120dp"
@@ -114,9 +141,7 @@
         android:layout_column="0"
         android:id="@+id/imageView4"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-
-        />
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
