@@ -14,7 +14,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="39dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toEndOf="@+id/button5" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -23,9 +23,8 @@
         android:text="NO"
         android:textSize="30dp"
         android:id="@+id/button4"
-        android:layout_alignTop="@+id/button5"
-        android:layout_toEndOf="@+id/gridLayout"
-        android:layout_marginStart="243dp" />
+        android:layout_below="@+id/gridLayout"
+        android:layout_toEndOf="@+id/gridLayout" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -36,30 +35,29 @@
         android:textSize="30dp"
         android:id="@+id/button5"
         android:layout_below="@+id/gridLayout"
-        android:layout_alignEnd="@+id/gridLayout"
-        android:layout_marginTop="27dp" />
+        android:layout_alignEnd="@+id/textView11" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CHANGE SUMMARY"
+        android:text="CHANGE SUMMARY:"
         android:textStyle="bold"
         android:textSize="25dp"
         android:layout_marginLeft="20dp"
         android:id="@+id/textView11"
         android:layout_below="@+id/edittime_three_TF_topMsg"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 
     <GridLayout
         android:layout_width="350dp"
         android:layout_height="150dp"
-        android:layout_below="@+id/textView11"
-        android:layout_alignStart="@+id/textView11"
-        android:layout_marginTop="10dp"
         android:rowCount="4"
         android:columnCount="2"
-        android:id="@+id/gridLayout">
+        android:id="@+id/gridLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+      >
 
         <TextView
             android:layout_width="wrap_content"

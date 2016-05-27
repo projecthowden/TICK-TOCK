@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EmployeeDatabase implements Serializable {
 
@@ -69,16 +70,7 @@ public class EmployeeDatabase implements Serializable {
 
     }
 
-    //THIS METHOD TAKES AN ID AND SETS THE IN TIME OF THAT EMPLOYEE TO int time
-    public void setInTimeOf(int id, int time) {
-        getEmployee(id).setSignInTime(time);
-    }
 
-    //THIS METHOD TAKES AN ID AND SETS THE OUT TIME OF THAT EMPLOYEE TO int time
-    public void setOutTimeOf(int id, int time) {
-        getEmployee(id).setSignOutTime(time);
-
-    }
 
     //THIS METHOD TAKES AN ID AND CHANGES THE NAME OF THAT EMPLOYEE TO String name
     public void setNameOf(int id, String name) {
@@ -92,17 +84,6 @@ public class EmployeeDatabase implements Serializable {
 
         getEmployee(id).setPin(newPin);
 
-    }
-
-    //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT IN TIME OF THAT EMPLOYEE
-    public int getInTimeOf(int id) {
-
-                return  getEmployee(id).getSignOutTime();
-    }
-
-    //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT OUT TIME OF THAT EMPLOYEE
-    public int getOutTimeOf(int id) {
-                return  getEmployee(id).getSignOutTime();
     }
 
     //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT NAME OF THAT EMPLOYEE
@@ -119,6 +100,29 @@ public class EmployeeDatabase implements Serializable {
                 return  getEmployee(id).getPin();
 
     }
+/*
+
+//THIS METHOD TAKES AN ID AND SETS THE IN TIME OF THAT EMPLOYEE TO int time
+    public void setInTimeOf(int id, int time) {
+        getEmployee(id).setSignInTime(time);
+    }
+
+    //THIS METHOD TAKES AN ID AND SETS THE OUT TIME OF THAT EMPLOYEE TO int time
+    public void setOutTimeOf(int id, int time) {
+        getEmployee(id).setSignOutTime(time);
+
+    }
+
+ //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT IN TIME OF THAT EMPLOYEE
+    public int getInTimeOf(int id) {
+
+                return  getEmployee(id).getSignOutTime();
+    }
+
+    //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT OUT TIME OF THAT EMPLOYEE
+    public int getOutTimeOf(int id) {
+                return  getEmployee(id).getSignOutTime();
+    }
 
     //THIS METHOD TAKES AN ID AND RETURNS:
     // THE TOTAL HOURS WORKED THUS FAR BY THAT EMPLOYEE
@@ -131,7 +135,7 @@ public class EmployeeDatabase implements Serializable {
     public int getHoursWorkedDuringWeekFor(int id, int weekWanted) {
 
                 return  getEmployee(id).getHoursWorkedForWeek(weekWanted);
-    }
+    }*/
 
     //THIS METHOD TAKES AN ID AND RETURNS:
     // WHETHER THAT EMPLOYEE IS SIGNED IN, true = yes they are, false = no they're not
@@ -205,6 +209,38 @@ public class EmployeeDatabase implements Serializable {
     public ArrayList<Employee> getEmployeeList(){
 
       return employees;
+    }
+
+    //added for timeSummary
+    public void setInTimeOf(int id, int week, int day, Date time) {
+    getEmployee(id).setInTime(week,day,time);
+    }
+
+    public void setOutTimeOf(int id, int week, int day, Date time) {
+        getEmployee(id).setOutTime(week,day,time);
+    }
+
+    public void setMinutesWorkedFor(int id, int week, int day, int minsWorked) {
+getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
+    }
+
+    public Date getInTimeOf(int id, int week, int day, int signInPosition) {
+        return getEmployee(id).getTimeSummary().inTime[week][day][signInPosition];
+    }
+
+    public Date getOutTimeOf(int id, int week, int day,int signOutPosition) {
+        return getEmployee(id).getTimeSummary().outTime[week][day][signOutPosition];
+    }
+
+    public int getMinutesWorkedFor(int id, int week, int day) {
+        return getEmployee(id).getTimeSummary().minutesWorked[week][day];
+    }
+
+    public void clearIn_Out_timesFor(int id, int week, int day){
+        for(int i=0;i< getEmployee(id).numOfSignIn ;i++){
+            getEmployee(id).setInTime(week,day,i,null);
+            getEmployee(id).setOutTime(week,day,i,null);
+        }
     }
 
 }
