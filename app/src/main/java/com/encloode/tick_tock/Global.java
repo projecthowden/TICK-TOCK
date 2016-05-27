@@ -19,7 +19,7 @@ import java.io.Serializable;
  */
 public class Global implements Serializable{
 
-    static private EmployeeDatabase empDatabase;
+    static private EmployeeDatabase empDatabase = new EmployeeDatabase();
     static public int masterCode = 1234;
     static File internalDatabaseFile= null;
     //static FILE externalDatabaseFile = null;

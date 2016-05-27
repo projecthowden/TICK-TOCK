@@ -16,10 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        try {
-            Global.loadState(this);
-        } catch (IOException e) { }
+       //  try {
+       //     Global.loadState(this);
+     //   } catch (IOException e) { }
 
 
         TextView tx = (TextView) findViewById(R.id.companyName);

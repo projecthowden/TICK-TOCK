@@ -2,6 +2,7 @@ package com.encloode.tick_tock;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class timedisplay extends AppCompatActivity {
 
@@ -26,24 +28,38 @@ public class timedisplay extends AppCompatActivity {
         TextView tx2 = (TextView) findViewById(R.id.thankYouMessage);
         TextView tx3 = (TextView) findViewById(R.id.totalHours);
         TextView tx4 = (TextView) findViewById(R.id.hoursDescription);
-        TextClock clock = (TextClock) findViewById(R.id.textClock);
-        int currentTime =   (int) Calendar.getInstance().getTimeInMillis();
+
+        Calendar c = Calendar.getInstance();
+        int currentTime = (int) c.getTimeInMillis();
+        Calendar currentTime1 = Calendar.getInstance();
+        currentTime1.setTimeInMillis(currentTime);
+        Date obj3 = currentTime1.getTime();
+        Date obj = c.getTime();
+
         idOfCurrentEmp= Integer.parseInt(getIntent().getExtras().getString("id"));
 
         // if false it means they are clocked out so we must clocked them in
         if(Global.accessDatabase().getEmployee(idOfCurrentEmp).isSignedIn() == false)  {
-            Global.accessDatabase().setInTimeOf(idOfCurrentEmp,currentTime);
+            Global.accessDatabase().setInTimeOf(idOfCurrentEmp,Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK,c.getTime());
 
             tx1.setText("CLOCKED IN AT:");
             tx2.setText("Thank you for logging in!");
         }
 
         else {
-            Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,currentTime);
+
+            Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK,c.getTime());
 
             tx1.setText("CLOCKED OUT AT:");
             tx2.setText("Thank you for logging out!");
-            tx3.setText(Integer.toString(Global.accessDatabase().getHoursWorkedTodayFor(idOfCurrentEmp)));
+
+            int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+
+            int hoursWorked = minWorked/60;
+            int minLeft = minWorked - (hoursWorked*60);
+
+            tx3.setText(hoursWorked + " Hours " + minLeft + "Minutes");
+
             tx4.setText("Total Hours Worked Today:");
             tx3.setVisibility(View.VISIBLE);
             tx4.setVisibility(View.VISIBLE);
