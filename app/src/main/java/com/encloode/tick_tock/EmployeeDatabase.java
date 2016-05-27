@@ -100,42 +100,6 @@ public class EmployeeDatabase implements Serializable {
                 return  getEmployee(id).getPin();
 
     }
-/*
-
-//THIS METHOD TAKES AN ID AND SETS THE IN TIME OF THAT EMPLOYEE TO int time
-    public void setInTimeOf(int id, int time) {
-        getEmployee(id).setSignInTime(time);
-    }
-
-    //THIS METHOD TAKES AN ID AND SETS THE OUT TIME OF THAT EMPLOYEE TO int time
-    public void setOutTimeOf(int id, int time) {
-        getEmployee(id).setSignOutTime(time);
-
-    }
-
- //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT IN TIME OF THAT EMPLOYEE
-    public int getInTimeOf(int id) {
-
-                return  getEmployee(id).getSignOutTime();
-    }
-
-    //THIS METHOD TAKES AN ID AND RETURNS THE CURRENT OUT TIME OF THAT EMPLOYEE
-    public int getOutTimeOf(int id) {
-                return  getEmployee(id).getSignOutTime();
-    }
-
-    //THIS METHOD TAKES AN ID AND RETURNS:
-    // THE TOTAL HOURS WORKED THUS FAR BY THAT EMPLOYEE
-    public int getHoursWorkedTodayFor(int id) {
-                return  getEmployee(id).getHoursWorkedToday();
-    }
-
-    //THIS METHOD TAKES AN ID AND RETURNS:
-    // THE TOTAL HOURS WORKED BY THAT EMPLOYEE FOR THE WEEK SPECIFIED
-    public int getHoursWorkedDuringWeekFor(int id, int weekWanted) {
-
-                return  getEmployee(id).getHoursWorkedForWeek(weekWanted);
-    }*/
 
     //THIS METHOD TAKES AN ID AND RETURNS:
     // WHETHER THAT EMPLOYEE IS SIGNED IN, true = yes they are, false = no they're not
@@ -233,7 +197,7 @@ getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
     }
 
     public int getMinutesWorkedFor(int id, int week, int day) {
-        return getEmployee(id).getTimeSummary().minutesWorked[week][day];
+        return getEmployee(id).getTimeSummary().minutesWorked[week-1][day-1];
     }
 
     public void clearIn_Out_timesFor(int id, int week, int day){
