@@ -12,7 +12,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/background_material_light"
-        android:onClick="onClickExit" />
+        android:onClick="onClickBackTo_2"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:background="@color/background_material_light"
-        android:onClick="onClickExit" />
+        android:onClick="onClickNextTo_4" />
     <LinearLayout
         android:id="@+id/displaytotaltime_three_ll_selectedEmployee"
         android:layout_below="@id/display_totalTime_three_back_button"

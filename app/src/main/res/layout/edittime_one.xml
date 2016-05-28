@@ -19,7 +19,8 @@
             android:layout_column="0"
             android:src="@drawable/back"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:onClick="onClickBack_to_ownerMenu"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -70,7 +71,8 @@
             android:layout_column="3"
             android:src="@drawable/forward"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:onClick="onClickNext_to_2"/>
 
         <TextView
             android:layout_width="wrap_content"
