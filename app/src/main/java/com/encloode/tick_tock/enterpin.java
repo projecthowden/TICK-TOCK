@@ -78,7 +78,10 @@ public class enterpin extends AppCompatActivity {
             myToast.show();
         }
    }
-
+    public void onClick_exit(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
     @Override
     public void onBackPressed() {
     }

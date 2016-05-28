@@ -1,134 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*STAFF NAME"
-        android:id="@+id/textView20"
-        android:layout_below="@+id/imageButton12"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="TIME FOR"
-        android:id="@+id/textView21"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_toEndOf="@+id/textView20"
-        android:layout_marginStart="60dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*DATE"
-        android:id="@+id/textView22"
-        android:layout_alignTop="@+id/textView21"
-        android:layout_toEndOf="@+id/textView21"
-        android:layout_marginStart="99dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="*DAY"
-        android:id="@+id/textView23"
-        android:layout_alignBottom="@+id/textView22"
-        android:layout_toEndOf="@+id/textView22"
-        android:layout_marginStart="73dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="TOTAL TIME:"
-        android:id="@+id/textView24"
-        android:layout_below="@+id/textView20"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="__"
-        android:id="@+id/textView25"
-        android:layout_below="@+id/textView21"
-        android:layout_alignStart="@+id/textView21" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="HOUR(S)"
-        android:id="@+id/textView26"
-        android:layout_below="@+id/textView21"
-        android:layout_toEndOf="@+id/textView25" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="__"
-        android:id="@+id/textView31"
-        android:layout_below="@+id/textView22"
-        android:layout_alignStart="@+id/textView22" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="MINUTE(S)"
-        android:id="@+id/textView32"
-        android:layout_below="@+id/textView22"
-        android:layout_centerHorizontal="true" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="15dp"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton11"
-        android:layout_above="@+id/textView21"
-        android:layout_alignParentStart="true"
         android:src="@drawable/back"
-        android:background="@color/background_material_light" />
-
-    <ImageButton
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_material_light"
+        android:onClick="onClickBackTo_3"
+        android:id="@+id/displaytotaltime_four_backButton"/>
+    <TextView
+        android:id="@+id/displaytotaltime_four_TV_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton12"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/forward"
-        android:background="@color/background_material_light" />
-
+        tools:text="12/6/2016"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#111111"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:id="@+id/displaytotaltime_four_ll_selectedEmployee"
+        android:layout_below="@id/displaytotaltime_four_backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STATUS OF: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+        <TextView
+            android:id="@+id/displaytotaltime_four_TV_enployeeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Andrew White"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/displaytotaltime_four_LL_label"
+        android:layout_below="@id/displaytotaltime_four_ll_selectedEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="700dp"
+            android:layout_height="wrap_content"
+            android:text="STATUS"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TIME"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#111111"/>
+    </LinearLayout>
     <ListView
+        android:id="@+id/displaytotaltime_four_employee_status"
+        android:layout_below="@+id/displaytotaltime_four_LL_label"
         android:layout_width="wrap_content"
-        android:layout_height="280dp"
-        android:id="@+id/listView3"
+        android:layout_height="350dp"></ListView>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="NAME:"
-        android:id="@+id/textView33"
-        android:layout_above="@+id/listView3"
-        android:layout_toEndOf="@+id/textView25"
-        android:textSize="30dp"
-      />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="TIME:"
-        android:id="@+id/textView34"
-        android:layout_alignBottom="@+id/textView33"
-        android:layout_toEndOf="@+id/textView22"
-        android:textSize="30dp"/>
-</RelativeLayout>
+    </RelativeLayout>

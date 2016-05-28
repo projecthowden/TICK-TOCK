@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="10dp"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".add_employee">
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="10dp"
         android:columnCount="3"
         android:rowCount="3"
         android:id="@+id/add_employee_gl_details">
@@ -86,9 +85,7 @@
             android:layout_alignBottom="@+id/add_employee_b_addemployee"
             android:layout_toEndOf="@+id/add_employee_im_encloodelogo"
             android:layout_marginStart="0dp"
-            />
-
-        <!--This guy specifies the type of keyboard that pops up
+            /><!--This guy specifies the type of keyboard that pops up
             on the tablet. This imeOption specifies the label of the action on the keypad-->
     </GridLayout>
 
@@ -113,6 +110,29 @@
         android:clickable="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_employee_gl_details"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="You can add "/>
+        <TextView
+            android:id="@+id/add_employee_tv_NumEmployeesLeft"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="10"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text=" More Employees"/>
+    </LinearLayout>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="50dp"

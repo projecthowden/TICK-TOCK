@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/displaytotaltime_four_listStatus"
+        android:layout_width="700dp"
+        android:layout_height="40dp"
+        android:text="IN"
+        android:textAlignment="viewStart"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#2f2626" />
+    <TextView
+        android:id="@+id/displaytotaltime_four_listTime"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text="8:30pm"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+</LinearLayout>

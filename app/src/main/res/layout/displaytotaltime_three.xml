@@ -1,127 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="EMPLOYEE HOURS "
-        android:id="@+id/textView13"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="60dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="FROM DATE:"
-        android:id="@+id/textView14"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="12/08/16"
-        android:id="@+id/textView15"
-        android:layout_alignTop="@+id/textView14"
-        android:layout_toEndOf="@+id/textView13" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="END DATE:"
-        android:id="@+id/textView16"
-        android:layout_alignTop="@+id/textView15"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="12/08/22"
-        android:id="@+id/textView17"
-        android:layout_marginStart="64dp"
-        android:layout_alignTop="@+id/textView16"
-        android:layout_toEndOf="@+id/textView16" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:id="@+id/listView2"
-        android:layout_above="@+id/textView18"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="DATE SELECTED: "
-        android:id="@+id/textView18"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="* AUTO FILL"
-        android:id="@+id/textView19"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_centerHorizontal="true" />
-
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="15dp">
     <ImageButton
+        android:id="@+id/display_totalTime_three_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton9"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:src="@drawable/back"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@color/background_material_light"
-        android:layout_marginLeft="10dp"/>
-
+        android:onClick="onClickBackTo_2"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton10"
+        android:src="@drawable/forward"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/forward"
-        android:layout_alignParentStart="false"
         android:background="@color/background_material_light"
-        android:layout_marginRight="20dp"/>
-
+        android:onClick="onClickNextTo_4" />
+    <LinearLayout
+        android:id="@+id/displaytotaltime_three_ll_selectedEmployee"
+        android:layout_below="@id/display_totalTime_three_back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time Worked by: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+        <TextView
+            android:id="@+id/displaytotaltime_three_TV_enployeeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Andrew White"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/displaytotaltime_three_LL_label"
+        android:layout_below="@id/displaytotaltime_three_ll_selectedEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="DATE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="DAY"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#111111"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL TIME"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#111111"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/displaytotaltime_three_LV_employee_time"
+        android:layout_below="@+id/displaytotaltime_three_LL_label"
+        android:layout_width="wrap_content"
+        android:layout_height="340dp"></ListView>
+    <LinearLayout
+        android:id="@+id/displaytotaltime_three_ll_selectedDate"
+        android:layout_below="@id/displaytotaltime_three_LV_employee_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE SELECTED:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+        <TextView
+            android:id="@+id/displaytotaltime_three_TV_dateSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/6/2016"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#111111"/>
+    </LinearLayout>
     <TextView
+        android:layout_below="@id/displaytotaltime_three_ll_selectedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView35"
-        android:layout_above="@+id/listView2"
-        android:layout_toEndOf="@+id/textView14"
-        android:textSize="25dp"/>
+        android:text="HIT THE NEXT BUTTON FOR MORE DETAILS ON THE SELECTED DATE"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff0000" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView36"
-        android:layout_above="@+id/listView2"
-        android:layout_alignStart="@+id/textView19"
-        android:textSize="25dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView37"
-        android:layout_alignTop="@+id/textView36"
-        android:layout_toEndOf="@+id/textView17"
-        android:textSize="25dp"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/encloode"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>

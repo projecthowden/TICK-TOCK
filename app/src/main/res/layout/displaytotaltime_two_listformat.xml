@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/displaytotaltime_two_listName"
+        android:layout_width="700dp"
+        android:layout_height="40dp"
+        android:text=" Andrew Whyte"
+        android:textAlignment="viewStart"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#2f2626" />
+    <TextView
+        android:id="@+id/displaytotaltime_two_listHours"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text="12"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:textAlignment="viewStart"
+    android:text=" Hours "
+    android:paddingTop="5dp"
+    android:textSize="20sp"
+    android:textColor="#000000" />
+    <TextView
+        android:id="@+id/displaytotaltime_two_listMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text="12"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textAlignment="viewStart"
+        android:text=" Minutes"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#000000" />
+
+</LinearLayout>

@@ -18,6 +18,9 @@ public class add_employee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
         EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
+        TextView textView=(TextView) findViewById(R.id.add_employee_tv_NumEmployeesLeft);
+        int numEmployeesLeft=EmployeeDatabase.maxEmployeeSize-EmployeeDatabase.getNumOfCurrentEmployees();
+        textView.setText(numEmployeesLeft+"");
 
         editTextTypePinAgain.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -35,7 +38,7 @@ public class add_employee extends AppCompatActivity {
     }
 
     public void onClickForAddingEmployees(View v) {
-        EditText editTextPin = (EditText) findViewById(R.id.add_employee_et_pin); // creted an pbject of type edittext view and retrived
+        EditText editTextPin = (EditText) findViewById(R.id.add_employee_et_pin); // created an object of type edittext view and retrived
         EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
         EditText editTextName = (EditText) findViewById(R.id.add_employee_et_name);
 
