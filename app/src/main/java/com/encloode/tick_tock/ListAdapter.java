@@ -35,8 +35,6 @@ import java.util.ArrayList;
         //populate the data into the template view using the data object
         tv_Name.setText(employee.getName());
         tv_id.setText(""+employee.getID());
-       // tv_id.setText(new DecimalFormat("##").format(employee.getID()).toString());
-        //tv_id.setText(String.format("%1$, 2d", employee.getID()));
         //return the completed view to render on the screen
         return convertView;
     }
