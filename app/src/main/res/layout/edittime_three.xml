@@ -10,9 +10,10 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textColor="#ff0000"
-        tools:text="DELETE/SAVE?"
+        tools:text="SAVE?"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginTop="39dp"
+        android:layout_marginLeft="75dp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/button5" />
 
@@ -24,7 +25,8 @@
         android:textSize="30dp"
         android:id="@+id/button4"
         android:layout_below="@+id/gridLayout"
-        android:layout_toEndOf="@+id/gridLayout" />
+        android:layout_toEndOf="@+id/gridLayout"
+        android:onClick="onClickNO" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -35,7 +37,8 @@
         android:textSize="30dp"
         android:id="@+id/button5"
         android:layout_below="@+id/gridLayout"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:onClick="onClickYES" />
 
     <TextView
         android:layout_width="wrap_content"

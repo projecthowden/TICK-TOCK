@@ -87,10 +87,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="4"
+            android:inputType="number"
             android:textColor="#ff0000"
             android:gravity="center"
-            android:imeOptions="actionDone"
-            tools:text="15"/>
+            android:imeOptions="actionNext"
+
+            tools:text="15"
+            android:maxLength="2"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,10 +106,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="4"
+            android:inputType="number"
             android:textColor="#ff0000"
             android:gravity="center"
             android:imeOptions="actionDone"
-            tools:text="35"/>
+            tools:text="35"
+            android:maxLength="2"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,12 +131,14 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:textSize="40sp"
-            android:text="SAVE"/>
+            android:text="SAVE"
+            android:onClick="onClickSave" />
         <Button
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:textSize="40sp"
-            android:text="DISCARD"/>
+            android:text="DISCARD"
+            android:onClick="onClickDiscard" />
     </LinearLayout>
 
     <ImageView
