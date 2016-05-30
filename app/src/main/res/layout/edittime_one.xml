@@ -73,7 +73,8 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:onClick="onClickNext_to_2"
-            android:clickable="true" />
+            android:clickable="true"
+            android:background="@color/background_material_light" />
 
         <TextView
             android:layout_width="wrap_content"

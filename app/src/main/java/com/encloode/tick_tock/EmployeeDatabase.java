@@ -17,7 +17,7 @@ public class EmployeeDatabase implements Serializable {
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
-        this.employees = new ArrayList<>();
+
     }
 
     /**

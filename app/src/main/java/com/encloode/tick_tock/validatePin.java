@@ -40,4 +40,9 @@ public class validatePin extends AppCompatActivity {
     public void onBackPressed() {
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Global.saveState(this);
+    }
 }

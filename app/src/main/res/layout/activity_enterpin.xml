@@ -67,7 +67,7 @@
         android:src="@drawable/exit"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:background="@color/background_floating_material_light"
+        android:background="@color/background_material_light"
         android:onClick="onClick_exit" />
 
 

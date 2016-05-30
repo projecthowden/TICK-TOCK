@@ -1,5 +1,6 @@
 package com.encloode.tick_tock;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.SystemClock;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -110,6 +112,9 @@ public class editTime extends AppCompatActivity {
 
        }
     public void onClickSave(View view) {
+        //close keyboard
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
         TextView newHour = (TextView) findViewById(R.id.edittime_two_ET_changeHours);
         TextView newMinutes = (TextView) findViewById(R.id.edittime_two_ET_changeMinutes);
