@@ -20,7 +20,7 @@ public class Employee implements Serializable {
     //private    int signInTime;
     //  private    int signOutTime;
     // private    int daylyHours [][];
-    static int numOfEmployees = 0;
+    static int numOfEmployees;
 
 
     public Employee(String name, int pin) {
@@ -35,7 +35,7 @@ public class Employee implements Serializable {
         numOfSignOut = 0;
         timeSummary = new TimeSummary();
 
-        //daylyHours = new int[52][7];
+
 
     }
 
