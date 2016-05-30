@@ -52,8 +52,12 @@ public class enterpin extends AppCompatActivity {
         if(!tx.getText().toString().equals("")) {
             pin = Integer.parseInt(tx.getText().toString());
 
-
-            if (Global.accessDatabase().pinValid(pin) == false) {
+            if(tx.getText().toString().length() < 4){
+                Toast myToast = Toast.makeText(
+                        getApplicationContext(), "ENTER A PIN OF 4 DIGITS", Toast.LENGTH_LONG);
+                myToast.show();
+            }
+             else if (Global.accessDatabase().pinValid(pin) == false) {
             /*send id to other screen*/
                 idOfCurrentEmp = Global.accessDatabase().getEmployeebyPin(pin).getID();
 
@@ -61,7 +65,8 @@ public class enterpin extends AppCompatActivity {
                 Intent intent1 = new Intent(this, validatePin.class);
                 intent1.putExtra("id", idOfCurrentEmp);
                 startActivity(intent1);
-            } else if (Global.accessDatabase().pinValid(pin) == true && pin != Global.masterCode) {
+
+            }   else if (Global.accessDatabase().pinValid(pin) == true && pin != Global.masterCode) {
                 Toast myToast = Toast.makeText(
                         getApplicationContext(), "No Employee Exist With That Pin", Toast.LENGTH_LONG);
                 myToast.show();
