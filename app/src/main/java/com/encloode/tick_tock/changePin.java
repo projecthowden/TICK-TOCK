@@ -101,6 +101,11 @@ public class changePin extends AppCompatActivity {
         if (passcode.getText().toString().equals("") || passcode2.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "PLEASE FILL", Toast.LENGTH_LONG).show();
         }
+        if(passcode.getText().toString().length() < 4 || passcode2.getText().toString().length() < 4  ){
+            Toast myToast = Toast.makeText(
+                    getApplicationContext(), "ENTER A PIN OF 4 DIGITS", Toast.LENGTH_LONG);
+            myToast.show();
+        }
         else {
             pass = Integer.parseInt(passcode.getText().toString());
             pass2 = Integer.parseInt(passcode2.getText().toString());

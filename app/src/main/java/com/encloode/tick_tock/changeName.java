@@ -16,6 +16,7 @@ public class changeName extends AppCompatActivity {
     private int id;
     private String newName;
     private int  TextInt;
+    private char text = ' ';
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,16 @@ public class changeName extends AppCompatActivity {
             }
         });
 
+       // ANOTHER LISTNER FOR FOCUS
+        Naming.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    whenDoneIsClicked();
+                }else {
+                }
+            }
+        });
 
 
 
@@ -85,21 +96,27 @@ public class changeName extends AppCompatActivity {
     }
 
 
-    public void onClickChangeName (View view){
+    public void onClickChangeName (View view) {
         EditText Newname = (EditText) findViewById(R.id.change_name_et_newname);
         // populate the text field.
         String StoreNewName;
-        StoreNewName  = Newname.getText().toString();
-        if(StoreNewName.equals(isNull(StoreNewName))) {
-            Toast.makeText(getApplicationContext(),"ENTER NAME", Toast.LENGTH_LONG).show();
+        StoreNewName = Newname.getText().toString();
+            if (StoreNewName.equals(isNull(StoreNewName))) {
+                Toast.makeText(getApplicationContext(), "ENTER NAME", Toast.LENGTH_LONG).show();
+            }
+            else if(Newname.getText().toString().length() == 0) {
+            Toast.makeText(getApplicationContext(), "PLEASE ENTER A NAME", Toast.LENGTH_LONG).show();
+            }
+            else if(text == Newname.getText().toString().charAt(0)) {
+                Toast.makeText(getApplicationContext(), "PLEASE ENTER A NAME", Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "NAME CHANGE SUCCESSFUL", Toast.LENGTH_LONG).show();
+                Global.accessDatabase().setNameOf(TextInt, StoreNewName);
+                Intent intent = new Intent(changeName.this, ownermenu.class);
+                startActivity(intent);
+            }
         }
-        else {
-            Toast.makeText(getApplicationContext(),"NAME CHANGE SUCCESSFUL", Toast.LENGTH_LONG).show();
-            Global.accessDatabase().setNameOf(TextInt, StoreNewName);
-            Intent intent=new Intent(changeName.this,ownermenu.class);
-            startActivity(intent);
-        }
-    }
 
     public void onClickExitForChangeName(View view){
         Intent intent=new Intent(changeName.this,ownermenu.class);

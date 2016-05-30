@@ -66,6 +66,11 @@ public class add_employee extends AppCompatActivity {
                        getApplicationContext(), "Pins Do Not Match", Toast.LENGTH_LONG);
                myToast.show();
            }
+           else if(editTextPin.getText().toString().length() < 4){
+               Toast myToast = Toast.makeText(
+                       getApplicationContext(), "ENTER A PIN OF 4 DIGITS", Toast.LENGTH_LONG);
+               myToast.show();
+           }
 
            //pins match so check that it is valid
            else if (Global.accessDatabase().pinValid(pin) && pin != Global.masterCode) {
