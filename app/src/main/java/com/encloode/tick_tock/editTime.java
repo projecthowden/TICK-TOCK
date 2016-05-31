@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,7 +31,7 @@ public class editTime extends AppCompatActivity {
     String nameChosen;
     int employeeID;
     int newTimeEntered[] = new int[2];
-    Calendar date = Calendar.getInstance();
+    DateTime date = new DateTime();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,7 @@ public class editTime extends AppCompatActivity {
                                             int dayOfMonth) {
                 TextView tx = (TextView) findViewById(R.id.edittime_one_TF_dateChosen);
                 tx.setText("Date Chosen: " + dayOfMonth +"/"+ (month+1) + "/"+year);
-
-                date.set(Calendar.YEAR, year);
-                date.set(Calendar.MONTH, month);
-                date.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                date.withDate(year,month,dayOfMonth);
             }
         });
 
@@ -99,9 +98,9 @@ public class editTime extends AppCompatActivity {
 
 
             headerName.setText(nameChosen + "'s Activity for: ");
-            headerDate.setText(date.get(Calendar.DAY_OF_MONTH) + "/" + (date.get(Calendar.MONTH) + 1) + "/" + date.get(Calendar.YEAR));
+            headerDate.setText(date.dayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
 
-            int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK));
+            int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
             int hoursWorked = minWorked / 60;
             int minLeft = minWorked - (hoursWorked * 60);
 
@@ -136,9 +135,9 @@ public class editTime extends AppCompatActivity {
 
                 headerName.setText("SAVE?");
                 employee.setText(nameChosen);
-                dateChoosen.setText(date.get(Calendar.DAY_OF_MONTH) + "/" + (date.get(Calendar.MONTH) + 1) + "/" + date.get(Calendar.YEAR));
+                dateChoosen.setText(date.getDayOfMonth() + "/" + (date.getMonthOfYear() + 1) + "/" + date.getYear());
 
-                int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK));
+                int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
                 int hoursWorked = minWorked / 60;
                 int minLeft = minWorked - (hoursWorked * 60);
 
@@ -163,25 +162,32 @@ public class editTime extends AppCompatActivity {
     }
 
     public void onClickYES(View view){
-        Global.accessDatabase().clearIn_Out_timesFor(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK));
+        Global.accessDatabase().clearIn_Out_timesFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
 
         Calendar inTime = Calendar.getInstance();
         Calendar outTime =  Calendar.getInstance();
 
-        inTime.set(Calendar.WEEK_OF_YEAR, date.get(Calendar.WEEK_OF_YEAR));
-        inTime.set(Calendar.DAY_OF_WEEK, date.get(Calendar.DAY_OF_WEEK));
+        inTime.set(Calendar.WEEK_OF_YEAR, date.getWeekOfWeekyear());
+        inTime.set(Calendar.DAY_OF_WEEK, date.getDayOfWeek());
         inTime.set(Calendar.HOUR_OF_DAY, 0);
         inTime.set(Calendar.MINUTE, 0 );
 
-        outTime.set(Calendar.WEEK_OF_YEAR, date.get(Calendar.WEEK_OF_YEAR));
-        outTime.set(Calendar.DAY_OF_WEEK, date.get(Calendar.DAY_OF_WEEK));
+        outTime.set(Calendar.WEEK_OF_YEAR, date.getWeekOfWeekyear());
+        outTime.set(Calendar.DAY_OF_WEEK, date.getDayOfWeek());
         outTime.set(Calendar.HOUR_OF_DAY, newTimeEntered[0]);
         outTime.set(Calendar.MINUTE, newTimeEntered[1] );
 
-        Global.accessDatabase().setInTimeOf(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK), inTime.getTime());
-        Global.accessDatabase().setOutTimeOf(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK), outTime.getTime());
+        /*
+            * Convert the java calender object to joda object.
+            * using the following lines of code
+         */
+        DateTime inTime_=new DateTime(inTime);
+        DateTime outTime_=new DateTime(outTime);
 
-        System.out.println(""+Global.accessDatabase().getMinutesWorkedFor(employeeID, date.get(Calendar.WEEK_OF_YEAR), date.get(Calendar.DAY_OF_WEEK)));
+        Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),inTime_);
+        Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), outTime_);
+
+        System.out.println(""+Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek()));
 
         Toast myToast = Toast.makeText(
                 getApplicationContext(), "Time Changed", Toast.LENGTH_LONG);
@@ -192,7 +198,7 @@ public class editTime extends AppCompatActivity {
         populateEditTime_two();
     }
 
-    //fucntions to handle backwards progresion
+    //fucntions to handle backwards progression
     public void onClickBack_to_ownerMenu(View view){
         Intent intent= new Intent(this,ownermenu.class);
         startActivity(intent);
