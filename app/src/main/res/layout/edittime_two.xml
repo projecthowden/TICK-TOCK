@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="Previous Time Worked: "/>
+        android:text="Previous Time Worked: "/>
     <TextView
         android:id="@+id/edittime_two_TV_previousHours"
         android:layout_width="wrap_content"

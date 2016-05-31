@@ -50,6 +50,7 @@
             android:screenOrientation="landscape"
             />
         <activity android:name=".displayTotalTimeWorked"
+            android:label="SEE LOGGED TIME"
             android:screenOrientation="landscape"/>
         <activity android:name=".validatePin"
             android:label="@string/app_name"

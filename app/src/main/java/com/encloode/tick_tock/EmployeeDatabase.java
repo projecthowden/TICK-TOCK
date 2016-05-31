@@ -209,7 +209,10 @@ getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
         for(int i=0;i< getEmployee(id).numOfSignIn ;i++){
             getEmployee(id).setInTime(week,day,i,null);
             getEmployee(id).setOutTime(week,day,i,null);
+
         }
+        getEmployee(id).numOfSignIn = 0;
+        getEmployee(id).numOfSignOut = 0;
     }
 
 }

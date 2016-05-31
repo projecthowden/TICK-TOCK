@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ViewUtils;
@@ -27,6 +28,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     private DateTime startDate ;
     private DateTime endDate ;
     private String nameChosen;
+    private int employeeID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,19 +78,30 @@ public class displayTotalTimeWorked extends AppCompatActivity {
    }
 
     public boolean printNumDays() {
+
         TextView numDaysSelected = (TextView) findViewById(R.id.displaytotaltime_one_TV_numberOfDays);
+        TextView tx = (TextView) findViewById(R.id.text);
+
         if (startDate != null && endDate != null){
         if (startDate.isBefore(endDate) || startDate.isEqual(endDate)) {
 
-//            daysSelected = Days.daysBetween(new DateTime(startDate), new DateTime(endDate)).getDays();
-
+            tx.setVisibility(View.VISIBLE);
+            numDaysSelected.setTextColor(Color.BLACK);
             daysSelected = Days.daysBetween(startDate, endDate).getDays()+1;
 
             if (daysSelected >= 0) numDaysSelected.setText("" + daysSelected);
             return true;
 
         }
-        else numDaysSelected.setText("Choose an end date that is after start date");
+        else
+        {
+            numDaysSelected.setText("Choose an End date that is after or on Start date");
+            numDaysSelected.setTextColor(Color.RED);
+
+            tx.setVisibility(View.INVISIBLE);
+
+
+        }
 
     }
         return false;
@@ -104,11 +117,20 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             myToast.show();
         }
     }
-
-
     public void onClickNextTo_3(View view){
-        setContentView(R.layout.displaytotaltime_three);
+        TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
+        if(!tx.getText().equals("")) {
+            setContentView(R.layout.displaytotaltime_three);
+            logicForScreen3();
+        }
+        else {
+            Toast myToast1 = Toast.makeText(
+                    getApplicationContext(), "Select An Employee", Toast.LENGTH_LONG);
+            myToast1.show();
+        }
     }
+
+    //----->complete this validate that a date was selected
     public void onClickNextTo_4(View view){
         setContentView(R.layout.displaytotaltime_four);
     }
@@ -116,6 +138,8 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     public void onClickBackTo_3(View view){
         setContentView(R.layout.displaytotaltime_three);
     }
+
+    //------->complete this
     public void onClickBackTo_2(View view){
         setContentView(R.layout.displaytotaltime_two);
     }
@@ -126,20 +150,30 @@ public class displayTotalTimeWorked extends AppCompatActivity {
                startActivity(new Intent(this,ownermenu.class));
     }
 
-
     private void logicForScreen2() {
         ListView list = (ListView) findViewById(R.id.displaytotaltime_two_LV_employee_time);
 
-        displayTotalTimeWorked_listAdapter_two adapter = new displayTotalTimeWorked_listAdapter_two(this,Global.accessDatabase().getEmployeeList());
+        displayTotalTimeWorked_listAdapter_two adapter = new displayTotalTimeWorked_listAdapter_two(this,Global.accessDatabase().getEmployeeList(),startDate,endDate);
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
                 TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
-                nameChosen = Global.accessDatabase().getEmployeeList().get(position).getName();
+
+                //this way of retrieving object data is based on the actual row selected
+                nameChosen = ((Employee) parent.getAdapter().getItem(position)).getName();
+                employeeID = ((Employee) parent.getAdapter().getItem(position)).getID();
+
                 tx.setText(nameChosen);
             }
         });
+
+    }
+
+    //-------> complete this
+    private void logicForScreen3(){
+        //build list adapter
+        //POPULATE total time for each date and day
 
     }
 

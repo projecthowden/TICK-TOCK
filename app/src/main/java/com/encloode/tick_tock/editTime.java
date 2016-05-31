@@ -3,6 +3,7 @@ package com.encloode.tick_tock;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,10 @@ public class editTime extends AppCompatActivity {
         populateEditTimeList();
 
         final CalendarView calendar = (CalendarView) findViewById(R.id.edittime_one_calendarView);
+
+
+
+        //setting listener to enable autofill of fields
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
@@ -47,9 +52,16 @@ public class editTime extends AppCompatActivity {
                                             int dayOfMonth) {
                 TextView tx = (TextView) findViewById(R.id.edittime_one_TF_dateChosen);
                 tx.setText("Date Chosen: " + dayOfMonth +"/"+ (month+1) + "/"+year);
-                date.withDate(year,month,dayOfMonth);
+
+                Calendar temp = Calendar.getInstance();
+                temp.set(Calendar.YEAR,year);
+                temp.set(Calendar.MONTH, month);
+                temp.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                date = new DateTime(temp);
             }
         });
+
+
 
         ListView listView=(ListView) findViewById(R.id.edittime_one_EmployeeList);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,13 +91,16 @@ public class editTime extends AppCompatActivity {
     public void onClickNext_to_2(View view){
         TextView employee = (TextView) findViewById(R.id.edittime_one_TF_employeeChosen);
         TextView calendarView = (TextView) findViewById(R.id.edittime_one_TF_dateChosen);
-        if(!employee.getText().toString().equals("Employee: ") && !calendarView.getText().toString().equals("Date Chosen: ")) {
-            populateEditTime_two();
-        }  else {
+        if(employee.getText().toString().equals("Employee: ")|| calendarView.getText().toString().equals("Date Chosen: ")) {
             Toast myToast = Toast.makeText(
                     getApplicationContext(), "Select Employee or Date", Toast.LENGTH_LONG);
             myToast.show();
-
+        } else if(date.isAfter(new DateTime()))  {
+            Toast myToast = Toast.makeText(
+                    getApplicationContext(), "Select Today's Date or previous", Toast.LENGTH_LONG);
+            myToast.show();
+        } else {
+            populateEditTime_two();
         }
     }
     public  void populateEditTime_two(){
@@ -98,7 +113,7 @@ public class editTime extends AppCompatActivity {
 
 
             headerName.setText(nameChosen + "'s Activity for: ");
-            headerDate.setText(date.dayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
+            headerDate.setText(date.getDayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
 
             int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
             int hoursWorked = minWorked / 60;
@@ -135,7 +150,7 @@ public class editTime extends AppCompatActivity {
 
                 headerName.setText("SAVE?");
                 employee.setText(nameChosen);
-                dateChoosen.setText(date.getDayOfMonth() + "/" + (date.getMonthOfYear() + 1) + "/" + date.getYear());
+                dateChoosen.setText(date.getDayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
 
                 int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
                 int hoursWorked = minWorked / 60;
@@ -162,7 +177,13 @@ public class editTime extends AppCompatActivity {
     }
 
     public void onClickYES(View view){
-        Global.accessDatabase().clearIn_Out_timesFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
+
+                Toast myToast1 = Toast.makeText(
+                        getApplicationContext(), "Saving...", Toast.LENGTH_LONG);
+                myToast1.show();
+
+        System.out.println(""+date.getWeekOfWeekyear()+"----->"+date.getDayOfWeek());
+        Global.accessDatabase().clearIn_Out_timesFor(employeeID, Calendar.WEEK_OF_YEAR, date.getDayOfWeek());
 
         Calendar inTime = Calendar.getInstance();
         Calendar outTime =  Calendar.getInstance();
@@ -184,14 +205,18 @@ public class editTime extends AppCompatActivity {
         DateTime inTime_=new DateTime(inTime);
         DateTime outTime_=new DateTime(outTime);
 
-        Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),inTime_);
-        Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), outTime_);
+        int minsWorked = newTimeEntered[0]*60+newTimeEntered[1];
+        Global.accessDatabase().setMinutesWorkedFor(employeeID,date.getWeekOfWeekyear(), date.getDayOfWeek(),minsWorked);
+       // Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),inTime_);
+       // Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), outTime_);
 
         System.out.println(""+Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek()));
 
         Toast myToast = Toast.makeText(
                 getApplicationContext(), "Time Changed", Toast.LENGTH_LONG);
         myToast.show();
+
+        startActivity(new Intent(this,editTime.class));
     }
 
     public void onClickNO(View view){

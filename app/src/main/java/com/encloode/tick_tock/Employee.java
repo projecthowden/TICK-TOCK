@@ -127,8 +127,8 @@ public class Employee implements Serializable {
         timeSummary.outTime[week - 1][day - 1][numOfSignOut] = time;
 
         toggleSignIn();
-        int weekOfYear = Calendar.WEEK_OF_YEAR;
-        int dayOfWeek = Calendar.DAY_OF_WEEK;
+        int weekOfYear = time.getWeekOfWeekyear();
+        int dayOfWeek = time.getDayOfWeek();
 
         calculateTimeWorkedToday(weekOfYear, dayOfWeek);
 
@@ -163,6 +163,9 @@ public class Employee implements Serializable {
         int temp;
         int timeWorked;
         Period period = new Period(timeSummary.inTime[weekOfYear - 1][dayOfWeek - 1][numOfSignIn - 1],timeSummary.outTime[weekOfYear - 1][dayOfWeek - 1][numOfSignOut]);
+//        System.out.println(""+timeSummary.inTime[weekOfYear -1][dayOfWeek -1][numOfSignIn - 1].toString());
+      //  System.out.println(""+timeSummary.outTime[weekOfYear -1][dayOfWeek -1 ][numOfSignOut].toString());
+      //  System.out.println("------>");
         //this returns period in minutes as an integer
         timeWorked=period.getMinutes();
         timeSummary.minutesWorked[weekOfYear - 1][dayOfWeek - 1] += timeWorked;

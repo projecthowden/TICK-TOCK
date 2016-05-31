@@ -45,7 +45,7 @@
             android:layout_height="100dp"
             android:id="@+id/summary"
             android:textSize="18sp"
-            android:text="SEE LOGGED HOURS"
+            android:text="SEE LOGGED TIME"
             android:onClick="onClick_seeLoggedHours" />
         <Button
             android:layout_width="210dp"
