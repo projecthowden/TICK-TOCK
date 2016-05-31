@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="15dp">
@@ -50,16 +53,18 @@
             android:background="@color/background_material_light"
             android:onClick="onClickNextTo_2"/>
         <CalendarView
+            android:id="@+id/displaytotaltime_one_calendarStart"
             android:layout_column="1"
             android:layout_row="1"
             android:layout_width="400dp"
-            android:layout_height="350dp"
+            android:layout_height="280dp"
             android:layout_gravity="center"></CalendarView>
         <CalendarView
+            android:id="@+id/displaytotaltime_one_calendarEnd"
             android:layout_column="2"
             android:layout_row="1"
             android:layout_width="400dp"
-            android:layout_height="350dp"
+            android:layout_height="280dp"
             android:layout_gravity="center"></CalendarView>
     </GridLayout>
     <LinearLayout
@@ -78,7 +83,7 @@
             android:id="@+id/displaytotaltime_one_TV_numberOfDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20"
+            tools:text="20"
             android:textSize="20sp"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -98,7 +103,7 @@
             android:id="@+id/displaytotaltime_one_TV_startDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12/6/2016"
+            tools:text="12/6/2016"
             android:textSize="20sp"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -118,7 +123,7 @@
             android:id="@+id/displaytotaltime_one_TV_endDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="18/6/2016"
+            tools:text="18/6/2016"
             android:textSize="20sp"
             android:textStyle="bold"/>
     </LinearLayout>

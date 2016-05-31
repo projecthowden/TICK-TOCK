@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginRight="15dp"
     android:layout_marginTop="20dp"
@@ -47,7 +49,7 @@
         android:id="@+id/displaytotaltime_two_LV_employee_time"
         android:layout_below="@+id/displaytotaltime_two_LL_label"
         android:layout_width="wrap_content"
-        android:layout_height="350dp"></ListView>
+        android:layout_height="270dp"></ListView>
     <LinearLayout
         android:id="@+id/displaytotaltime_two_ll_selectedEmployee"
         android:layout_below="@id/displaytotaltime_two_LV_employee_time"
@@ -61,15 +63,17 @@
             android:text="EMPLOYEE SELECTED:"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:textColor="#111111"
+            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/displaytotaltime_two_TV_nameOfEmployee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Andrew White"
+            tools:text="Andrew White"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:textColor="#111111"
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
     <TextView
         android:layout_below="@id/displaytotaltime_two_ll_selectedEmployee"
@@ -79,7 +83,8 @@
         android:textSize="15sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff0000" />
+        android:textColor="#ff0000"
+        android:layout_marginTop="10dp"/>
 
     <ImageView
         android:layout_width="150dp"

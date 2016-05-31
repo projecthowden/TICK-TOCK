@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         try {
+
+        if(Global.accessDatabase() == null)
+        try {
             Global.loadState(this);
         } catch (IOException e) { }
 
@@ -35,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
     public void onClickAddEmps(View view){
         Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
-      /*  Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
+       Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
         Global.accessDatabase().addEmployee(new Employee("Mary", 4412));
-        Global.accessDatabase().addEmployee(new Employee("Jane", 4421));
+         Global.accessDatabase().addEmployee(new Employee("Jane", 4421));
         Global.accessDatabase().addEmployee(new Employee("Jay", 4453));
         Global.accessDatabase().addEmployee(new Employee("Ricky", 1879));
         Global.accessDatabase().addEmployee(new Employee("Renny", 1919));
         Global.accessDatabase().addEmployee(new Employee("Joesph", 8484));
         Global.accessDatabase().addEmployee(new Employee("Khalia", 4582));
         Global.accessDatabase().addEmployee(new Employee("Jacob", 1541));
-        Global.accessDatabase().addEmployee(new Employee("Joke", 4559));*/
+        Global.accessDatabase().addEmployee(new Employee("Joke", 4559));
 
 
 
@@ -53,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
     }
-
+/*
     @Override
     public void onPause() {
         super.onPause();
         Global.saveState(this);
     }
-
+*/
 }

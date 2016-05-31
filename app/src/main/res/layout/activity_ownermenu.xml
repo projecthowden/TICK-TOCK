@@ -74,7 +74,7 @@
             android:layout_height="100dp"
             android:textSize="20sp"
             android:id="@+id/staffPin"
-            android:text="CHANGE STAFF PIN"
+            android:text="EDIT STAFF PIN"
             android:onClick="onClick_changePin" />
         <Button
             android:layout_width="210dp"

@@ -16,6 +16,9 @@ public class displayemployees extends AppCompatActivity {
         setContentView(R.layout.activity_displayemployees);
         populateList();
 
+
+
+
     }
     public void onClickExit(View view){
         //just go back to ownermenu
@@ -36,9 +39,11 @@ public class displayemployees extends AppCompatActivity {
     @Override
     public void onBackPressed() {}
 
+   /*
     @Override
     public void onPause() {
         super.onPause();
         Global.saveState(this);
     }
+*/
 }
