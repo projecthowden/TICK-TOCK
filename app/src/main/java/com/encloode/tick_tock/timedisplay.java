@@ -10,6 +10,9 @@ import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeFieldType;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -30,6 +33,7 @@ public class timedisplay extends AppCompatActivity {
         TextView tx4 = (TextView) findViewById(R.id.hoursDescription);
 
         Calendar c = Calendar.getInstance();
+        DateTime b = new DateTime(); //using this object now instead of 'c'
         int currentTime = (int) c.getTimeInMillis();
         Calendar currentTime1 = Calendar.getInstance();
         currentTime1.setTimeInMillis(currentTime);
@@ -40,7 +44,7 @@ public class timedisplay extends AppCompatActivity {
 
         // if false it means they are clocked out so we must clocked them in
         if(Global.accessDatabase().getEmployee(idOfCurrentEmp).isSignedIn() == false)  {
-            Global.accessDatabase().setInTimeOf(idOfCurrentEmp,Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK,c.getTime());
+            Global.accessDatabase().setInTimeOf(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek(),b);
 
             tx1.setText("CLOCKED IN AT:");
             tx2.setText("Thank you for logging in!");
@@ -48,15 +52,16 @@ public class timedisplay extends AppCompatActivity {
 
         else {
 
-            Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK,c.getTime());
+            Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek(),b);
 
             tx1.setText("CLOCKED OUT AT:");
             tx2.setText("Thank you for logging out!");
 
-            int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,Calendar.WEEK_OF_YEAR,Calendar.DAY_OF_WEEK);
+            int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek());
 
             int hoursWorked = minWorked/60;
             int minLeft = minWorked - (hoursWorked*60);
+            // idealy all this should be done using a tostring method of the joda time class.
 
             tx3.setText(hoursWorked + " Hours " + minLeft + "Minutes");
 

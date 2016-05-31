@@ -3,6 +3,9 @@
  * @author Riko Hamblin
  */
 package com.encloode.tick_tock;
+import org.joda.time.DateTime;
+import org.joda.time.Period;
+
 import java.io.Serializable;
 import java.util.Calendar ;
 import java.util.Date;
@@ -105,22 +108,22 @@ public class Employee implements Serializable {
             return false;
     }
 
-    //these were added on may 26th to implement the new timesummary class
+    //these were added on may 26th to implement the new time summary class
     //employee
-    public void setInTime(int week, int day, Date time) {
+    public void setInTime(int week, int day, DateTime time) {
         timeSummary.inTime[week - 1][day - 1][numOfSignIn] = time;
         toggleSignIn();
         numOfSignIn++;
 
     }
 
-    public void setInTime(int week, int day, int position, Date time) {
+    public void setInTime(int week, int day, int position, DateTime time) {
         timeSummary.inTime[week - 1][day - 1][position] = time;
 
 
     }
 
-    public void setOutTime(int week, int day, Date time) {
+    public void setOutTime(int week, int day, DateTime time) {
         timeSummary.outTime[week - 1][day - 1][numOfSignOut] = time;
 
         toggleSignIn();
@@ -132,7 +135,7 @@ public class Employee implements Serializable {
         numOfSignOut++;
     }
 
-    public void setOutTime(int week, int day, int position, Date time) {
+    public void setOutTime(int week, int day, int position, DateTime time) {
         timeSummary.outTime[week - 1][day - 1][position] = time;
     }
 
@@ -140,11 +143,11 @@ public class Employee implements Serializable {
         timeSummary.minutesWorked[week - 1][day - 1] = time;
     }
 
-    public Date getInTime(int week, int day, int signInPosition) {
+    public DateTime getInTime(int week, int day, int signInPosition) {
         return timeSummary.inTime[week - 1][day - 1][signInPosition];
     }
 
-    public Date getOutTime(int week, int day, int signOutPosition) {
+    public DateTime getOutTime(int week, int day, int signOutPosition) {
         return timeSummary.outTime[week - 1][day - 1][signOutPosition];
     }
 
@@ -157,18 +160,12 @@ public class Employee implements Serializable {
     }
 
     public void calculateTimeWorkedToday(int weekOfYear, int dayOfWeek) {
-
         int temp;
         int timeWorked;
-        int numOfMilliSecsInMin = 1000*60;
-
-        temp = (int) timeSummary.outTime[weekOfYear - 1][dayOfWeek - 1][numOfSignOut].getTime() -
-                (int) timeSummary.inTime[weekOfYear - 1][dayOfWeek - 1][numOfSignIn - 1].getTime();
-
-        timeWorked = temp / numOfMilliSecsInMin;
-
-        timeSummary.minutesWorked[weekOfYear - 1][dayOfWeek - 1] = timeSummary.minutesWorked[weekOfYear - 1][dayOfWeek - 1]
-                + timeWorked;
+        Period period = new Period(timeSummary.inTime[weekOfYear - 1][dayOfWeek - 1][numOfSignIn - 1],timeSummary.outTime[weekOfYear - 1][dayOfWeek - 1][numOfSignOut]);
+        //this returns period in minutes as an integer
+        timeWorked=period.getMinutes();
+        timeSummary.minutesWorked[weekOfYear - 1][dayOfWeek - 1] += timeWorked;
     }
 
 }

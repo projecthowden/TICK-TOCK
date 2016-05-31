@@ -5,6 +5,8 @@
 package com.encloode.tick_tock;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -179,11 +181,11 @@ public class EmployeeDatabase implements Serializable {
     }
 
     //added for timeSummary
-    public void setInTimeOf(int id, int week, int day, Date time) {
+    public void setInTimeOf(int id, int week, int day, DateTime time) {
     getEmployee(id).setInTime(week,day,time);
     }
 
-    public void setOutTimeOf(int id, int week, int day, Date time) {
+    public void setOutTimeOf(int id, int week, int day, DateTime time) {
         getEmployee(id).setOutTime(week,day,time);
     }
 
@@ -191,11 +193,11 @@ public class EmployeeDatabase implements Serializable {
 getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
     }
 
-    public Date getInTimeOf(int id, int week, int day, int signInPosition) {
+    public DateTime getInTimeOf(int id, int week, int day, int signInPosition) {
         return getEmployee(id).getTimeSummary().inTime[week][day][signInPosition];
     }
 
-    public Date getOutTimeOf(int id, int week, int day,int signOutPosition) {
+    public DateTime getOutTimeOf(int id, int week, int day,int signOutPosition) {
         return getEmployee(id).getTimeSummary().outTime[week][day][signOutPosition];
     }
 
