@@ -89,5 +89,6 @@
         android:layout_alignBottom="@+id/displaytotaltime_four_backButton"
         android:layout_alignParentEnd="true"
         android:src="@drawable/exit"
-        android:background="@color/background_material_light" />
+        android:background="@color/background_material_light"
+        android:onClick="onClickBackTo_2" />
 </RelativeLayout>

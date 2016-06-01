@@ -108,6 +108,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     }
         return false;
     }
+
     //fucntions to handle layout changes in forward progression
     public void onClickNextTo_2(View view){
         if(printNumDays()) {
@@ -131,10 +132,8 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             myToast1.show();
         }
     }
-
-    //----->complete this validate that a date was selected
     public void onClickNextTo_4(View view){
-        TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
+        TextView tx = (TextView) findViewById(R.id.displaytotaltime_three_TV_dateSelected);
 
         if(!tx.getText().equals("")) {
             logicForScreen4();
@@ -145,6 +144,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             myToast1.show();
         }
     }
+
     //functions to handle layout changes in backwards progression
     public void onClickBackTo_3(View view){
         logicForScreen3();
@@ -180,7 +180,6 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         });
 
     }
-
     private void logicForScreen3(){
         setContentView(R.layout.displaytotaltime_three);
         TextView tx = (TextView) findViewById(R.id.displaytotaltime_three_TV_enployeeName);
@@ -200,7 +199,6 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             }
         });
     }
-
     private void logicForScreen4() {
         setContentView(R.layout.displaytotaltime_four);
 
