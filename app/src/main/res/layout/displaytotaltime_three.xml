@@ -79,7 +79,7 @@
         android:id="@+id/displaytotaltime_three_LV_employee_time"
         android:layout_below="@+id/displaytotaltime_three_LL_label"
         android:layout_width="wrap_content"
-        android:layout_height="320dp"></ListView>
+        android:layout_height="290dp"></ListView>
     <LinearLayout
         android:id="@+id/displaytotaltime_three_ll_selectedDate"
         android:layout_below="@id/displaytotaltime_three_LV_employee_time"

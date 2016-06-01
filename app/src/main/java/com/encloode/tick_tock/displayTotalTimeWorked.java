@@ -199,6 +199,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             }
         });
     }
+
     private void logicForScreen4() {
         setContentView(R.layout.displaytotaltime_four);
 
@@ -209,16 +210,16 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         name.setText(nameChosen);
         date.setText(dateChosenOnScreen3.getDayOfMonth()+"/"+dateChosenOnScreen3.getMonthOfYear()+"/"+dateChosenOnScreen3.getYear());
 
-        ListView list = (ListView) findViewById(R.id.displaytotaltime_three_LV_employee_time);
+        ListView list = (ListView) findViewById(R.id.displaytotaltime_four_employee_status);
 
         ArrayList<DateTime> inTimes = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfInTimes(dateChosenOnScreen3);
         ArrayList<DateTime> outTimes = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfOutTimes(dateChosenOnScreen3);
+        ArrayList<DateTime> times = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfIN_OUTTimes(dateChosenOnScreen3);
 
         // displayTotalTimeWorked_listAdapter_three adapter = new displayTotalTimeWorked_listAdapter_three(this,inTimes, outTimes, person);
-        // list.setAdapter(adapter);
-
+        displayTotalTimeWorked_listAdapter_four adapter = new displayTotalTimeWorked_listAdapter_four(this,times, person);
+         list.setAdapter(adapter);
     }
-
 
     @Override
     public void onBackPressed() {}
