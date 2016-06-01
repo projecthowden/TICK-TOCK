@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,5 +73,20 @@ public class TimeSummary implements Serializable {
         int minutesWorked = totalMinutesWorked - totalHoursDuringInterval(start, end) * 60;
 
         return minutesWorked;
+    }
+
+    public ArrayList<DateTime> getListOfDates (DateTime start, DateTime end){
+        ArrayList<DateTime> dates = new ArrayList<>();
+
+        DateTime date = start;
+
+        while(date.isBefore(end)){
+            dates.add(date);
+            date.plusDays(1);
+           }
+        dates.add(end);
+
+        return dates;
+
     }
 }
