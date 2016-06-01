@@ -17,11 +17,11 @@ import java.util.ArrayList;
  */
 public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTime> implements Serializable {
 
-    private DateTime start;
-    private DateTime end;
     private ArrayList<Integer> hiddenItems;
-    private ArrayList<DateTime> list;
-    private int size;
+    private ArrayList<DateTime> inTimes;
+    private ArrayList<DateTime> outTimes;
+    private int sizeIn;
+    private int sizeOut;
     private Employee employee;
 
     /*
@@ -33,15 +33,20 @@ public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTi
     public displayTotalTimeWorked_listAdapter_four(Context context, ArrayList<DateTime> inTimes, ArrayList<DateTime> outTimes,Employee emp) {
         super(context,0);
 
-        //  size = dates.size();
-        //  list = dates;
-        hiddenItems = new ArrayList<>();
         employee = emp;
+
+        this.inTimes = inTimes;
+        this.outTimes = outTimes;
+
+        sizeIn = inTimes.size();
+        sizeOut = outTimes.size();
+
+        hiddenItems = new ArrayList<>();
         hide();
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        // break code below into two for the two lists and implement custom get methods to retrieve in out times
 
         // Get the data item for this position
             DateTime date = getItem(position);
@@ -56,8 +61,8 @@ public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTi
 
 
             //populate the data into the template view using the data object
-            tv_inTime.setText(date.getDayOfMonth()+"/"+date.getMonthOfYear()+"/"+date.getYear());
-            tv_outTime.setText(""+date.dayOfWeek().getAsText());
+            tv_inTime.setText("");
+            tv_outTime.setText("");
 
 
             //return the completed view to render on the screen
@@ -67,7 +72,7 @@ public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTi
 
     @Override
     public int getCount() {
-        return size - hiddenItems.size();
+        return sizeIn - hiddenItems.size();
     }
 
     @Override
@@ -79,18 +84,18 @@ public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTi
                 position++;
         }
 
-        return list.get(position);
+        return null;//list.get(position);
     }
 
     public void hide(){
 
         //this builds a list with all indexes that have no time worked
-        for (int i = 0; i < size; i++) {
-            if(employee.getTimeSummary().totalTimeDuringInterval(list.get(i),list.get(i)) == 0){
-                hiddenItems.add(i);
-            }
+        //  for (int i = 0; i < size; i++) {
+        //     if(employee.getTimeSummary().totalTimeDuringInterval(list.get(i),list.get(i)) == 0){
+        //        hiddenItems.add(i);
+        //   }
 
-        }
+        //  }
 
 
     }

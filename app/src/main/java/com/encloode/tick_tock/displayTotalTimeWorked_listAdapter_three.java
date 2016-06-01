@@ -17,8 +17,6 @@ import java.util.ArrayList;
  */
 public class displayTotalTimeWorked_listAdapter_three extends ArrayAdapter<DateTime> implements Serializable {
 
-    private DateTime start;
-    private DateTime end;
     private ArrayList<Integer> hiddenItems;
     private ArrayList<DateTime> list;
     private int size;
