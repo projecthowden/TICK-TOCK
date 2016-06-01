@@ -24,7 +24,7 @@ public class Global implements Serializable{
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
 
-    static String fileName = "c3.dat";
+    static String fileName = "c4.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 
