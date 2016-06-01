@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by Riko Hamblin on 05/30/16.
  */
-public class displayTotalTimeWorked_listAdapter_three extends ArrayAdapter<DateTime> implements Serializable {
+public class displayTotalTimeWorked_listAdapter_four extends ArrayAdapter<DateTime> implements Serializable {
 
     private DateTime start;
     private DateTime end;
@@ -30,11 +30,11 @@ public class displayTotalTimeWorked_listAdapter_three extends ArrayAdapter<DateT
     * http://stackoverflow.com/questions/18771923/listview-hide-some-items
     */
 
-    public displayTotalTimeWorked_listAdapter_three(Context context, ArrayList<DateTime> dates,Employee emp) {
-        super(context,0, dates);
+    public displayTotalTimeWorked_listAdapter_four(Context context, ArrayList<DateTime> inTimes, ArrayList<DateTime> outTimes,Employee emp) {
+        super(context,0);
 
-        size = dates.size();
-        list = dates;
+        //  size = dates.size();
+        //  list = dates;
         hiddenItems = new ArrayList<>();
         employee = emp;
         hide();
@@ -48,19 +48,17 @@ public class displayTotalTimeWorked_listAdapter_three extends ArrayAdapter<DateT
 
             //Check if an existing view is being reused, otherwise inflate the view
             if (convertView == null)
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.displaytotaltime_three_listformat, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.displaytotaltime_four_listformat, parent, false);
 
             //Lookup view for data population
-            TextView tv_DATE = (TextView) convertView.findViewById(R.id.displaytotaltime_three_listDate);
-            TextView tv_DAY = (TextView) convertView.findViewById(R.id.displaytotaltime_three_listDay);
-            TextView tv_HRS = (TextView) convertView.findViewById(R.id.displaytotaltime_three_listHours);
-            TextView tv_MINS = (TextView) convertView.findViewById(R.id.displaytotaltime_three_listMinutes);
+            TextView tv_inTime = (TextView) convertView.findViewById(R.id.displaytotaltime_four_listInTime);
+            TextView tv_outTime = (TextView) convertView.findViewById(R.id.displaytotaltime_four_listOutTime);
+
 
             //populate the data into the template view using the data object
-            tv_DATE.setText(date.getDayOfMonth()+"/"+date.getMonthOfYear()+"/"+date.getYear());
-            tv_DAY.setText(""+date.dayOfWeek().getAsText());
-            tv_HRS.setText(Integer.toString(employee.getTimeSummary().totalHoursDuringInterval(date,date)));
-            tv_MINS.setText(Integer.toString(employee.getTimeSummary().totalMinutesDuringInterval(date,date)));
+            tv_inTime.setText(date.getDayOfMonth()+"/"+date.getMonthOfYear()+"/"+date.getYear());
+            tv_outTime.setText(""+date.dayOfWeek().getAsText());
+
 
             //return the completed view to render on the screen
             return convertView;

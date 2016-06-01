@@ -82,11 +82,35 @@ public class TimeSummary implements Serializable {
 
         while(date.isBefore(end)){
             dates.add(date);
-            date.plusDays(1);
+            date = date.plusDays(1);
            }
         dates.add(end);
 
         return dates;
 
+    }
+
+    public ArrayList<DateTime> getListOfInTimes (DateTime date){
+        ArrayList<DateTime> inTimes = new ArrayList<>();
+
+        int weekWanted = date.getWeekOfWeekyear();
+        int dayOfWeekWanted = date.getDayOfWeek();
+
+        for (int i = 0; i < numOfClockIn_OutAllowedPerDay; i++)
+            inTimes.add(inTime[weekWanted-1][dayOfWeekWanted-1][i]);
+
+        return inTimes;
+    }
+
+    public ArrayList<DateTime> getListOfOutTimes (DateTime date){
+        ArrayList<DateTime> outTimes = new ArrayList<>();
+
+        int weekWanted = date.getWeekOfWeekyear();
+        int dayOfWeekWanted = date.getDayOfWeek();
+
+        for (int i = 0; i < numOfClockIn_OutAllowedPerDay; i++)
+            outTimes.add(inTime[weekWanted-1][dayOfWeekWanted-1][i]);
+
+        return outTimes;
     }
 }
