@@ -78,7 +78,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Number of days selected:"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:id="@+id/text" />
         <TextView
             android:id="@+id/displaytotaltime_one_TV_numberOfDays"
             android:layout_width="wrap_content"

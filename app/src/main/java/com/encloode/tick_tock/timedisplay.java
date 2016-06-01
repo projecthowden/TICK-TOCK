@@ -26,7 +26,7 @@ public class timedisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timedisplay);
 
-        Handler mHandler = new Handler();
+
         TextView tx1 = (TextView) findViewById(R.id.timedisplayMessage);
         TextView tx2 = (TextView) findViewById(R.id.thankYouMessage);
         TextView tx3 = (TextView) findViewById(R.id.totalHours);
@@ -34,16 +34,12 @@ public class timedisplay extends AppCompatActivity {
 
         Calendar c = Calendar.getInstance();
         DateTime b = new DateTime(); //using this object now instead of 'c'
-        int currentTime = (int) c.getTimeInMillis();
-        Calendar currentTime1 = Calendar.getInstance();
-        currentTime1.setTimeInMillis(currentTime);
-        Date obj3 = currentTime1.getTime();
-        Date obj = c.getTime();
 
         idOfCurrentEmp= Integer.parseInt(getIntent().getExtras().getString("id"));
 
         // if false it means they are clocked out so we must clocked them in
         if(Global.accessDatabase().getEmployee(idOfCurrentEmp).isSignedIn() == false)  {
+
             Global.accessDatabase().setInTimeOf(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek(),b);
 
             tx1.setText("CLOCKED IN AT:");
@@ -51,13 +47,14 @@ public class timedisplay extends AppCompatActivity {
         }
 
         else {
-
             Global.accessDatabase().setOutTimeOf(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek(),b);
 
             tx1.setText("CLOCKED OUT AT:");
             tx2.setText("Thank you for logging out!");
 
-            int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek());
+             int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,b.getWeekOfWeekyear(), b.getDayOfWeek());
+
+           // int minWorked = Global.accessDatabase().getMinutesWorkedFor(idOfCurrentEmp,Calendar.WEEK_OF_YEAR, Calendar.DAY_OF_WEEK);
 
             int hoursWorked = minWorked/60;
             int minLeft = minWorked - (hoursWorked*60);
@@ -71,11 +68,12 @@ public class timedisplay extends AppCompatActivity {
 
         }
 
+        Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
             public void run() {
                 transistionToHomeScreen();
             }
-        }, 2000);
+        }, 100);
     }
 
     private void transistionToHomeScreen() {
