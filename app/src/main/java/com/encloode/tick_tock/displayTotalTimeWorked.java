@@ -109,7 +109,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     //fucntions to handle layout changes in forward progression
     public void onClickNextTo_2(View view){
         if(printNumDays()) {
-            setContentView(R.layout.displaytotaltime_two);
+
             logicForScreen2();
         }
         else {
@@ -120,7 +120,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     public void onClickNextTo_3(View view){
         TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
         if(!tx.getText().equals("")) {
-            setContentView(R.layout.displaytotaltime_three);
+
             logicForScreen3();
         }
         else {
@@ -139,9 +139,9 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         setContentView(R.layout.displaytotaltime_three);
     }
 
-    //------->complete this
+
     public void onClickBackTo_2(View view){
-        setContentView(R.layout.displaytotaltime_two);
+        logicForScreen2();
     }
     public  void onClickBackTo_1(View view){
         startActivity(new Intent(this,displayTotalTimeWorked.class));
@@ -151,6 +151,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     }
 
     private void logicForScreen2() {
+        setContentView(R.layout.displaytotaltime_two);
         ListView list = (ListView) findViewById(R.id.displaytotaltime_two_LV_employee_time);
 
         displayTotalTimeWorked_listAdapter_two adapter = new displayTotalTimeWorked_listAdapter_two(this,Global.accessDatabase().getEmployeeList(),startDate,endDate);
@@ -174,6 +175,28 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     private void logicForScreen3(){
         //build list adapter
         //POPULATE total time for each date and day
+
+        setContentView(R.layout.displaytotaltime_three);
+        TextView tx = (TextView) findViewById(R.id.displaytotaltime_three_TV_enployeeName);
+        Employee person = Global.accessDatabase().getEmployee(employeeID);
+        tx.setText(nameChosen);
+
+        ListView list = (ListView) findViewById(R.id.displaytotaltime_three_LV_employee_time);
+        displayTotalTimeWorked_listAdapter_three adapter = new displayTotalTimeWorked_listAdapter_three(this,Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfDates(startDate,endDate),person);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
+
+
+                //this way of retrieving object data is based on the actual row selected
+                nameChosen = ((Employee) parent.getAdapter().getItem(position)).getName();
+                employeeID = ((Employee) parent.getAdapter().getItem(position)).getID();
+
+               // tx.setText(nameChosen);
+            }
+        });
+
 
     }
 
