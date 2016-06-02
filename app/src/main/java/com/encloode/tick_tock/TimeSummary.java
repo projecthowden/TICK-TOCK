@@ -62,9 +62,6 @@ public class TimeSummary implements Serializable {
         int totalMinutesWorked = totalTimeDuringInterval(start, end);
 
         return totalMinutesWorked/60;
-
-
-
     }
 
     public int totalMinutesDuringInterval(DateTime start, DateTime end) {
@@ -112,5 +109,19 @@ public class TimeSummary implements Serializable {
             outTimes.add(inTime[weekWanted-1][dayOfWeekWanted-1][i]);
 
         return outTimes;
+    }
+
+    public ArrayList<DateTime> getListOfIN_OUTTimes (DateTime date) {
+        ArrayList<DateTime> times = new ArrayList<>();
+
+        int weekWanted = date.getWeekOfWeekyear();
+        int dayOfWeekWanted = date.getDayOfWeek();
+
+        for (int i = 0; i < numOfClockIn_OutAllowedPerDay; i++) {
+            times.add(inTime[weekWanted - 1][dayOfWeekWanted - 1][i]);
+            times.add(outTime[weekWanted - 1][dayOfWeekWanted - 1][i]);
+        }
+
+        return times;
     }
 }

@@ -60,8 +60,8 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button"
+        android:onClick="onClickAddEmps"
         android:layout_below="@+id/title"
-        android:layout_alignParentStart="true"
-        android:onClick="onClickAddEmps" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
