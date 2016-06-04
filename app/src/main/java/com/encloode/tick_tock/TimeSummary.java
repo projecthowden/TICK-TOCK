@@ -19,7 +19,7 @@ public class TimeSummary implements Serializable {
     public int[][] minutesWorked;
     public DateTime[][][] inTime;
     public DateTime[][][] outTime;
-    static int numOfClockIn_OutAllowedPerDay = 10;
+    static int numOfClockIn_OutAllowedPerDay = 20;
 
 
     public TimeSummary() {

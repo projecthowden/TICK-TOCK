@@ -3,6 +3,7 @@ package com.encloode.tick_tock;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import org.joda.time.DateTime;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -132,13 +134,11 @@ public class editTime extends AppCompatActivity {
 
         TextView newHour = (TextView) findViewById(R.id.edittime_two_ET_changeHours);
         TextView newMinutes = (TextView) findViewById(R.id.edittime_two_ET_changeMinutes);
-        if (!newHour.getText().toString().equals("") && !newMinutes.getText().toString().equals("")) {
-        if (Integer.parseInt(newHour.getText().toString()) <= 23 && Integer.parseInt(newMinutes.getText().toString()) <= 59) {
+        if (!newHour.getText().toString().equals("") && !newMinutes.getText().toString().equals("")) { //if fields are filled
+        if (Integer.parseInt(newHour.getText().toString()) <= 23 && Integer.parseInt(newMinutes.getText().toString()) <= 59) { //and hours and minutes are in acceptable range
 
                 newTimeEntered[0] = Integer.parseInt(newHour.getText().toString());
                 newTimeEntered[1] = Integer.parseInt(newMinutes.getText().toString());
-
-
 
                 setContentView(R.layout.edittime_three);
 
@@ -182,35 +182,17 @@ public class editTime extends AppCompatActivity {
                         getApplicationContext(), "Saving...", Toast.LENGTH_LONG);
                 myToast1.show();
 
-        System.out.println(""+date.getWeekOfWeekyear()+"----->"+date.getDayOfWeek());
-        Global.accessDatabase().clearIn_Out_timesFor(employeeID, Calendar.WEEK_OF_YEAR, date.getDayOfWeek());
 
-        Calendar inTime = Calendar.getInstance();
-        Calendar outTime =  Calendar.getInstance();
+        Global.accessDatabase().clearIn_Out_timesFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
 
-        inTime.set(Calendar.WEEK_OF_YEAR, date.getWeekOfWeekyear());
-        inTime.set(Calendar.DAY_OF_WEEK, date.getDayOfWeek());
-        inTime.set(Calendar.HOUR_OF_DAY, 0);
-        inTime.set(Calendar.MINUTE, 0 );
+        DateTime in  = date.withTime(0,0,0,0);
+        DateTime out = date.withTime(newTimeEntered[0],newTimeEntered[1],0,0);
 
-        outTime.set(Calendar.WEEK_OF_YEAR, date.getWeekOfWeekyear());
-        outTime.set(Calendar.DAY_OF_WEEK, date.getDayOfWeek());
-        outTime.set(Calendar.HOUR_OF_DAY, newTimeEntered[0]);
-        outTime.set(Calendar.MINUTE, newTimeEntered[1] );
-
-        /*
-            * Convert the java calender object to joda object.
-            * using the following lines of code
-         */
-        DateTime inTime_=new DateTime(inTime);
-        DateTime outTime_=new DateTime(outTime);
+        Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),in);
+        Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), out);
 
         int minsWorked = newTimeEntered[0]*60+newTimeEntered[1];
         Global.accessDatabase().setMinutesWorkedFor(employeeID,date.getWeekOfWeekyear(), date.getDayOfWeek(),minsWorked);
-       // Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),inTime_);
-       // Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), outTime_);
-
-        System.out.println(""+Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek()));
 
         Toast myToast = Toast.makeText(
                 getApplicationContext(), "Time Changed", Toast.LENGTH_LONG);
@@ -235,6 +217,15 @@ public class editTime extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        Global.saveState(this);
+        new MyAsyncTask().execute();
+    }
+
+    //this async task runs on its own thread and saves the database to a file
+    class MyAsyncTask extends AsyncTask<Void,Void,Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            Global.saveState(editTime.this);
+            return null;
+        }
     }
 }

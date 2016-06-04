@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -9,6 +10,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 import javax.microedition.khronos.opengles.GL;
 
@@ -25,11 +28,10 @@ public class delete_employee extends AppCompatActivity {
         idEntered = (EditText) findViewById(R.id.delete_employee_et_id);
         name = (TextView) findViewById(R.id.activity_deleteEmp_TF_nameValue);
 
-
         TextView textView = (TextView) findViewById(R.id.delete_employee_et_id);
         textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) { //listen for DONE
 
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     whenDoneIsClicked();
@@ -46,23 +48,23 @@ public class delete_employee extends AppCompatActivity {
 
         name.setVisibility(View.VISIBLE);
 
-        if(!idEntered.getText().toString().equals("")) {
-            int idOfSearchedEmployee = Integer.parseInt(idEntered.getText().toString());
+        if(!idEntered.getText().toString().equals("")) { //if text was entered
+            int idOfSearchedEmployee = Integer.parseInt(idEntered.getText().toString()); //get id
 
-            if(Global.accessDatabase().idValid(idOfSearchedEmployee)){
+            if(Global.accessDatabase().idValid(idOfSearchedEmployee)){ //id doesnt match a user
                 Toast myToast = Toast.makeText(
                         getApplicationContext(), "NO USER FOUND", Toast.LENGTH_LONG);
                 myToast.show();
                 return false;
             }
 
-            else {
+            else { //user found so display name
                 id = idOfSearchedEmployee;
                 name.setText(Global.accessDatabase().getNameOf(idOfSearchedEmployee));
                 return true;
             }
         }
-        else {
+        else { //no text was enetered
             Toast myToast = Toast.makeText(
                     getApplicationContext(), "ENTER ID", Toast.LENGTH_LONG);
             myToast.show();
@@ -72,28 +74,18 @@ public class delete_employee extends AppCompatActivity {
 
     public void onClickDelete(View view) {
         if(whenDoneIsClicked()) {
-
             Intent intent = new Intent(this, validate_confirm.class);
             intent.putExtra("id", id);
             startActivity(intent);
         }
-
     }
 
     public void onClickDeleteEmp(View view) {
-
         Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
-
     }
+
     @Override
     public void onBackPressed() {}
 
-   /*
-    @Override
-    public void onPause() {
-        super.onPause();
-        Global.saveState(this);
-    }
-*/
 }

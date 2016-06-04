@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -11,15 +12,20 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class add_employee extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+
         EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
         TextView textView=(TextView) findViewById(R.id.add_employee_tv_NumEmployeesLeft);
-        int numEmployeesLeft=EmployeeDatabase.maxEmployeeSize-EmployeeDatabase.getNumOfCurrentEmployees();
+
+        //calculates and displays the number of new employees which can be added
+        int numEmployeesLeft = EmployeeDatabase.maxEmployeeSize - EmployeeDatabase.getNumOfCurrentEmployees();
         textView.setText(numEmployeesLeft+"");
 
         editTextTypePinAgain.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -42,18 +48,17 @@ public class add_employee extends AppCompatActivity {
         EditText editTextTypePinAgain = (EditText) findViewById(R.id.add_employee_et_Reenterpin);
         EditText editTextName = (EditText) findViewById(R.id.add_employee_et_name);
 
-
-
-        //check that fields are filled
+        //check that fields are filled using custom isNull(String str){...} method
         if (isNull(editTextPin.getText().toString()) || isNull(editTextTypePinAgain.getText().toString()) || isNull(editTextName.getText().toString())) {
 
             Toast myToast = Toast.makeText(
                     getApplicationContext(), "Fill all fields", Toast.LENGTH_LONG);
             myToast.show();
+
         }
 
-        //now we need to validate the pin.
-       else if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize){//only allows 3 employees for now
+        //if they are filled now we need to validate the pin.
+       else if (EmployeeDatabase.getNumOfCurrentEmployees() < EmployeeDatabase.maxEmployeeSize){
 
             //and stored the value in a variable after typecasting.
             int pin = Integer.parseInt(editTextPin.getText().toString());
@@ -66,6 +71,8 @@ public class add_employee extends AppCompatActivity {
                        getApplicationContext(), "Pins Do Not Match", Toast.LENGTH_LONG);
                myToast.show();
            }
+
+           //less than 4 digits entered
            else if(editTextPin.getText().toString().length() < 4){
                Toast myToast = Toast.makeText(
                        getApplicationContext(), "ENTER A PIN OF 4 DIGITS", Toast.LENGTH_LONG);
@@ -82,11 +89,10 @@ public class add_employee extends AppCompatActivity {
                        getApplicationContext(), "Successfully Added " + Global.accessDatabase().getNameOf(Global.accessDatabase().getEmployeebyPin(pin).getID()), Toast.LENGTH_LONG);
                myToast.show();
 
-                //go to owner menu activity
+                //go to owner menu activity because add was succesfull
                 Intent intent = new Intent(this, ownermenu.class);
                 startActivity(intent);
-                //employee is sucessfully
-                //now we return to the owner menu
+
             }
             else { //pin matches but not valid OR THE PERSON ENTERS THE MASTER CODE
                 Toast myToast = Toast.makeText(
@@ -109,11 +115,12 @@ public class add_employee extends AppCompatActivity {
         }
     }
 
+    //custom method to check if two pins match
     public boolean pinsMatch (int pin1, int pin2) {
         if(pin1 == pin2 ) return true;
         else return false;
     }
-
+    //custom method to check if a string is null
     public boolean isNull (String str) {
         if(str.isEmpty()) return true;
         else return false;
@@ -123,12 +130,27 @@ public class add_employee extends AppCompatActivity {
         Intent intent = new Intent(this, ownermenu.class) ;
         startActivity(intent);
     }
+
     @Override
     public void onBackPressed() {}
 
     @Override
     public void onPause() {
         super.onPause();
-        Global.saveState(this);
+       new MyAsyncTask().execute();
+    }
+
+    //this async task runs on its own thread and saves the database to a file
+    class MyAsyncTask extends AsyncTask<Void,Void,Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            Global.saveState(add_employee.this);  //save database
+            return null;
+
+        }
     }
 }
+
+
+
+

@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,33 +9,41 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+
 import java.io.IOException;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        if(Global.accessDatabase() == null)
-        try {
+        setContentView(R.layout.activity_main); //pulls up the layout as the UI for this activity
+
+        //only when the database is empty(when it first loads) does it load the database from file
+       if(Global.accessDatabase() == null)
+           try {
             Global.loadState(this);
-        } catch (IOException e) { }
+        } catch (IOException e) {  e.printStackTrace();  }
 
-
-        TextView tx = (TextView) findViewById(R.id.companyName);
+        /* this is a rough implementation of a action to be performed at midnight
+        DateTime isMidnight = new DateTime();
+        if(isMidnight == new DateTime().withTimeAtStartOfDay())
+      Global.accessDatabase().resetNumOfSignIn_Out();
+        */
+        TextView tx = (TextView) findViewById(R.id.companyName); // this is where the company name on title is changed
         tx.setText("Encloode");
-
     }
 
     public void onClick(View view){
         Intent intent = new Intent(MainActivity.this, enterpin.class) ;
         startActivity(intent);
-
     }
 
-    public void onClickAddEmps(View view){
+    //for debugging purposes only
+    public void onClickAddEmps(){
         Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
@@ -47,19 +56,9 @@ public class MainActivity extends AppCompatActivity {
         Global.accessDatabase().addEmployee(new Employee("Khalia", 4582));
         Global.accessDatabase().addEmployee(new Employee("Jacob", 1541));
         Global.accessDatabase().addEmployee(new Employee("Joke", 4559));
-
-
-
     }
 
     @Override
-    public void onBackPressed() {
-    }
-/*
-    @Override
-    public void onPause() {
-        super.onPause();
-        Global.saveState(this);
-    }
-*/
+    public void onBackPressed() {  } //this disables the physical back button on tablet
+
 }

@@ -15,7 +15,7 @@ public class EmployeeDatabase implements Serializable {
 
     public ArrayList<Employee> employees ;
 
-    static public int maxEmployeeSize = 15;
+    static public int maxEmployeeSize = 20;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
@@ -213,6 +213,14 @@ getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
         }
         getEmployee(id).numOfSignIn = 0;
         getEmployee(id).numOfSignOut = 0;
+    }
+
+    public void resetNumOfSignIn_Out(){
+        for(Employee emp: employees){
+            emp.numOfSignIn = 0;
+            emp.numOfSignOut = 0;
+        }
+
     }
 
 }
