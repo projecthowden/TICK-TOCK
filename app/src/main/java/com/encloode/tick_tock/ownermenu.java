@@ -12,6 +12,8 @@ public class ownermenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ownermenu);
+
+        //displaying current number of employees in the system
         TextView textView= (TextView) findViewById(R.id.no_employees);
         textView.setText(""+EmployeeDatabase.getNumOfCurrentEmployees());
     }
@@ -52,20 +54,10 @@ public class ownermenu extends AppCompatActivity {
     }
 
     public void onClick_exit(View view){
-        Intent intent = new Intent(this, MainActivity.class); //xxxxxxxxxxxxxxxxxxx
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void onBackPressed() {
-    }
-
- /*
     @Override
-    public void onPause() {
-        super.onPause();
-        Global.saveState(this);
-    }
-*/
-
-
+    public void onBackPressed() {  }
 }

@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 public class changePin extends AppCompatActivity {
     private String id;
@@ -133,7 +136,16 @@ public class changePin extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        Global.saveState(this);
+        new MyAsyncTask().execute();
+    }
+
+    //this async task runs on its own thread and saves the database to a file
+    class MyAsyncTask extends AsyncTask<Void,Void,Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+                Global.saveState(changePin.this);
+            return null;
+        }
     }
 
 }

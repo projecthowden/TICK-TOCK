@@ -14,18 +14,16 @@ public class displayemployees extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displayemployees);
+
         populateList();
-
-
-
-
     }
+
     public void onClickExit(View view){
         //just go back to ownermenu
         Intent intent = new Intent(this,ownermenu.class);
         startActivity(intent);
     }
-    //i dont think we will need the previous and the next buttons if we use the adapter class.
+
     private void populateList(){
         //Construct the data source
         ArrayList<Employee> arrayOfEmployees = Global.accessDatabase().getEmployeeList();
@@ -38,12 +36,4 @@ public class displayemployees extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {}
-
-   /*
-    @Override
-    public void onPause() {
-        super.onPause();
-        Global.saveState(this);
-    }
-*/
 }

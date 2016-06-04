@@ -37,25 +37,29 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.displaytotaltime_one);
 
+        //create objects of UI Calendars
         CalendarView startDateCalendar = (CalendarView) findViewById(R.id.displaytotaltime_one_calendarStart);
         CalendarView endDateCalendar   = (CalendarView) findViewById(R.id.displaytotaltime_one_calendarEnd);
 
         final Calendar start = Calendar.getInstance();
         final Calendar end = Calendar.getInstance();
+
+        //listen for a click on both calendars
         startDateCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+
+                //create an object of the date date selected
                 start.set(Calendar.YEAR, year);
                 start.set(Calendar.MONTH, month);
                 start.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                startDate = new DateTime(start.getTimeInMillis());
+                startDate = new DateTime(start.getTimeInMillis()); //assign that date as a DateTime object
 
                 TextView startDateText = (TextView) findViewById(R.id.displaytotaltime_one_TV_startDate);
-                startDateText.setText(dayOfMonth + "/" + (month+1) +"/"+year);
+                startDateText.setText(dayOfMonth + "/" + (month+1) +"/"+year); //+1 because Calendar class' month is zero indexed
 
                 printNumDays();
-
 
             }
         });
@@ -75,8 +79,6 @@ public class displayTotalTimeWorked extends AppCompatActivity {
                printNumDays();
             }
         });
-
-
    }
 
     public boolean printNumDays() {
@@ -84,26 +86,26 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         TextView numDaysSelected = (TextView) findViewById(R.id.displaytotaltime_one_TV_numberOfDays);
         TextView tx = (TextView) findViewById(R.id.text);
 
-        if (startDate != null && endDate != null){
-        if (startDate.isBefore(endDate) || startDate.isEqual(endDate)) {
+        if (startDate != null && endDate != null){ //if a date was entered for both start and end
+
+            //assure that start date is before or on end date
+            if (startDate.isBefore(endDate) || startDate.isEqual(endDate)) {
 
             tx.setVisibility(View.VISIBLE);
             numDaysSelected.setTextColor(Color.BLACK);
-            daysSelected = Days.daysBetween(startDate, endDate).getDays()+1;
 
+            daysSelected = Days.daysBetween(startDate, endDate).getDays()+1;
             if (daysSelected >= 0) numDaysSelected.setText("" + daysSelected);
             return true;
 
-        }
-        else
-        {
+             }
+            else  {
+
             numDaysSelected.setText("Choose an End date that is after or on Start date");
             numDaysSelected.setTextColor(Color.RED);
 
             tx.setVisibility(View.INVISIBLE);
-
-
-        }
+            }
 
     }
         return false;
@@ -111,10 +113,9 @@ public class displayTotalTimeWorked extends AppCompatActivity {
 
     //fucntions to handle layout changes in forward progression
     public void onClickNextTo_2(View view){
-        if(printNumDays()) {
 
+        if(printNumDays())
             logicForScreen2();
-        }
         else {
             Toast myToast = Toast.makeText(getApplicationContext(), "Choose an End date that is after the Start Date", Toast.LENGTH_LONG);
             myToast.show();
@@ -122,10 +123,8 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     }
     public void onClickNextTo_3(View view){
         TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
-        if(!tx.getText().equals("")) {
-
+        if(!tx.getText().equals(""))
             logicForScreen3();
-        }
         else {
             Toast myToast1 = Toast.makeText(
                     getApplicationContext(), "Select An Employee", Toast.LENGTH_LONG);
@@ -135,9 +134,9 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     public void onClickNextTo_4(View view){
         TextView tx = (TextView) findViewById(R.id.displaytotaltime_three_TV_dateSelected);
 
-        if(!tx.getText().equals("")) {
+        if(!tx.getText().equals(""))
             logicForScreen4();
-        }
+
         else {
             Toast myToast1 = Toast.makeText(
                     getApplicationContext(), "Select A Date", Toast.LENGTH_LONG);
@@ -205,19 +204,15 @@ public class displayTotalTimeWorked extends AppCompatActivity {
 
         TextView name = (TextView) findViewById(R.id.displaytotaltime_four_TV_enployeeName);
         TextView date = (TextView) findViewById(R.id.displaytotaltime_four_TV_date);
-        Employee person = Global.accessDatabase().getEmployee(employeeID);
 
         name.setText(nameChosen);
         date.setText(dateChosenOnScreen3.getDayOfMonth()+"/"+dateChosenOnScreen3.getMonthOfYear()+"/"+dateChosenOnScreen3.getYear());
 
         ListView list = (ListView) findViewById(R.id.displaytotaltime_four_employee_status);
 
-        ArrayList<DateTime> inTimes = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfInTimes(dateChosenOnScreen3);
-        ArrayList<DateTime> outTimes = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfOutTimes(dateChosenOnScreen3);
         ArrayList<DateTime> times = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfIN_OUTTimes(dateChosenOnScreen3);
 
-        // displayTotalTimeWorked_listAdapter_three adapter = new displayTotalTimeWorked_listAdapter_three(this,inTimes, outTimes, person);
-        displayTotalTimeWorked_listAdapter_four adapter = new displayTotalTimeWorked_listAdapter_four(this,times, person);
+        displayTotalTimeWorked_listAdapter_four adapter = new displayTotalTimeWorked_listAdapter_four(this,times);
          list.setAdapter(adapter);
     }
 
