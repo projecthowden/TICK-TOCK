@@ -15,6 +15,13 @@
         android:layout_alignParentTop="true"
         android:background="@color/background_material_light"
         android:onClick="onClickBackTo_2"/>
+    <TextView
+        android:id="@+id/display_totalTime_three_date_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="start-endDate"
+        android:textSize="20sp"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,17 +41,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time Worked by: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:textSize="20sp"/>
         <TextView
             android:id="@+id/displaytotaltime_three_TV_enployeeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Andrew White"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:textSize="20sp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/displaytotaltime_three_LL_label"
