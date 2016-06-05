@@ -19,8 +19,9 @@ public class Employee implements Serializable {
     private int pin;
     private TimeSummary timeSummary;
     private boolean signedIn;
-    public int numOfSignIn;
-    public int numOfSignOut;
+    private DateTime lastSignInDate; //this is to enable signout past midnight to work properly
+  //  public int numOfSignIn;
+ //   public int numOfSignOut;
     static int numOfEmployees;
 
 
@@ -31,8 +32,8 @@ public class Employee implements Serializable {
         this.name = name;
         this.pin = pin;
         this.signedIn = false;
-        numOfSignIn = 0;
-        numOfSignOut = 0;
+    //    numOfSignIn = 0;
+    //    numOfSignOut = 0;
         timeSummary = new TimeSummary();
 
     }
@@ -104,10 +105,14 @@ public class Employee implements Serializable {
     //these were added on may 26th to implement the new time summary class
     //employee
     public void setInTime(int week, int day, DateTime time) {
-        timeSummary.inTime[week - 1][day - 1][numOfSignIn] = time;
+        int counterValue = timeSummary.getINCountValue(week,day);
+        timeSummary.inTime[week - 1][day - 1][counterValue] = time;
+        lastSignInDate = time;
 
         toggleSignIn();
-        numOfSignIn++;
+
+       timeSummary.incrementINCounter(week,day);
+      //  numOfSignIn++;
 
     }
 
@@ -117,12 +122,49 @@ public class Employee implements Serializable {
     }
 
     public void setOutTime(int week, int day, DateTime time) {
-        timeSummary.outTime[week - 1][day - 1][numOfSignOut] = time;
 
+        int counterOUTValue = timeSummary.getOUTCountValue(week, day);
+
+        //check if the employee if clocking out on a different day
+        if (lastSignInDate.getDayOfYear() != time.getDayOfYear()) { //if so then it means they stayed past midnight
+
+            //so clock them out at 11:59:59 on previous day
+            DateTime dayBeforeClockOut = time.minusDays(1).withTime(23,59,59,59); //creating object with date as date fore the clock out day
+
+            //getting which week and day that object is
+            int weekofDateBefore, dayofWeekOfDateBefore, counterOfDateBefore;
+            weekofDateBefore = dayBeforeClockOut.getWeekOfWeekyear();
+            dayofWeekOfDateBefore = dayBeforeClockOut.getDayOfWeek();
+
+            //clock out
+            counterOfDateBefore = timeSummary.getOUTCountValue(weekofDateBefore,dayofWeekOfDateBefore); //gets location of current slot to be filled
+            timeSummary.outTime[weekofDateBefore-1][dayofWeekOfDateBefore-1][counterOfDateBefore] = dayBeforeClockOut; //fills slot
+
+            toggleSignIn();
+            timeSummary.incrementOUTCounter(weekofDateBefore,dayofWeekOfDateBefore);
+            calculateTimeWorkedToday(weekofDateBefore,dayofWeekOfDateBefore); //computing hours
+
+            //now clock in at midnight of current day then out at time entered
+            //get time to midnight of current day
+             DateTime midnightOfDay = time.withTime(0,0,1,0);
+
+            //clock in
+            setInTime(week,day,midnightOfDay);
+
+            //clock out at time entered
+            timeSummary.outTime[week-1][day-1][counterOUTValue] = time; //fills slot
+            toggleSignIn();
+            timeSummary.incrementOUTCounter(week,day);
+            calculateTimeWorkedToday(week,day); //computing hours
+
+        }
+
+       else { //everything happened on the same day
+
+        timeSummary.outTime[week - 1][day - 1][counterOUTValue] = time;
         toggleSignIn();
-
-        numOfSignOut++;
-        calculateTimeWorkedToday(week, day);
+        timeSummary.incrementOUTCounter(week,day);
+        calculateTimeWorkedToday(week, day);}
 
     }
 
@@ -152,9 +194,12 @@ public class Employee implements Serializable {
 
     public void calculateTimeWorkedToday(int weekOfYear, int dayOfWeek) {
 
+        int counterInValue = timeSummary.getINCountValue(weekOfYear,dayOfWeek);
+        int counterOutValue = timeSummary.getOUTCountValue(weekOfYear, dayOfWeek);
+
         int timeWorked;
-        DateTime start = timeSummary.inTime[weekOfYear - 1][dayOfWeek - 1][numOfSignIn - 1];
-        DateTime end = timeSummary.outTime[weekOfYear - 1][dayOfWeek - 1][numOfSignOut-1];
+        DateTime start = timeSummary.inTime[weekOfYear - 1][dayOfWeek - 1][counterInValue - 1];
+        DateTime end = timeSummary.outTime[weekOfYear - 1][dayOfWeek - 1][counterOutValue-1];
 
         //this returns period in minutes as an integer
         timeWorked = Minutes.minutesBetween(start,end).getMinutes();
