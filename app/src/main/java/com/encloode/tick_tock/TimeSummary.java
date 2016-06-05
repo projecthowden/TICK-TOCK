@@ -36,10 +36,6 @@ public class TimeSummary implements Serializable {
                    inTime[i][j][k]= null;
                    outTime[i][j][k]= null;
             }
-
-
-
-
     }
 
     public int totalTimeDuringInterval(DateTime start, DateTime end) {

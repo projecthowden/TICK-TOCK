@@ -68,8 +68,22 @@
             android:layout_gravity="center"></CalendarView>
     </GridLayout>
     <LinearLayout
-        android:id="@+id/displaytotaltime_one_LL1"
+        android:id="@+id/display_totalTime_one_note"
         android:layout_below="@id/displaytotaltime_one_GL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A DAY BEGINS AT 12:00AM AND ENDS AT 11:59PM"
+            android:textSize="20sp"
+            android:textColor="#ff0000"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/displaytotaltime_one_LL1"
+        android:layout_below="@id/display_totalTime_one_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

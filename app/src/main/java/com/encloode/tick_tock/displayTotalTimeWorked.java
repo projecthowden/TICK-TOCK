@@ -57,7 +57,8 @@ public class displayTotalTimeWorked extends AppCompatActivity {
                 startDate = new DateTime(start.getTimeInMillis()); //assign that date as a DateTime object
 
                 TextView startDateText = (TextView) findViewById(R.id.displaytotaltime_one_TV_startDate);
-                startDateText.setText(dayOfMonth + "/" + (month+1) +"/"+year); //+1 because Calendar class' month is zero indexed
+                //the jodatime has methods for displaying the date in an easily understandable form.
+                startDateText.setText(startDate.toString("dd/MMM/yyy"));
 
                 printNumDays();
 
@@ -74,7 +75,8 @@ public class displayTotalTimeWorked extends AppCompatActivity {
                 endDate = new DateTime(end.getTimeInMillis());
 
                 TextView endDateText = (TextView) findViewById(R.id.displaytotaltime_one_TV_endDate);
-                endDateText.setText(dayOfMonth + "/" + (month+1) +"/"+year);
+
+                endDateText.setText(endDate.toString("dd/MMM/yyy"));
 
                printNumDays();
             }
@@ -111,7 +113,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         return false;
     }
 
-    //fucntions to handle layout changes in forward progression
+    //functions to handle layout changes in forward progression
     public void onClickNextTo_2(View view){
 
         if(printNumDays())
@@ -165,11 +167,12 @@ public class displayTotalTimeWorked extends AppCompatActivity {
 
         displayTotalTimeWorked_listAdapter_two adapter = new displayTotalTimeWorked_listAdapter_two(this,Global.accessDatabase().getEmployeeList(),startDate,endDate);
         list.setAdapter(adapter);
+        TextView range = (TextView) findViewById(R.id.display_totalTime_two_dateRange);
+        range.setText(startDate.toString("dd/MMM/yyy") + " - " + endDate.toString("dd/MMM/yyy") );
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
                 TextView tx = (TextView) findViewById(R.id.displaytotaltime_two_TV_nameOfEmployee);
-
                 //this way of retrieving object data is based on the actual row selected
                 nameChosen = ((Employee) parent.getAdapter().getItem(position)).getName();
                 employeeID = ((Employee) parent.getAdapter().getItem(position)).getID();
@@ -182,8 +185,12 @@ public class displayTotalTimeWorked extends AppCompatActivity {
     private void logicForScreen3(){
         setContentView(R.layout.displaytotaltime_three);
         TextView tx = (TextView) findViewById(R.id.displaytotaltime_three_TV_enployeeName);
+        TextView range =(TextView) findViewById(R.id.display_totalTime_three_date_range);
+        range.setText(startDate.toString("dd/MMM/yyy") + " - " + endDate.toString("dd/MMM/yyy") );
         Employee person = Global.accessDatabase().getEmployee(employeeID);
         tx.setText(nameChosen);
+        tx.append(" : " + Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalHoursDuringInterval(startDate,endDate) + " Hour(s)");
+        tx.append(" "+Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalMinutesDuringInterval(startDate,endDate) + " Minute(s)");
 
         ListView list = (ListView) findViewById(R.id.displaytotaltime_three_LV_employee_time);
         displayTotalTimeWorked_listAdapter_three adapter = new displayTotalTimeWorked_listAdapter_three(this,Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfDates(startDate,endDate),person);
@@ -204,10 +211,12 @@ public class displayTotalTimeWorked extends AppCompatActivity {
 
         TextView name = (TextView) findViewById(R.id.displaytotaltime_four_TV_enployeeName);
         TextView date = (TextView) findViewById(R.id.displaytotaltime_four_TV_date);
+        TextView totalTimeWorked =(TextView) findViewById(R.id.displaytotaltime_four_TV_totalTimeWorked);
 
         name.setText(nameChosen);
-        date.setText(dateChosenOnScreen3.getDayOfMonth()+"/"+dateChosenOnScreen3.getMonthOfYear()+"/"+dateChosenOnScreen3.getYear());
-
+        date.setText(dateChosenOnScreen3.toString("dd/MMM/yyy"));
+        totalTimeWorked.append(" "+Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalHoursDuringInterval(dateChosenOnScreen3,dateChosenOnScreen3)+" Hour(s)");
+        totalTimeWorked.append(" "+Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalMinutesDuringInterval(dateChosenOnScreen3,dateChosenOnScreen3)+" Minute(s)");
         ListView list = (ListView) findViewById(R.id.displaytotaltime_four_employee_status);
 
         ArrayList<DateTime> times = Global.accessDatabase().getEmployee(employeeID).getTimeSummary().getListOfIN_OUTTimes(dateChosenOnScreen3);
