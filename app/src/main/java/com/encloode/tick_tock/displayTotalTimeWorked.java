@@ -193,7 +193,7 @@ public class displayTotalTimeWorked extends AppCompatActivity {
         range.setText(startDate.toString("dd/MMM/yyy") + " - " + endDate.toString("dd/MMM/yyy") );
         Employee person = Global.accessDatabase().getEmployee(employeeID);
         tx.setText(nameChosen);
-        tx.append(" : " + Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalHoursDuringInterval(startDate,endDate) + " Hour(s)");
+        tx.append(" " + Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalHoursDuringInterval(startDate,endDate) + " Hour(s)");
         tx.append(" "+Global.accessDatabase().getEmployee(employeeID).getTimeSummary().totalMinutesDuringInterval(startDate,endDate) + " Minute(s)");
 
         ListView list = (ListView) findViewById(R.id.displaytotaltime_three_LV_employee_time);
