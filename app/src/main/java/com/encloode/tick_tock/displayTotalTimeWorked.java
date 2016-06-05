@@ -79,6 +79,10 @@ public class displayTotalTimeWorked extends AppCompatActivity {
                printNumDays();
             }
         });
+
+        //setting calendar view to first day of month to force user to pick a date
+        startDateCalendar.setDate(new DateTime().withDayOfMonth(1).getMillis());
+        endDateCalendar.setDate(new DateTime().withDayOfMonth(1).getMillis());
    }
 
     public boolean printNumDays() {

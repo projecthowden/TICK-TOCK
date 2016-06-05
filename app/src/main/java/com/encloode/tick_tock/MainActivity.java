@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //for debugging purposes only
-    public void onClickAddEmps(){
+    public void onClickAddEmps(View view){
         Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));

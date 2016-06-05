@@ -63,6 +63,7 @@ public class editTime extends AppCompatActivity {
             }
         });
 
+        calendar.setDate(new DateTime().withDayOfMonth(1).getMillis()); //change calendar to first of month
 
 
         ListView listView=(ListView) findViewById(R.id.edittime_one_EmployeeList);

@@ -25,7 +25,7 @@ public class Global implements Serializable{
     static public int masterCode = 1234;
     static public String masterString = "AsDf1";
 
-    static String fileName = "beta_1.dat";
+    static String fileName = "beta_7.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 

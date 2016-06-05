@@ -3,11 +3,7 @@ package com.encloode.tick_tock;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 
 
 /**
@@ -19,6 +15,8 @@ public class TimeSummary implements Serializable {
     public int[][] minutesWorked;
     public DateTime[][][] inTime;
     public DateTime[][][] outTime;
+    public int[][] clockINCounter;
+    public int[][] clockOUTCounter;
     static int numOfClockIn_OutAllowedPerDay = 20;
 
 
@@ -37,8 +35,13 @@ public class TimeSummary implements Serializable {
                    outTime[i][j][k]= null;
             }
 
-
-
+        clockINCounter = new int[53][7];
+        clockOUTCounter = new int[53][7];
+        for (int i = 0; i < 53; i++)
+            for (int j = 0; j < 7; j++) {
+                clockINCounter[i][j] = 0;
+                clockOUTCounter[i][j] = 0;
+            }
 
     }
 
@@ -123,5 +126,41 @@ public class TimeSummary implements Serializable {
         }
 
         return times;
+    }
+
+    public boolean incrementINCounter (int week, int dayOfWeek) {
+
+        if (clockINCounter[week-1][dayOfWeek-1] == numOfClockIn_OutAllowedPerDay)
+            return false;
+        else
+            clockINCounter[week-1][dayOfWeek-1]++;
+        return true;
+
+    }
+
+    public boolean incrementOUTCounter (int week, int dayOfWeek) {
+
+        if (clockOUTCounter[week-1][dayOfWeek-1] == numOfClockIn_OutAllowedPerDay)
+            return false;
+        else
+            clockOUTCounter[week-1][dayOfWeek-1]++;
+        return true;
+
+    }
+
+    public int getINCountValue(int week, int day){
+        return clockINCounter[week-1][day-1];
+    }
+
+    public int getOUTCountValue(int week, int day){
+        return clockOUTCounter[week-1][day-1];
+    }
+
+    public void setINCountValue (int week, int day, int value){
+        clockINCounter[week-1][day-1] = value;
+    }
+
+    public void setOUTCountValue (int week, int day, int value){
+        clockINCounter[week-1][day-1] = value;
     }
 }

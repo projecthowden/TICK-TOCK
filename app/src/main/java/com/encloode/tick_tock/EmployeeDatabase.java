@@ -206,19 +206,33 @@ getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
     }
 
     public void clearIn_Out_timesFor(int id, int week, int day){
-        for(int i=0;i< getEmployee(id).numOfSignIn ;i++){
+        int numofSignIns = getEmployee(id).getTimeSummary().getINCountValue(week,day);
+
+        for(int i=0;i< numofSignIns ;i++){
             getEmployee(id).setInTime(week,day,i,null);
             getEmployee(id).setOutTime(week,day,i,null);
 
         }
-        getEmployee(id).numOfSignIn = 0;
-        getEmployee(id).numOfSignOut = 0;
+        getEmployee(id).getTimeSummary().setINCountValue(week,day,0);
+        getEmployee(id).getTimeSummary().setOUTCountValue(week,day,0);
     }
 
     public void resetNumOfSignIn_Out(){
         for(Employee emp: employees){
-            emp.numOfSignIn = 0;
-            emp.numOfSignOut = 0;
+
+            //clear in counter
+            for (int i = 1; i <= 53; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    emp.getTimeSummary().setINCountValue(i,j,0);
+                }
+            }
+
+            //clear out counter
+            for (int i = 1; i <= 53; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    emp.getTimeSummary().setOUTCountValue(i,j,0);
+                }
+            }
         }
 
     }
