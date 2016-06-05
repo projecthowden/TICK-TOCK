@@ -22,9 +22,15 @@
         android:layout_height="wrap_content"
         tools:text="12/6/2016"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#111111"
         android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/displaytotaltime_four_TV_totalTimeWorked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total time worked:"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/displaytotaltime_four_TV_date"/>
     <LinearLayout
         android:id="@+id/displaytotaltime_four_ll_selectedEmployee"
         android:layout_below="@id/displaytotaltime_four_backButton"
@@ -35,18 +41,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="STATUS OF: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:text="In/Out times for: "
+            android:textSize="20sp" />
         <TextView
             android:id="@+id/displaytotaltime_four_TV_enployeeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Andrew White"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#111111"/>
+            android:textSize="20sp" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/displaytotaltime_four_LL_label"

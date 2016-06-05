@@ -12,10 +12,9 @@
         android:textColor="#ff0000"
         tools:text="SAVE?"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="39dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/button5" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -24,9 +23,10 @@
         android:text="NO"
         android:textSize="30dp"
         android:id="@+id/button4"
+        android:onClick="onClickNO"
         android:layout_below="@+id/gridLayout"
-        android:layout_toEndOf="@+id/gridLayout"
-        android:onClick="onClickNO" />
+        android:layout_alignStart="@+id/edittime_three_TF_topMsg"
+        android:layout_marginStart="107dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -36,9 +36,9 @@
         android:textStyle="bold"
         android:textSize="30dp"
         android:id="@+id/button5"
-        android:layout_below="@+id/gridLayout"
-        android:layout_alignEnd="@+id/textView11"
-        android:onClick="onClickYES" />
+        android:onClick="onClickYES"
+        android:layout_alignTop="@+id/button4"
+        android:layout_toStartOf="@+id/edittime_three_TF_topMsg" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:text="CHANGE SUMMARY:"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
         android:id="@+id/textView11"
         android:layout_below="@+id/edittime_three_TF_topMsg"
         android:layout_marginTop="20dp"/>
@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="New Total Time:"
+            android:text="New Total Time: "
 
             android:textStyle="bold"
             android:id="@+id/textView14"

@@ -144,20 +144,20 @@ public class editTime extends AppCompatActivity {
 
                 TextView headerName = (TextView) findViewById(R.id.edittime_three_TF_topMsg);
                 TextView employee = (TextView) findViewById(R.id.edittime_three_ET_employee);
-                TextView dateChoosen = (TextView) findViewById(R.id.edittime_three_ET_date);
+                TextView dateChosen = (TextView) findViewById(R.id.edittime_three_ET_date);
                 TextView previousTime = (TextView) findViewById(R.id.edittime_three_ET_previousTime);
                 TextView newTime = (TextView) findViewById(R.id.edittime_three_ET_newTime);
 
                 headerName.setText("SAVE?");
                 employee.setText(nameChosen);
-                dateChoosen.setText(date.getDayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
+                dateChosen.setText(date.getDayOfMonth() + "/" + date.getMonthOfYear() + "/" + date.getYear());
 
                 int minWorked = Global.accessDatabase().getMinutesWorkedFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
                 int hoursWorked = minWorked / 60;
                 int minLeft = minWorked - (hoursWorked * 60);
 
-                previousTime.setText(hoursWorked + "Hours " + minLeft + " Minutes");
-                newTime.setText(newTimeEntered[0] + "Hours " + newTimeEntered[1] + " Minutes");
+                previousTime.setText(hoursWorked + " Hours " + minLeft + " Minutes");
+                newTime.setText(newTimeEntered[0] + " Hours " + newTimeEntered[1] + " Minutes");
 
             } else {
             Toast myToast = Toast.makeText(
