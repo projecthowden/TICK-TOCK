@@ -76,6 +76,11 @@ public class editTime extends AppCompatActivity {
             }
         });
 
+        //determine what shows when no items are in list
+        TextView whenEmpty = (TextView) findViewById(R.id.edittimeEmptyView);
+        listView.setEmptyView(whenEmpty);
+
+
     }
     private void populateEditTimeList(){
         //Construct the data source

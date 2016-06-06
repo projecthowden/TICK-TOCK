@@ -57,6 +57,18 @@
         android:layout_below="@+id/displaytotaltime_two_LL_label"
         android:layout_width="wrap_content"
         android:layout_height="270dp"></ListView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="270dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="No Employees Worked During This Period"
+        android:id="@+id/displaytotaltimetwoEmptyView"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+
     <LinearLayout
         android:id="@+id/displaytotaltime_two_ll_selectedEmployee"
         android:layout_below="@id/displaytotaltime_two_LV_employee_time"
@@ -71,7 +83,10 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#111111"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+           />
+
+
         <TextView
             android:id="@+id/displaytotaltime_two_TV_nameOfEmployee"
             android:layout_width="wrap_content"
@@ -80,7 +95,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#111111"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+          />
     </LinearLayout>
     <TextView
         android:layout_below="@id/displaytotaltime_two_ll_selectedEmployee"
@@ -91,7 +107,8 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textColor="#ff0000"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+       />
 
     <ImageView
         android:layout_width="150dp"
