@@ -71,10 +71,14 @@
             android:label="DELETE EMPLOYEE"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".enterpassword"
+        <activity
+            android:name=".enterpassword"
             android:label=" "
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".currentlyClockedIn"
+            android:label="CURRENTLY CLOCKED IN"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

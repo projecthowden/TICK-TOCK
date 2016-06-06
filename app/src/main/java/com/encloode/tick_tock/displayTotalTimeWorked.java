@@ -185,6 +185,10 @@ public class displayTotalTimeWorked extends AppCompatActivity {
             }
         });
 
+        //determine what shows when no items are in list
+        TextView whenEmpty = (TextView) findViewById(R.id.displaytotaltimetwoEmptyView);
+         list.setEmptyView(whenEmpty);
+
     }
     private void logicForScreen3(){
         setContentView(R.layout.displaytotaltime_three);

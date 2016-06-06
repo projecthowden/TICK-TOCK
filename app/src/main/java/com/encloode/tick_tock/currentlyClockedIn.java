@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class displayemployees extends AppCompatActivity {
+public class currentlyClockedIn extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_displayemployees);
+        setContentView(R.layout.activity_currently_clocked_in);
 
         populateList();
     }
@@ -29,14 +29,13 @@ public class displayemployees extends AppCompatActivity {
         //Construct the data source
         ArrayList<Employee> arrayOfEmployees = Global.accessDatabase().getEmployeeList();
         //create the Adapter to convert the array to view
-        ListAdapter ourAdapter = new ListAdapter(this,arrayOfEmployees);
+        listAdapter_currentlyClockedIn ourAdapter = new listAdapter_currentlyClockedIn(this,arrayOfEmployees);
         //attach the adapter to listView
-        ListView listView=(ListView) findViewById(R.id.list);
+        ListView listView=(ListView) findViewById(R.id.listClockedIn);
         listView.setAdapter(ourAdapter);
 
-        //determine what shows when no items are in list
-        TextView whenEmpty = (TextView) findViewById(R.id.displayEmployeesEmptyView);
-        listView.setEmptyView(whenEmpty);
+        TextView empty = (TextView) findViewById(R.id.currentlyClockedInEmptyView);
+        listView.setEmptyView(empty);
 
     }
     @Override

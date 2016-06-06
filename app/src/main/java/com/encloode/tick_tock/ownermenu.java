@@ -58,6 +58,11 @@ public class ownermenu extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClick_currentlyClockedIn(View view){
+        Intent intent = new Intent(this, currentlyClockedIn.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {  }
 }
