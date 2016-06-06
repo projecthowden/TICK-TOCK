@@ -65,6 +65,7 @@ public class timedisplay extends AppCompatActivity {
             tx4.setVisibility(View.VISIBLE);
 
         }
+        new MyAsyncTask().execute();
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
@@ -91,7 +92,7 @@ public class timedisplay extends AppCompatActivity {
     @Override
     public void onPause() { //this runs when application exits the activity
         super.onPause();
-        new MyAsyncTask().execute();
+
     }
 
     class MyAsyncTask extends AsyncTask<Void,Void,Void> {

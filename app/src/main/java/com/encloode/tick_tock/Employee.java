@@ -107,7 +107,7 @@ public class Employee implements Serializable {
     public void setInTime(int week, int day, DateTime time) {
         int counterValue = timeSummary.getINCountValue(week,day);
         timeSummary.inTime[week - 1][day - 1][counterValue] = time;
-        lastSignInDate = time;
+        lastSignInDate = time.toDateTime();
 
         toggleSignIn();
 

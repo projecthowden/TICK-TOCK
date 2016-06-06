@@ -23,9 +23,9 @@ public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
-    static public String masterString = "aaaaa";
+    static public String masterString = "aaa";
 
-    static String fileName = "beta_9.dat";
+    static String fileName = "aa2.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 
@@ -54,7 +54,7 @@ public class Global implements Serializable{
 
 
         //save also to SD card
-        saveDatabaseToSDCard();
+        //saveDatabaseToSDCard();
     }
 
     static public void saveDatabaseToSDCard () {
