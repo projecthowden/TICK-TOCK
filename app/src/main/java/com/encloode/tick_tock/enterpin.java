@@ -75,7 +75,8 @@ public class enterpin extends AppCompatActivity {
 
             } else if (pin == Global.masterCode) { //the masterCode was entered therefore the ownerMenu is opened
                 // proceed onto new activity for master code.
-                Intent intent2 = new Intent(this, ownermenu.class);
+              //  Intent intent2 = new Intent(this, ownermenu.class);
+                Intent intent2 = new Intent(this, enterpassword.class);
                 startActivity(intent2);
             }
         }

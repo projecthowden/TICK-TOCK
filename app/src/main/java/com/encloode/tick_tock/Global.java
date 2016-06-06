@@ -23,7 +23,7 @@ public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
-    static public String masterString = "AsDf1";
+    static public String masterString = "aaaaa";
 
     static String fileName = "beta_7.dat";
 
