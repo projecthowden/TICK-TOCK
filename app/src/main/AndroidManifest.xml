@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".enterpin"
+            android:name=".enterpin "
             android:label=" "
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
