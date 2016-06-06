@@ -191,8 +191,8 @@ public class editTime extends AppCompatActivity {
 
         Global.accessDatabase().clearIn_Out_timesFor(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek());
 
-        DateTime in  = date.withTime(0,0,0,0);
-        DateTime out = date.withTime(newTimeEntered[0],newTimeEntered[1],0,0);
+        DateTime in  = date.withTime(0,0,0,0).toDateTime();
+        DateTime out = date.withTime(newTimeEntered[0],newTimeEntered[1],0,0).toDateTime();
 
         Global.accessDatabase().setInTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(),in);
         Global.accessDatabase().setOutTimeOf(employeeID, date.getWeekOfWeekyear(), date.getDayOfWeek(), out);

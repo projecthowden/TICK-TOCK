@@ -2,6 +2,7 @@ package com.encloode.tick_tock;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Path;
 import android.os.Environment;
 import android.view.View;
 
@@ -23,9 +24,9 @@ public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
-    static public String masterString = "aaaaa";
+    static public String masterString = "aaa";
 
-    static String fileName = "beta_9.dat";
+    static String fileName = "aa2.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 
@@ -42,19 +43,25 @@ public class Global implements Serializable{
 
         try {
             File internalDatabaseFile = new File(context.getFilesDir(), File.separator +fileName);
-            FileOutputStream outStream =  new FileOutputStream(internalDatabaseFile);
+
+            // File tempDatabaseFile = new File(context.getFilesDir(), File.separator +"temp.dat");
+            // if(!tempDatabaseFile.exists()) tempDatabaseFile.createNewFile();
+               FileOutputStream outStream =  new FileOutputStream(internalDatabaseFile);
+            //FileOutputStream outStream =  new FileOutputStream(tempDatabaseFile);
             ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
 
             objectOutStream.writeObject(Global.empDatabase);
             objectOutStream.close();
             outStream.close();
+
+            //    Path from = tempDatabaseFile.
         }
         catch (FileNotFoundException e1) {}
         catch (IOException e1) {}
 
 
         //save also to SD card
-        saveDatabaseToSDCard();
+        //saveDatabaseToSDCard();
     }
 
     static public void saveDatabaseToSDCard () {

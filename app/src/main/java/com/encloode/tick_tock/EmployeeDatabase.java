@@ -8,6 +8,7 @@ import android.widget.Toast;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -206,15 +207,23 @@ getEmployee(id).setMinutesWorkedInDay(week,day,minsWorked);
     }
 
     public void clearIn_Out_timesFor(int id, int week, int day){
-        int numofSignIns = getEmployee(id).getTimeSummary().getINCountValue(week,day);
+        int numofSignIns = TimeSummary.numOfClockIn_OutAllowedPerDay;
+        DateTime now = new DateTime();
+        if(getEmployee(id).isSignedIn() && now.getWeekOfWeekyear() == week && now.getDayOfWeek() == day){ //if they are signed in then sign them out
+
+            getEmployee(id).setOutTime(week,day,now);
+            getEmployee(id).setSignedIn(false);
+        }
+
+        getEmployee(id).getTimeSummary().setINCountValue(week,day,0);
+        getEmployee(id).getTimeSummary().setOUTCountValue(week,day,0);
 
         for(int i=0;i< numofSignIns ;i++){
             getEmployee(id).setInTime(week,day,i,null);
             getEmployee(id).setOutTime(week,day,i,null);
 
         }
-        getEmployee(id).getTimeSummary().setINCountValue(week,day,0);
-        getEmployee(id).getTimeSummary().setOUTCountValue(week,day,0);
+
     }
 
     public void resetNumOfSignIn_Out(){

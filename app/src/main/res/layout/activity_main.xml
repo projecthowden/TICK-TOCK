@@ -63,6 +63,6 @@
         android:layout_alignBaseline="@+id/companyName"
         android:layout_alignBottom="@+id/companyName"
         android:layout_alignEnd="@+id/encloodelogo"
-        android:onClick="onClickForAddingEmployees" />
+        android:onClick="onClickAddEmps" />
 
 </RelativeLayout>
