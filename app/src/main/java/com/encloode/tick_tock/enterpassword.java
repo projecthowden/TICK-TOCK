@@ -65,4 +65,7 @@ public class enterpassword extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {  }  //this disables the physical back button on tablet
+
 }
