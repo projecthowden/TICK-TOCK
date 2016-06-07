@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -47,9 +49,12 @@ public class listAdapter_currentlyClockedIn extends ArrayAdapter<Employee> imple
         }
         //Lookup view for data population
         TextView tv_Name = (TextView) convertView.findViewById(R.id.listNameCurrentlyClockedIn);
+        TextView tv_Time = (TextView) convertView.findViewById(R.id.listTimeCurrentlyClockedIn);
 
+        DateTime employeeTime = employee.getLastSignInDate();
         //populate the data into the template view using the data object
         tv_Name.setText(employee.getName());
+        tv_Time.setText(employeeTime.toString("h:mm a"));
 
         //return the completed view to render on the screen
         return convertView;

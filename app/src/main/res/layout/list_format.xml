@@ -7,6 +7,7 @@
     android:layout_height="40dp"
     android:text=" Andrew Whyte"
     android:textAlignment="viewStart"
+    android:layout_gravity="start"
     android:paddingTop="5dp"
     android:textSize="20sp"
     android:textColor="#2f2626" />
@@ -15,6 +16,7 @@
         android:layout_width="35dp"
         android:layout_height="40dp"
         android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:text="12"
         android:paddingTop="5dp"
         android:textSize="20sp"

@@ -147,5 +147,6 @@
         android:layout_height="50dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 </RelativeLayout>

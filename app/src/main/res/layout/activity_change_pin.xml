@@ -17,6 +17,7 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="40dp" />
 
     <EditText
@@ -27,7 +28,8 @@
         android:id="@+id/change_pin_TF_idEntered"
         android:layout_alignBottom="@+id/textView"
         android:maxLength="2"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_toEndOf="@+id/textView"
+        android:layout_toRightOf="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +38,8 @@
         android:text="Name: "
         android:id="@+id/textView27"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +48,8 @@
         tools:text=" "
         android:id="@+id/change_pin_TF_name"
         android:layout_alignBottom="@+id/imageButton"
-        android:layout_toEndOf="@+id/textView27" />
+        android:layout_toEndOf="@+id/textView27"
+        android:layout_toRightOf="@+id/textView27"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +59,8 @@
         android:id="@+id/textView28"
         android:layout_below="@+id/change_pin_TF_name"
         android:layout_marginTop="15dp"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -65,6 +70,7 @@
         android:id="@+id/activity_change_pin_TF_newPin"
         android:maxLength="4"
         android:layout_toEndOf="@+id/textView28"
+        android:layout_toRightOf="@+id/textView28"
         android:layout_below="@+id/change_pin_TF_name"/>
 
     <TextView
@@ -75,7 +81,8 @@
         android:id="@+id/textView44"
         android:layout_below="@+id/textView28"
         android:layout_marginTop="15dp"
-        android:layout_alignParentStart="false"/>
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false" />
 
 
     <EditText
@@ -86,6 +93,7 @@
         android:id="@+id/activity_change_pin_TF_reenterPin"
         android:maxLength="4"
         android:layout_toEndOf="@+id/textView44"
+        android:layout_toRightOf="@+id/textView44"
         android:layout_below="@+id/textView28"
         android:imeOptions="actionDone"/>
     <ImageButton
@@ -97,8 +105,10 @@
         android:clickable="true"
         android:onClick="onClickExit"
         android:layout_marginEnd="27dp"
+        android:layout_marginRight="0dp"
         android:layout_alignBottom="@+id/textView27"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -108,6 +118,8 @@
         android:src="@drawable/correct"
         android:layout_alignBottom="@+id/textView44"
         android:layout_alignStart="@+id/imageButton"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignParentRight="true"
         android:onClick="onClickSubmit" />
 
     <ImageView
@@ -116,6 +128,7 @@
         android:src="@drawable/encloode"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         />
 
 

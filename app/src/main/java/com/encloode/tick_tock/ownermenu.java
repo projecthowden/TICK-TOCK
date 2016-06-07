@@ -30,6 +30,7 @@ public class ownermenu extends AppCompatActivity {
     public void onUserInteraction(){
         myHandler.removeCallbacks(closeSettings);
         myHandler.postDelayed(closeSettings, delayTime);
+
     }
 
     //this is what runs after 10secs of inactivity
@@ -37,6 +38,7 @@ public class ownermenu extends AppCompatActivity {
         public void run() {
             finish();
             startActivity(new Intent(ownermenu.this, MainActivity.class));
+
 
         }
     };
@@ -88,4 +90,10 @@ public class ownermenu extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {  }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        myHandler.removeCallbacks(closeSettings);
+    }
 }

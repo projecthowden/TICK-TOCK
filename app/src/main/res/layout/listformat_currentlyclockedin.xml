@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -9,6 +9,18 @@
         android:layout_height="40dp"
         android:text=" Andrew Whyte"
         android:textAlignment="viewStart"
+        android:layout_gravity="start"
+        android:paddingTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#2f2626" />
+
+    <TextView
+        android:id="@+id/listTimeCurrentlyClockedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9:34 AM"
+        android:layout_gravity="right"
+        android:textAlignment="center"
         android:paddingTop="5dp"
         android:textSize="20sp"
         android:textColor="#2f2626" />
