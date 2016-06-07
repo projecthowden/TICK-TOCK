@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:id="@+id/delete_employee_tv_instruction"
             android:textSize="25sp"
-            android:text="Enter employee ID:"/>
+            android:text="Enter employee ID:"
+            android:textColor="#111111"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +41,8 @@
         android:text="Name: "
         android:id="@+id/textView27"
         android:layout_below="@+id/delete_employee_gl_details"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +51,8 @@
         tools:text="*autofill*"
         android:id="@+id/activity_deleteEmp_TF_nameValue"
         android:layout_below="@+id/delete_employee_gl_details"
-        android:layout_alignEnd="@+id/delete_employee_gl_details" />
+        android:layout_alignEnd="@+id/delete_employee_gl_details"
+        android:layout_alignRight="@+id/delete_employee_gl_details" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -58,9 +61,11 @@
         android:src="@drawable/garbage"
         android:background="@color/background_material_light"
         android:onClick="onClickDelete"
-        android:layout_marginEnd="176dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         android:layout_below="@+id/activity_deleteEmp_TF_nameValue"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="29dp" />
 
     <ImageButton
@@ -72,13 +77,16 @@
         android:onClick="onClickDeleteEmp"
         android:clickable="true"
         android:layout_alignTop="@+id/delete_employee_gl_details"
-        android:layout_alignStart="@+id/activity_delete_employee_B_delete" />
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/activity_delete_employee_B_delete"
+        android:layout_alignLeft="@+id/activity_delete_employee_B_delete"/>
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>

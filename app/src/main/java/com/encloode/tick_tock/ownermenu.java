@@ -1,12 +1,16 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 public class ownermenu extends AppCompatActivity {
+
+    private final int delayTime = 10000;
+    private Handler myHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +20,28 @@ public class ownermenu extends AppCompatActivity {
         //displaying current number of employees in the system
         TextView textView= (TextView) findViewById(R.id.no_employees);
         textView.setText(""+EmployeeDatabase.getNumOfCurrentEmployees());
+
+        //this allows for something to happen for a period of inactivity
+        myHandler.postDelayed(closeSettings, delayTime);
+
     }
+
+    //not sure how it works but it does
+    public void onUserInteraction(){
+        myHandler.removeCallbacks(closeSettings);
+        myHandler.postDelayed(closeSettings, delayTime);
+
+    }
+
+    //this is what runs after 10secs of inactivity
+    private Runnable closeSettings = new Runnable() {
+        public void run() {
+            finish();
+            startActivity(new Intent(ownermenu.this, MainActivity.class));
+
+
+        }
+    };
 
     public void onClick_addEmployee(View view){
         Intent intent = new Intent(this, add_employee.class);
@@ -65,4 +90,10 @@ public class ownermenu extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {  }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        myHandler.removeCallbacks(closeSettings);
+    }
 }

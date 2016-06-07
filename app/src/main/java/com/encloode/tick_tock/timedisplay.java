@@ -3,7 +3,6 @@ package com.encloode.tick_tock;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +31,10 @@ public class timedisplay extends AppCompatActivity {
         TextView tx2 = (TextView) findViewById(R.id.thankYouMessage);
         TextView tx3 = (TextView) findViewById(R.id.totalHours);
         TextView tx4 = (TextView) findViewById(R.id.hoursDescription);
+        TextView clock = (TextView) findViewById(R.id.textClock);
         DateTime currentTime = new DateTime(); //this sets the currentTime object to the current time
+
+        clock.setText(currentTime.toString("h:mm a"));
 
         idOfCurrentEmp= Integer.parseInt(getIntent().getExtras().getString("id"));
 

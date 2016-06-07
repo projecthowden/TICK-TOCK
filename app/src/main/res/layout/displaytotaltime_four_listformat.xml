@@ -9,6 +9,7 @@
         android:layout_height="40dp"
         android:text="IN"
         android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:paddingTop="5dp"
         android:textSize="20sp"
         android:textColor="#2f2626" />
@@ -17,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:textAlignment="viewStart"
+        android:layout_gravity="start"
         android:text="8:30pm"
         android:paddingTop="5dp"
         android:textSize="20sp"

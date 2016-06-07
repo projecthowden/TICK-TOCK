@@ -66,6 +66,8 @@ public class Employee implements Serializable {
         return id;
     }
 
+    public DateTime getLastSignInDate() { return  lastSignInDate;}
+
     public boolean isSignedIn() {
         return signedIn;
     }
