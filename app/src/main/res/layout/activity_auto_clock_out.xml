@@ -15,7 +15,16 @@
         android:src="@drawable/exit"
         android:background="@color/background_material_light"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="onClickExit" />
+    <TextView
+        android:layout_width="720dp"
+        android:layout_height="wrap_content"
+        android:text="The auto clock out time is the time Tick-Tock will automatically sign out every employee in the system daily. By default, Tick-Tock will clock out every employee in the system at midnight(3:00AM). The Auto back up Date is the Date Tick-tock will perfom a yearly Backup of all DATA. By default, Tick-Tock will back up all data on January 1 every year. You can change the default settings to suit your business"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        android:layout_centerHorizontal="true"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +33,11 @@
         android:background="@color/background_material_light"
         android:layout_above="@+id/gridLayout2"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:onClick="onClickCorrect" />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -33,80 +46,69 @@
         android:columnCount="17"
         android:layout_below="@+id/autoClockout_B_exit"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/gridLayout2">
+
+        <CheckBox
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Auto Backup Date"
+            android:textSize="15sp"
+            android:id="@+id/autoClockout_Cb_changeDate"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:checked="false" />
 
         <Spinner
             android:layout_row="0"
             android:layout_column="2"
             android:id="@+id/autoClockout_s_spinnerMonth"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:spinnerMode="dropdown"
-            android:layout_gravity="left"
-            android:gravity="left"
-            android:contentDescription="Select a Month"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:entries="@array/months"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enter Day:"
-                android:textSize="20sp"
-                android:layout_gravity="center"/>
-            <EditText
-                android:layout_row="0"
-                android:layout_column="5"
-                android:inputType="number"
-                android:ems="3"
-                android:hint="1"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/numberPicker"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <CheckBox
-            android:layout_row="0"
-            android:layout_column="7"
+            android:layout_row="3"
+            android:layout_column="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change date"
-            android:textSize="20sp"
-            android:id="@+id/checkBox2"
+            android:text="Set Automatic Clock Out Time"
+            android:textSize="15sp"
+            android:id="@+id/autoClockout_Cb_changeTime"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:checked="false"
-            android:layout_columnSpan="10" />
+            android:layout_gravity="center_vertical"
+            android:checked="false" />
 
         <TimePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/timePicker"
+            android:id="@+id/autoClockout_T_timePicker"
             android:layout_row="3"
             android:layout_column="2"
-            android:layout_gravity="center"/>
-
-        <CheckBox
-            android:layout_row="3"
-            android:layout_column="7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Change Time"
-            android:textSize="20sp"
-            android:id="@+id/checkBox"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:checked="false"
-            android:layout_columnSpan="10" />
+            android:layout_margin="20dp"/>
 
     </GridLayout>
-
-
-
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/encloode"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>

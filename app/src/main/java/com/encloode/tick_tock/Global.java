@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Environment;
 import android.view.View;
 
+import org.joda.time.DateTime;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,6 +26,8 @@ public class Global implements Serializable{
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
     static public String masterString = "AsDf1";
+    static public DateTime autoClockOutTime;
+    static public DateTime autoBackUpDate;
 
     static String fileName = "beta_7.dat";
 

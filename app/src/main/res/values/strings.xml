@@ -13,4 +13,7 @@
     <item>October</item>
     <item>November</item>
     <item>December</item></string-array>
+    <string-array name="days_30">
+        <item>1</item>
+    </string-array>
 </resources>

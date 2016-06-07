@@ -68,7 +68,10 @@
             android:label="DELETE EMPLOYEE"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".autoClockOut"></activity>
+        <activity
+            android:name=".autoClockOut"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Change Default Settings"></activity>
     </application>
 
 </manifest>
