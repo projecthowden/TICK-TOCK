@@ -15,7 +15,8 @@ import java.util.Date;
 public class EmployeeDatabase implements Serializable {
 
     public ArrayList<Employee> employees ;
-
+    public DateTime autoClockOutTime;
+    public DateTime autoBackUpDate;
     static public int maxEmployeeSize = 20;
     static public int listOfAvailableIDs[];
 

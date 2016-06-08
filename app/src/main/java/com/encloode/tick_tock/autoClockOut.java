@@ -72,6 +72,9 @@ public class autoClockOut extends AppCompatActivity {
             }
         });
 
+
+
+
     }
     /*logic for exit button functionality*/
     public void onClickExit(View view){
@@ -100,8 +103,8 @@ public class autoClockOut extends AppCompatActivity {
 
         /*If this condition is true, then the user intends to change only the date*/
         if(changeDate.isChecked() && !changeTime.isChecked()){
-            Global.autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
-            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.autoBackUpDate.toString("MMM/dd"), Toast.LENGTH_SHORT).show();
+            Global.accessDatabase().autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
+            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().autoBackUpDate.toString("MMM/dd"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
@@ -109,8 +112,8 @@ public class autoClockOut extends AppCompatActivity {
         }
         /*If this condition is true, then the user intends to change only the time*/
         if(changeTime.isChecked() && !changeDate.isChecked()){
-            Global.autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
-            Toast.makeText(autoClockOut.this, "Automatic Daily ClockOut time has been set to: " + Global.autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
+            Global.accessDatabase().autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
+            Toast.makeText(autoClockOut.this, "Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
@@ -118,9 +121,9 @@ public class autoClockOut extends AppCompatActivity {
         }
         /*If this condition is true, then the user intends to change both the date and the time*/
         if(changeTime.isChecked()&& changeDate.isChecked()){
-            Global.autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
-            Global.autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
-            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.autoBackUpDate.toString("MMM/dd")+"." + "\n Automatic Daily ClockOut time has been set to: " + Global.autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
+            Global.accessDatabase().autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
+            Global.accessDatabase().autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
+            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().autoBackUpDate.toString("MMM/dd")+"." + "\n Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
