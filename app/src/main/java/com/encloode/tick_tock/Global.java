@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Path;
 import android.os.Environment;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.EOFException;
 import java.io.File;
@@ -61,29 +62,34 @@ public class Global implements Serializable{
 
 
         //save also to SD card
-        //saveDatabaseToSDCard();
+        saveDatabaseToSDCard(context);
     }
 
-    static public void saveDatabaseToSDCard () {
+    static public void saveDatabaseToSDCard (Context context) {
 
         File newFolder = null;
         File externalDatabaseFile = null;
         try {
-            newFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"hey");
-           // if (!newFolder.exists())
-                newFolder.mkdirs();
-            System.out.println("fsf");
+            newFolder = new File(Environment.getExternalStorageDirectory(),"hey");
+          //  if (!newFolder.exists())
+               if( newFolder.mkdirs()){
+
+            Toast m = Toast.makeText( context, "fdgfdf", Toast.LENGTH_LONG);
+               m.show();
+
+               }
+           // System.out.println("fsf");
 
             try {
                 externalDatabaseFile = new File(newFolder, "database_BACKUP.dat");
-                if(!externalDatabaseFile.exists()) externalDatabaseFile.createNewFile();
+              //  if(!externalDatabaseFile.exists()) externalDatabaseFile.createNewFile();
             } catch (Exception ex) {
-                System.out.println("ex: " + ex);
+             //   System.out.println("ex: " + ex);
             }
         } catch (Exception e) {
-            System.out.println("e: " + e);
+          //  System.out.println("e: " + e);
         }
-
+/*
         try {
             FileOutputStream outStream =  new FileOutputStream(externalDatabaseFile);
             ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
@@ -93,7 +99,7 @@ public class Global implements Serializable{
             outStream.close();
         }
         catch (FileNotFoundException e1) {}
-        catch (IOException e1) {}
+        catch (IOException e1) {}*/
     }
 
     static public void loadDatabaseFromSDCard() throws IOException {
