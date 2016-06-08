@@ -82,6 +82,10 @@ public class ownermenu extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    public void onClick_autoChange(View view){
+        Intent intent = new Intent(this,autoClockOut.class);
+        startActivity(intent);
+    }
 
     public void onClick_currentlyClockedIn(View view){
         Intent intent = new Intent(this, currentlyClockedIn.class);

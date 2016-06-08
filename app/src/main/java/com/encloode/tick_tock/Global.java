@@ -7,6 +7,8 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +27,9 @@ public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
-    static public String masterString = "aaa";
+    static public String masterString = "AsDf1";
+    static public DateTime autoClockOutTime;
+    static public DateTime autoBackUpDate;
 
     static String fileName = "aa2.dat";
 
@@ -220,8 +224,6 @@ public class Global implements Serializable{
         }
 
     }
-
-
 
     static  private void deserialize(EmployeeDatabase temp){
 

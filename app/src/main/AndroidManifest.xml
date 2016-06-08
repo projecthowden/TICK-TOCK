@@ -10,10 +10,9 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label=""
-            android:screenOrientation="landscape">
+        <activity android:name=".MainActivity"
+                  android:label=""
+                  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,35 +21,31 @@
         </activity>
         <activity
             android:name=".enterpin"
-            android:label="  "
+            android:label="ENTER PIN"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".timedisplay"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity android:name=".timedisplay"
             android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".ownermenu"
+            android:screenOrientation="landscape"
+            />
+        <activity android:name=".ownermenu"
             android:label="SETTINGS"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".changePin"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".changePin"
             android:label="CHANGE PIN"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".changeName"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".changeName"
             android:label="CHANGE NAME"
             android:screenOrientation="landscape" />
         <activity
             android:name=".editTime"
             android:label="EDIT EMPLOYEE TOTAL TIME"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".add_employee"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".add_employee"
             android:label="ADD EMPLOYEE"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".validate_confirm"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".validate_confirm"
             android:label="CONFIRM ACTION"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
@@ -65,12 +60,16 @@
         <activity
             android:name=".validatePin"
             android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".delete_employee"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".delete_employee"
             android:label="DELETE EMPLOYEE"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".autoClockOut"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Change Default Settings"></activity>
+
         <activity
             android:name=".enterpassword"
             android:label=" "
