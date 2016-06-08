@@ -161,6 +161,6 @@ public class TimeSummary implements Serializable {
     }
 
     public void setOUTCountValue (int week, int day, int value){
-        clockINCounter[week-1][day-1] = value;
+        clockOUTCounter[week-1][day-1] = value;
     }
 }

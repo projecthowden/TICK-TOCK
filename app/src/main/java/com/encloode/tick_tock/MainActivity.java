@@ -1,6 +1,7 @@
 package com.encloode.tick_tock;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,13 +29,10 @@ public class MainActivity extends AppCompatActivity {
             Global.loadState(this);
         } catch (IOException e) {  e.printStackTrace();  }
 
-        /* this is a rough implementation of a action to be performed at midnight
-        DateTime isMidnight = new DateTime();
-        if(isMidnight == new DateTime().withTimeAtStartOfDay())
-      Global.accessDatabase().resetNumOfSignIn_Out();
-        */
+
         TextView tx = (TextView) findViewById(R.id.companyName); // this is where the company name on title is changed
-        tx.setText("Encloode");
+        tx.setText("*clients company name goes here*");
+        tx.setTextColor(Color.BLUE);
     }
 
     public void onClick(View view){
@@ -44,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
     //for debugging purposes only
     public void onClickAddEmps(View view){
-        Global.accessDatabase().addEmployee(new Employee("Riko", 1111));
+        Global.accessDatabase().addEmployee(new Employee("Riko Hamblin", 1111));
         Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
        Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
-        Global.accessDatabase().addEmployee(new Employee("Mary", 4412));
+        Global.accessDatabase().addEmployee(new Employee("Aj Kunas", 4444));
          Global.accessDatabase().addEmployee(new Employee("Jane", 4421));
         Global.accessDatabase().addEmployee(new Employee("Jay", 4453));
         Global.accessDatabase().addEmployee(new Employee("Ricky", 1879));

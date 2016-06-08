@@ -9,8 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.ownermenu"
     android:id="@+id/ownerMenu"
-    android:backgroundTint="@color/white"
-    android:clickable="false">
+    android:backgroundTint="@color/white">
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -38,16 +37,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/middleGrid"
-        android:columnCount="2"
+        android:columnCount="3"
         android:layout_below="@id/topGrid"
         android:layout_centerHorizontal="true">
+
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
             android:id="@+id/summary"
             android:textSize="18sp"
             android:text="SEE LOGGED TIME"
-            android:onClick="onClick_seeLoggedHours" />
+            android:onClick="onClick_seeLoggedHours"
+            android:layout_below="@+id/topGrid"
+            android:layout_alignStart="@+id/bottomGrid"
+            android:layout_alignLeft="@+id/bottomGrid" />
         <Button
             android:layout_width="210dp"
             android:layout_height="100dp"
@@ -55,6 +58,18 @@
             android:textSize="20sp"
             android:text="LIST OF STAFF"
             android:onClick="onClick_listOfStaff" />
+        <Button
+
+            android:layout_width="210dp"
+            android:layout_height="100dp"
+            android:text="WHO'S CLOCKED IN"
+            android:textSize="20sp"
+            android:id="@+id/button2"
+            android:layout_above="@+id/bottomGrid"
+            android:layout_toEndOf="@+id/middleGrid"
+            android:layout_toRightOf="@+id/middleGrid"
+            android:onClick="onClick_currentlyClockedIn" />
+
     </GridLayout>
     <GridLayout
         android:layout_width="wrap_content"
@@ -117,13 +132,15 @@
         android:onClick="onClick_exit"
         android:clickable="true"
         android:layout_alignTop="@+id/topGrid"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
     <ImageView
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

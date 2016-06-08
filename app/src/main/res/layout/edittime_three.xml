@@ -26,7 +26,10 @@
         android:onClick="onClickNO"
         android:layout_below="@+id/gridLayout"
         android:layout_alignStart="@+id/edittime_three_TF_topMsg"
-        android:layout_marginStart="107dp" />
+        android:layout_alignLeft="@+id/edittime_three_TF_topMsg"
+
+        android:layout_marginStart="107dp"
+        android:layout_marginLeft="107dp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -38,7 +41,8 @@
         android:id="@+id/button5"
         android:onClick="onClickYES"
         android:layout_alignTop="@+id/button4"
-        android:layout_toStartOf="@+id/edittime_three_TF_topMsg" />
+        android:layout_toStartOf="@+id/edittime_three_TF_topMsg"
+        android:layout_toLeftOf="@+id/edittime_three_TF_topMsg"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,7 +159,8 @@
         android:layout_height="50dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
 
 </RelativeLayout>

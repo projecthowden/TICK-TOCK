@@ -7,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.encloode.tick_tock.displayemployees"
-   >
+    tools:context="com.encloode.tick_tock.currentlyClockedIn">
 
     <LinearLayout
         android:id="@+id/heading"
@@ -17,7 +16,7 @@
         android:orientation="horizontal">
         <TextView
             android:id="@+id/name"
-            android:layout_width="800dp"
+            android:layout_width="600dp"
             android:layout_height="40dp"
             android:text="EMPLOYEE NAME"
             android:textAlignment="viewStart"
@@ -27,20 +26,22 @@
             android:textStyle="bold"
             android:textColor="#2f2626" />
         <TextView
-            android:id="@+id/Id"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLOCK IN TIME"
             android:textAlignment="viewStart"
             android:layout_gravity="start"
-            android:text="ID"
             android:paddingTop="5dp"
-            android:textStyle="bold"
+            android:layout_marginLeft="55dp"
             android:textSize="25sp"
-            android:textColor="#000000" />
+            android:textStyle="bold"
+            android:textColor="#2f2626" />
+
 
     </LinearLayout>
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listClockedIn"
         android:layout_width="wrap_content"
         android:layout_height="400dp"
         android:layout_below="@+id/heading"></ListView>
@@ -54,23 +55,23 @@
         android:background="@color/background_material_light"
         android:onClick="onClickExit" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Go to ADD EMPLOYEE to add employees."
-        android:id="@+id/displayEmployeesEmptyView"
-        android:layout_marginTop="108dp"
-        android:layout_below="@+id/heading"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:id="@+id/imageView5" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="No Employees Are Clocked In At The Moment"
+        android:id="@+id/currentlyClockedInEmptyView"
+        android:layout_marginTop="108dp"
+        android:layout_below="@+id/heading"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

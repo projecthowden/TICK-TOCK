@@ -9,8 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.encloode.tick_tock.timedisplay"
-    android:clickable="true"
-    android:onClick="onClickForTimeDisplay">
+    android:clickable="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,20 +21,22 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp"
+        />
 
-    <TextClock
+
+    <TextView
+        android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textClock"
-        android:textSize="100dp"
-        android:layout_gravity="center"
-        android:layout_marginRight="126dp"
-        android:textColor="#2d374f"
-        android:layout_below="@+id/timedisplayMessage"
+        android:text="09:43 PM"
+        android:textSize="80dp"
+        android:textColor="#111111"
         android:layout_centerHorizontal="true"
-        android:format12Hour="hh:mm a"
-        />
+        android:layout_below="@+id/timedisplayMessage"
+        android:layout_alignRight="@+id/thankYouMessage"
+        android:layout_alignEnd="@+id/thankYouMessage"
+        android:format12Hour="hh:mm a"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,6 +78,9 @@
         android:layout_height="50dp"
         android:src="@drawable/encloode"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+
 
 </RelativeLayout>
