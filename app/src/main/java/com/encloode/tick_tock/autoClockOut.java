@@ -102,7 +102,7 @@ public class autoClockOut extends AppCompatActivity {
             return false;
         }
         else if (!changeDate.isChecked() && !changeTime.isChecked()){
-            Toast.makeText(autoClockOut.this, "PLEASE CHECK ONE OR ALL OF THE BOXES", Toast.LENGTH_SHORT).show();
+            Toast.makeText(autoClockOut.this, "PLEASE CHECK ONE OR BOTH OF THE BOXES", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
