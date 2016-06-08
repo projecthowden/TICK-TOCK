@@ -16,4 +16,6 @@
     <string-array name="days_30">
         <item>1</item>
     </string-array>
+    <string name="autoclockout">The Auto clockout time is the time Tick-Tock will automatically clock out every employee in the system daily. By default, Tick-Tock will clockout every employee in the system at 3:00AM. The Auto back up Date is the Date Tick-Tock will perform a yearly backup of all its data. By default, Tick-Tock will back up all data on January 1st every year. You can change the default settings to suit your business.Click the checkbox corresponding to the setting you want to change"
+</string>
 </resources>

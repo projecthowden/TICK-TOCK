@@ -27,10 +27,9 @@ public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
-    static public String masterString = "AsDf1";
+    static public String masterString = "aaa";
     static public DateTime autoClockOutTime;
     static public DateTime autoBackUpDate;
-
     static String fileName = "aa2.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
