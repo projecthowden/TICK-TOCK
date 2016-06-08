@@ -28,8 +28,7 @@ public class Global implements Serializable{
     static public EmployeeDatabase empDatabase;
     static public int masterCode = 1234;
     static public String masterString = "aaa";
-    static public DateTime autoClockOutTime;
-    static public DateTime autoBackUpDate;
+
     static String fileName = "aa2.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
@@ -144,6 +143,9 @@ public class Global implements Serializable{
             externalDatabaseFile.createNewFile();
             Global.empDatabase = new EmployeeDatabase();
             Global.empDatabase.employees = new ArrayList<>();
+            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime(); //defualt jan 1
+            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime(); // default 3am
+
 
             Employee.numOfEmployees = 0;
             EmployeeDatabase.listOfAvailableIDs = new int[100];
@@ -168,6 +170,9 @@ public class Global implements Serializable{
 
             for(int i=0; i<100;i++)
                 EmployeeDatabase.listOfAvailableIDs[i] = i;
+
+            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
+            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
 
         }
 
@@ -201,7 +206,8 @@ public class Global implements Serializable{
 
             for(int i=0; i<100;i++)
                 EmployeeDatabase.listOfAvailableIDs[i] = i;
-
+            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
+            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
             e1.printStackTrace();
         }
 
@@ -216,7 +222,9 @@ public class Global implements Serializable{
             Employee.numOfEmployees = 0;
 
             EmployeeDatabase.listOfAvailableIDs = new int[100];
+            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
 
+            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
             for(int i=0; i<100;i++)
                 EmployeeDatabase.listOfAvailableIDs[i] = i;
 
@@ -246,6 +254,8 @@ public class Global implements Serializable{
         }
 
         Employee.numOfEmployees = temp.getEmployeeList().size(); //this re assigns the number of employees in system
+        Global.accessDatabase().autoBackUpDate = temp.autoBackUpDate.toDateTime();
+        Global.accessDatabase().autoClockOutTime = temp.autoClockOutTime.toDateTime();
     }
 
     /* Checks if external storage is available for read and write */
