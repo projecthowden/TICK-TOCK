@@ -68,7 +68,8 @@
         <activity
             android:name=".autoClockOut"
             android:windowSoftInputMode="stateHidden"
-            android:label="Change Default Settings"></activity>
+            android:screenOrientation="landscape"
+            android:label="AUTOMATIC BACK UP DATE AND CLOCK OUT TIME"></activity>
 
         <activity
             android:name=".enterpassword"
