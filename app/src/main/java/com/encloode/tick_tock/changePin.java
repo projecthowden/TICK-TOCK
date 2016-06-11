@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class changePin extends AppCompatActivity {
     private String id;
+    private int enterIDValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,8 @@ public class changePin extends AppCompatActivity {
         }
         else if( Global.accessDatabase().idValid(Integer.parseInt(id))) {
            Toast.makeText(getApplicationContext(),"No User Has That ID", Toast.LENGTH_LONG).show();
+            TextView autofill = (TextView) findViewById(R.id.change_pin_TF_name);
+            autofill.setText(" ");
         }
         else {
 
@@ -96,7 +99,31 @@ public class changePin extends AppCompatActivity {
         Intent intent = new Intent(changePin.this,ownermenu.class);
         startActivity(intent);
     }
+
+    public boolean idFieldValid() {
+
+       EditText idEntered = (EditText) findViewById(R.id.change_pin_TF_idEntered);
+
+        if (!idEntered.getText().toString().equals("")) {
+            enterIDValue = Integer.parseInt(idEntered.getText().toString());
+            if(!Global.accessDatabase().idValid(enterIDValue)){
+                return true;
+            }
+            else {
+
+                return false;
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Enter an ID", Toast.LENGTH_LONG).show();
+
+            return false;
+        }
+    }
+
     public void onClickSubmit(View view) {
+        if(!idFieldValid()) return;
+
         EditText passcode = (EditText) findViewById(R.id.activity_change_pin_TF_newPin);
         EditText passcode2 = (EditText) findViewById(R.id.activity_change_pin_TF_reenterPin);
         int pass, pass2;

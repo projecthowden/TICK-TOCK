@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tx = (TextView) findViewById(R.id.companyName); // this is where the company name on title is changed
         tx.setText("*clients company name goes here*");
         tx.setTextColor(Color.BLUE);
+        tx.setVisibility(View.INVISIBLE);
 
 
     }
@@ -47,22 +48,6 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view){
         Intent intent = new Intent(MainActivity.this, enterpin.class) ;
         startActivity(intent);
-    }
-
-    //for debugging purposes only
-    public void onClickAddEmps(View view){
-        Global.accessDatabase().addEmployee(new Employee("Riko Hamblin", 1111));
-        Global.accessDatabase().addEmployee(new Employee("Ibukun", 2222));
-       Global.accessDatabase().addEmployee(new Employee("Matthew", 3333));
-        Global.accessDatabase().addEmployee(new Employee("Aj Kunas", 4444));
-         Global.accessDatabase().addEmployee(new Employee("Jane", 4421));
-        Global.accessDatabase().addEmployee(new Employee("Jay", 4453));
-        Global.accessDatabase().addEmployee(new Employee("Ricky", 1879));
-        Global.accessDatabase().addEmployee(new Employee("Renny", 1919));
-        Global.accessDatabase().addEmployee(new Employee("Joesph", 8484));
-        Global.accessDatabase().addEmployee(new Employee("Khalia", 4582));
-        Global.accessDatabase().addEmployee(new Employee("Jacob", 1541));
-        Global.accessDatabase().addEmployee(new Employee("Joke", 4559));
     }
 
     @Override

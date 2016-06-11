@@ -9,7 +9,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +34,7 @@ public class changeName extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                    whenDoneIsClicked();
+                    whenNextIsClicked();
                     return true;
                 }
                 else {
@@ -46,12 +48,15 @@ public class changeName extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    whenDoneIsClicked();
-                    return true;
+                    if(whenDoneIsClicked()) {
+                    ImageButton btn = (ImageButton) findViewById(R.id.imageButtonchange_name_b_changename);
+                    btn.performClick();;
+                    return true;}
                 }
                 else {
                     return false;
                 }
+                return  false;
             }
         });
 
@@ -60,7 +65,7 @@ public class changeName extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    whenDoneIsClicked();
+                    whenNextIsClicked();
                 }else {
                 }
             }
@@ -69,56 +74,63 @@ public class changeName extends AppCompatActivity {
 
 
     }
-    public boolean whenDoneIsClicked() {
+    public boolean whenNextIsClicked() {
         // The old name should be put.
         EditText idEntered = (EditText) findViewById(R.id.change_name_et_id);
         //id the idEntered is not empty and if it exists then this if statement is true
         String Text;
-       // int TextInt;
+        // int TextInt;
         Text = idEntered.getText().toString();
-        TextInt = Integer.parseInt(Text);
-        boolean Invalid;
+
 
         if (!Text.equals("")) {
-            TextView Name = (TextView) findViewById(R.id.change_name_et_oldname);
-            Name.setText(Global.accessDatabase().getNameOf(TextInt));
-            return true;
-        }
-          else if(Global.accessDatabase().idValid(TextInt)) {
-                Toast.makeText(getApplicationContext(), "PLEASE ENTER A VALID ID", Toast.LENGTH_LONG).show();
-            return true;
+            TextInt = Integer.parseInt(Text);
+            if (Global.accessDatabase().idValid(TextInt)) {
+                Toast.makeText(getApplicationContext(), "ENTER A VALID ID", Toast.LENGTH_LONG).show();
+                TextView tx = (TextView) findViewById(R.id.change_name_et_oldname);
+                tx.setText(" ");
+                return false;
+            } else {
+                TextView Name = (TextView) findViewById(R.id.change_name_et_oldname);
+                Name.setText(Global.accessDatabase().getNameOf(TextInt));
+
+                return true;
             }
-         else if (!Global.accessDatabase().idValid(TextInt)) {
-            TextView Name = (TextView) findViewById(R.id.change_name_et_oldname);
-            Name.setText(Global.accessDatabase().getNameOf(TextInt));
-            return true;
+
         } else {
-            Toast.makeText(getApplicationContext(), "ENTER A VALID ID", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ENTER AN ID", Toast.LENGTH_LONG).show();
             return false;
         }
+    }
+    public boolean whenDoneIsClicked() {
+        // The old name should be put.
+        EditText idEntered = (EditText) findViewById(R.id.change_name_et_id);
+        EditText nameEntered = (EditText) findViewById(R.id.change_name_et_newname);
+        //id the idEntered is not empty and if it exists then this if statement is true
+        String Text;
+        // int TextInt;
+        Text = idEntered.getText().toString();
+
+
+        if (whenNextIsClicked()) {
+            if(!nameEntered.getText().toString().equals("")){
+                Global.accessDatabase().setNameOf(TextInt,nameEntered.getText().toString());
+                return true;
+            }
+
+            else return false;
+
+        }
+     return false;
     }
 
 
     public void onClickChangeName (View view) {
-        EditText Newname = (EditText) findViewById(R.id.change_name_et_newname);
-        // populate the text field.
-        String StoreNewName;
-        StoreNewName = Newname.getText().toString();
-            if (StoreNewName.equals(isNull(StoreNewName))) {
-                Toast.makeText(getApplicationContext(), "ENTER NAME", Toast.LENGTH_LONG).show();
-            }
-            else if(Newname.getText().toString().length() == 0) {
-            Toast.makeText(getApplicationContext(), "PLEASE ENTER A NAME", Toast.LENGTH_LONG).show();
-            }
-            else if(text == Newname.getText().toString().charAt(0)) {
-                Toast.makeText(getApplicationContext(), "PLEASE ENTER A NAME", Toast.LENGTH_LONG).show();
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "NAME CHANGE SUCCESSFUL", Toast.LENGTH_LONG).show();
-                Global.accessDatabase().setNameOf(TextInt, StoreNewName);
+        if(whenDoneIsClicked()){
                 Intent intent = new Intent(changeName.this, ownermenu.class);
                 startActivity(intent);
-            }
+        }
+
         }
 
     public void onClickExitForChangeName(View view){
