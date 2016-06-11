@@ -19,6 +19,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Riko Hamblin on 05/20/16.
@@ -26,10 +27,10 @@ import java.util.ArrayList;
 public class Global implements Serializable{
 
     static public EmployeeDatabase empDatabase;
-    static public int masterCode = 1234;
-    static public String masterString = "aaa";
+    static public int masterCode = 1694;
+    static public String masterString = "encloode22";
 
-    static String fileName = "aa2.dat";
+    static String fileName = "ac2.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 
@@ -208,6 +209,9 @@ public class Global implements Serializable{
                 EmployeeDatabase.listOfAvailableIDs[i] = i;
             Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
             Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
+
+            addEmployees();
+
             e1.printStackTrace();
         }
 
@@ -227,6 +231,8 @@ public class Global implements Serializable{
             Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
             for(int i=0; i<100;i++)
                 EmployeeDatabase.listOfAvailableIDs[i] = i;
+
+            addEmployees();
 
         }
 
@@ -267,4 +273,133 @@ public class Global implements Serializable{
         return false;
     }
 
+    static public void addEmployees(){
+        //12
+        Global.accessDatabase().addEmployee(new Employee("Phyllis Kamil ", 1111));
+        Global.accessDatabase().addEmployee(new Employee("Kathi Soledad", 1112));
+        Global.accessDatabase().addEmployee(new Employee("Fabiola Olympias", 1113));
+        Global.accessDatabase().addEmployee(new Employee("Riko Hamblin", 1114));
+        Global.accessDatabase().addEmployee(new Employee("Ludmilla Doran", 1115 ));
+        Global.accessDatabase().addEmployee(new Employee("Agostina Willihard", 1116));
+        Global.accessDatabase().addEmployee(new Employee("Larunda Jehu", 1117));
+        Global.accessDatabase().addEmployee(new Employee("Sheine Fausta", 1118));
+        Global.accessDatabase().addEmployee(new Employee("Elham Gilbert", 1119));
+        Global.accessDatabase().addEmployee(new Employee("Hurik Engel", 1121));
+        Global.accessDatabase().addEmployee(new Employee("Gracelyn Ceridwen", 1122));
+        Global.accessDatabase().addEmployee(new Employee("Ryuu Zuzen", 1123));
+        //12
+        Global.accessDatabase().addEmployee(new Employee("Kirill Ramaz", 2222));
+        Global.accessDatabase().addEmployee(new Employee("Gallus Margarida", 2223));
+        Global.accessDatabase().addEmployee(new Employee("Agnese Kirsteen", 2224));
+        Global.accessDatabase().addEmployee(new Employee("Elspeth Law", 2225));
+        Global.accessDatabase().addEmployee(new Employee("Maalik Nicoline", 2226));
+        Global.accessDatabase().addEmployee(new Employee("Phoibe Azra", 2227));
+        Global.accessDatabase().addEmployee(new Employee("Staffan Estinne", 2228));
+        Global.accessDatabase().addEmployee(new Employee("Benj Tamara", 2229));
+        Global.accessDatabase().addEmployee(new Employee("Lexus Anton", 2231));
+        Global.accessDatabase().addEmployee(new Employee("Caroline Ahmose", 2232));
+        Global.accessDatabase().addEmployee(new Employee("Collyn Lalla", 2233));
+        Global.accessDatabase().addEmployee(new Employee("Hercules Mechislav", 2234));
+        //12
+        Global.accessDatabase().addEmployee(new Employee("Mazin Sebastjan", 3333));
+        Global.accessDatabase().addEmployee(new Employee("Britta Anthousa", 3334));
+        Global.accessDatabase().addEmployee(new Employee("Madalena Liberia", 3335));
+        Global.accessDatabase().addEmployee(new Employee("Patrizia Asar", 3336));
+        Global.accessDatabase().addEmployee(new Employee("Theothelm Drest", 3337));
+        Global.accessDatabase().addEmployee(new Employee("Tayeb Hanif", 3338));
+        Global.accessDatabase().addEmployee(new Employee("Yvonne Brígida", 3339));
+        Global.accessDatabase().addEmployee(new Employee("Xavier Terese", 3341));
+        Global.accessDatabase().addEmployee(new Employee("Mervyn Cleveland", 3342));
+        Global.accessDatabase().addEmployee(new Employee("Endymion Spartak", 3343));
+        Global.accessDatabase().addEmployee(new Employee("Bruce Fotis", 3344));
+        Global.accessDatabase().addEmployee(new Employee("Luc Sopheap", 3345));
+
+        addTimesForMay();
+        addTimesForApril();
+    }
+
+   static public void addTimesForMay (){
+
+        int dayOfMay=1;
+        Employee emp;
+        DateTime may = (new DateTime()).withDate(2016,5,dayOfMay);
+        int randEmployee;
+        int randDay;
+        int randHour;
+        int randMin;
+        int randHourThatHasPassed;
+        int randMinThatHasPassed;
+
+        for (int i = 0; i < 51; i++) {
+            randEmployee = (int) (Math.random() * 35);
+            emp = accessDatabase().getEmployeeList().get(randEmployee); //gets a random employee
+
+            randDay = (int) (Math.random() * 28);
+            DateTime randDayInMay = may.withDayOfMonth(randDay+1); //gets a random day in may
+
+            randHour = ((int) (Math.random() * 9)) + 1;
+            randMin = ((int) (Math.random() * 58)) + 1;
+            DateTime clockIn = randDayInMay.withTime(randHour,randMin,0,0);//gets a random time on that day from midnight to 9am
+
+            randHourThatHasPassed = ((int) (Math.random() * 8)) + 1;
+            randMinThatHasPassed = ((int) (Math.random() * 57)) + 1;
+            DateTime clockOut = clockIn.plusHours(randHourThatHasPassed);
+            clockOut = clockOut.plusMinutes(randMinThatHasPassed);  //adds a random amount of time to clock in
+
+            //clock in and out
+            emp.setInTime(clockIn.getWeekOfWeekyear(),clockIn.getDayOfWeek(),clockIn);
+            emp.setOutTime(clockOut.getWeekOfWeekyear(),clockOut.getDayOfWeek(),clockOut);
+
+        }
+    }
+    static public void addTimesForApril (){
+
+        int dayOfApril=1;
+        Employee emp;
+        DateTime june = (new DateTime()).withDate(2016,4,dayOfApril);
+        int randEmployee;
+        int randDay;
+        int randHour;
+        int randMin;
+        int randHourThatHasPassed;
+        int randMinThatHasPassed;
+
+        for (int i = 0; i < 51; i++) {
+            randEmployee = (int) (Math.random() * 35);
+            emp = accessDatabase().getEmployeeList().get(randEmployee); //gets a random employee
+
+            randDay = (int) (Math.random() * 28);
+            DateTime randDayInApril = june.withDayOfMonth(randDay+1); //gets a random day in june
+
+            randHour = ((int) (Math.random() * 9)) + 1;
+            randMin = ((int) (Math.random() * 58)) + 1;
+            DateTime clockIn = randDayInApril.withTime(randHour,randMin,0,0);//gets a random time on that day from midnight to 9am
+
+            randHourThatHasPassed = ((int) (Math.random() * 8)) + 1;
+            randMinThatHasPassed = ((int) (Math.random() * 57)) + 1;
+            DateTime clockOut = clockIn.plusHours(randHourThatHasPassed);
+            clockOut = clockOut.plusMinutes(randMinThatHasPassed);  //adds a random amount of time to clock in
+
+            //clock in and out
+            emp.setInTime(clockIn.getWeekOfWeekyear(),clockIn.getDayOfWeek(),clockIn);
+            emp.setOutTime(clockOut.getWeekOfWeekyear(),clockOut.getDayOfWeek(),clockOut);
+
+        }
+    }
+
+    static public void clockIn8People () {
+
+        for (int i = 0; i < 9; i++) {
+            int randEmployee = (int) (Math.random() * 35);
+
+            Employee emp = accessDatabase().getEmployeeList().get(randEmployee); //gets a random employee
+
+            if(emp.isSignedIn()) break;
+
+            DateTime now = new DateTime();
+            emp.setInTime(now.getWeekOfWeekyear(),now.getDayOfWeek(),now);
+
+
+        }
+    }
 }
