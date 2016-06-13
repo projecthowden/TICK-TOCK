@@ -28,7 +28,8 @@
             android:ems="5"
             android:maxLength="2"
             android:imeOptions="actionDone"
-            android:inputType="number"/><!--This guy specifies the type of keyboard that pops up
+            android:inputType="number"
+            /><!--This guy specifies the type of keyboard that pops up
             on the tablet. This imeOption specifies the label of the action on the keypad-->
 
 
@@ -48,11 +49,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:text="*autofill*"
         android:id="@+id/activity_deleteEmp_TF_nameValue"
         android:layout_below="@+id/delete_employee_gl_details"
         android:layout_alignEnd="@+id/delete_employee_gl_details"
-        android:layout_alignRight="@+id/delete_employee_gl_details" />
+        android:layout_alignRight="@+id/delete_employee_gl_details"
+        tools:text="John Gray" />
 
     <ImageButton
         android:layout_width="wrap_content"

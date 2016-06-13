@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:textSize="30sp"
             android:textColor="#111111"
-            tools:text="Andrew White"/><!--This guy is just a tool so it will need to be update this element
+            tools:text="John Gray"/><!--This guy is just a tool so it will need to be update this element
         with java-->
         <TextView
             android:id="@+id/validate_confirm_tv_idlabel"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:textColor="#111111"
             android:textSize="30sp"
-            tools:text="41"/><!--This guy is just a tool so it will need to be update this element
+            tools:text="44"/><!--This guy is just a tool so it will need to be update this element
         with java-->
     </GridLayout>
     <GridLayout

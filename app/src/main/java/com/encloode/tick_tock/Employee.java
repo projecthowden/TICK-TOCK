@@ -72,7 +72,7 @@ public class Employee implements Serializable {
         return signedIn;
     }
 
-    public void toggleSignIn() {
+    private void toggleSignIn() {
 
         signedIn = !signedIn;
 

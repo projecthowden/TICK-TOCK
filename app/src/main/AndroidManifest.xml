@@ -79,6 +79,8 @@
         <activity android:name=".currentlyClockedIn"
             android:label="CURRENTLY CLOCKED IN"
             android:screenOrientation="landscape"></activity>
+
+        <receiver android:name=".AlarmReceiver"></receiver>
     </application>
 
 </manifest>

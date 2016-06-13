@@ -15,8 +15,8 @@ import java.util.Date;
 public class EmployeeDatabase implements Serializable {
 
     public ArrayList<Employee> employees ;
-    public DateTime autoClockOutTime;
-    public DateTime autoBackUpDate;
+    private DateTime autoClockOutTime;
+    private DateTime autoBackUpDate;
     static public int maxEmployeeSize = 60;
     static public int listOfAvailableIDs[];
 
@@ -77,7 +77,21 @@ public class EmployeeDatabase implements Serializable {
 
     }
 
+    public DateTime getAutoClockOutTime() {
+        return autoClockOutTime;
+    }
 
+    public void setAutoClockOutTime(DateTime autoClockOutTime) {
+        this.autoClockOutTime = autoClockOutTime;
+    }
+
+    public DateTime getAutoBackUpDate() {
+        return autoBackUpDate;
+    }
+
+    public void setAutoBackUpDate(DateTime autoBackUpDate) {
+        this.autoBackUpDate = autoBackUpDate;
+    }
 
     //THIS METHOD TAKES AN ID AND CHANGES THE NAME OF THAT EMPLOYEE TO String name
     public void setNameOf(int id, String name) {
@@ -112,13 +126,6 @@ public class EmployeeDatabase implements Serializable {
     // WHETHER THAT EMPLOYEE IS SIGNED IN, true = yes they are, false = no they're not
     public boolean isSignedIn(int id) {
         return getEmployee(id).isSignedIn();
-    }
-
-    //THIS METHOD TAKES AN ID AND TOGGLES THE signedIn FIELD OF THAT EMPLOYEE
-    public void toggleSignInFor (int id) {
-
-        getEmployee(id).toggleSignIn();
-
     }
 
     //THIS METHOD TAKES AN ID AND RETURNS THE EMPLOYEE OBJECT ASSOCIATED WITH IT
