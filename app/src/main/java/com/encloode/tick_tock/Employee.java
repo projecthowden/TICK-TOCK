@@ -68,6 +68,8 @@ public class Employee implements Serializable {
 
     public DateTime getLastSignInDate() { return  lastSignInDate;}
 
+
+
     public boolean isSignedIn() {
         return signedIn;
     }
@@ -172,6 +174,10 @@ public class Employee implements Serializable {
 
     public void setOutTime(int week, int day, int position, DateTime time) {
         timeSummary.outTime[week - 1][day - 1][position] = time;
+    }
+
+    public void setTimeSummary(TimeSummary timeSummary) {
+        this.timeSummary = timeSummary;
     }
 
     public void setMinutesWorkedInDay(int week, int day, int time) {

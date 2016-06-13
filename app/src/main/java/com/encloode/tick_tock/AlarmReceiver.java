@@ -3,6 +3,7 @@ package com.encloode.tick_tock;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
@@ -35,10 +36,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         DateTime now = new DateTime(); //get current time
         ArrayList<Employee> list = Global.accessDatabase().getEmployeeList();
         int count = 0;
-
-        /*we will go thru the entire list of employees
-        * if they are signed in we will clock them out
+        /*
+         * we will go thru the entire list of employees
+         * if they are signed in we will clock them out
          */
+
         for (Employee  emp : list)
             if(emp.isSignedIn()){
                 emp.setOutTime(now.getWeekOfWeekyear(),now.getDayOfWeek(),now);
@@ -49,11 +51,23 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private void wipeAndBackUpDatabase(Context context){
-        //implement wiping and saving of database here
 
-        Toast.makeText(context,"TEST",Toast.LENGTH_LONG).show();
+        // save database and wipe
+        new archiveDatabaseToExternalStorage().execute( );
+
+        Toast.makeText(context,"System Wiped and archived",Toast.LENGTH_LONG).show();
     }
 
+    public class archiveDatabaseToExternalStorage extends AsyncTask<Void,Void,Void> {
 
+        @Override
+        protected Void doInBackground(Void... params) {
+            Global.archiveDatabaseToExternalStorage(); //save
 
+            for (Employee emp : Global.accessDatabase().getEmployeeList()) {//wipe
+                //  emp.setTimeSummary(new TimeSummary());//uncomment to enable cleaning of system
+            }
+            return null;
+        }
+    }
 }
