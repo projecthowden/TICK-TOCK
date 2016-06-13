@@ -1,13 +1,15 @@
 package com.encloode.tick_tock;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Path;
 import android.os.Environment;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
+import org.joda.time.Seconds;
 
 import java.io.EOFException;
 import java.io.File;
@@ -19,18 +21,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Riko Hamblin on 05/20/16.
  */
-public class Global implements Serializable{
+public class Global  extends AppCompatActivity  implements Serializable {
 
-    static public EmployeeDatabase empDatabase;
+    static private EmployeeDatabase empDatabase;
     static public int masterCode = 1694;
     static public String masterString = "encloode22";
+    static public AlarmManager manager;
+    static public PendingIntent pendingIntent ;
 
-    static String fileName = "ac2.dat";
+    static String fileName = "c3.dat";
 
     static public EmployeeDatabase accessDatabase ()    {
 
@@ -41,7 +44,6 @@ public class Global implements Serializable{
 
        empDatabase = empDatabaseSent ;
     }
-
 
     static public void saveState(Context context) {
 
@@ -105,7 +107,7 @@ public class Global implements Serializable{
         catch (IOException e1) {}*/
     }
 
-    static public void loadDatabaseFromSDCard() throws IOException {
+    /*static public void loadDatabaseFromSDCard() throws IOException {
         EmployeeDatabase employeeDatabaseFromFile = null;
         FileInputStream inStream;
         ObjectInputStream is;
@@ -177,7 +179,7 @@ public class Global implements Serializable{
 
         }
 
-    }
+    }*/
 
     static public void loadState(Context context) throws IOException {
         EmployeeDatabase employeeDatabaseFromFile = null;
@@ -199,17 +201,7 @@ public class Global implements Serializable{
         catch (IOException e1) { //if no file is found then create and initialize a new file
 
             internalDatabaseFile.createNewFile();
-            Global.empDatabase = new EmployeeDatabase();
-            Global.empDatabase.employees = new ArrayList<>();
-
-            Employee.numOfEmployees = 0;
-            EmployeeDatabase.listOfAvailableIDs = new int[100];
-
-            for(int i=0; i<100;i++)
-                EmployeeDatabase.listOfAvailableIDs[i] = i;
-            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
-            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
-
+            createNewDatabase(context);
             addEmployees();
 
             e1.printStackTrace();
@@ -218,27 +210,41 @@ public class Global implements Serializable{
         catch (ClassNotFoundException e1) {    }
 
         if (employeeDatabaseFromFile != null) // if object is found deserialize
-            deserialize(employeeDatabaseFromFile);
-        else { //else  create and initialize a new file
-            Global.empDatabase = new EmployeeDatabase();
-            Global.empDatabase.employees = new ArrayList<>();
-
-            Employee.numOfEmployees = 0;
-
-            EmployeeDatabase.listOfAvailableIDs = new int[100];
-            Global.accessDatabase().autoBackUpDate = new DateTime().withDate(2016,1,1).toDateTime();
-
-            Global.accessDatabase().autoClockOutTime = new DateTime().withTime(3,0,0,0).toDateTime();
-            for(int i=0; i<100;i++)
-                EmployeeDatabase.listOfAvailableIDs[i] = i;
-
+            deserialize(context,employeeDatabaseFromFile);
+        else {
+            //else  create and initialize a new file and add employees
+            createNewDatabase(context);
             addEmployees();
 
         }
 
     }
+    static private void createNewDatabase (Context context) {
 
-    static  private void deserialize(EmployeeDatabase temp){
+        Global.empDatabase = new EmployeeDatabase();
+        Global.empDatabase.employees = new ArrayList<>();
+
+        Employee.numOfEmployees = 0;
+        EmployeeDatabase.listOfAvailableIDs = new int[100];
+
+        Global.accessDatabase().setAutoBackUpDate(
+                    new DateTime()
+                            .withDate(2016,1,1)
+                            .withTime(3, 2, 0, 0 )
+                            .toDateTime()
+        );
+
+        Global.accessDatabase().setAutoClockOutTime(
+                new DateTime().withTime(3,0,0,0).toDateTime()
+        );
+
+        for(int i=0; i<100;i++)
+            EmployeeDatabase.listOfAvailableIDs[i] = i;
+
+        setClockOutAlarm(context, Global.accessDatabase().getAutoClockOutTime()); //sets default time to 3am
+        setDateToWipeDatabaseAlarm(context,Global.accessDatabase().getAutoBackUpDate());
+    }
+    static  private void deserialize(Context context, EmployeeDatabase temp){
 
         Global.empDatabase = new EmployeeDatabase();
         Global.empDatabase.employees = new ArrayList<>();
@@ -260,8 +266,16 @@ public class Global implements Serializable{
         }
 
         Employee.numOfEmployees = temp.getEmployeeList().size(); //this re assigns the number of employees in system
-        Global.accessDatabase().autoBackUpDate = temp.autoBackUpDate.toDateTime();
-        Global.accessDatabase().autoClockOutTime = temp.autoClockOutTime.toDateTime();
+        Global.accessDatabase().setAutoBackUpDate(
+                temp.getAutoBackUpDate().toDateTime()
+        );
+
+        Global.accessDatabase().setAutoClockOutTime(
+                temp.getAutoClockOutTime().toDateTime()
+        );
+
+        setClockOutAlarm(context,temp.getAutoClockOutTime().toDateTime());
+        setDateToWipeDatabaseAlarm(context,temp.getAutoBackUpDate());
     }
 
     /* Checks if external storage is available for read and write */
@@ -271,6 +285,54 @@ public class Global implements Serializable{
             return true;
         }
         return false;
+    }
+
+    static public void setClockOutTime (Context context, DateTime time){
+        accessDatabase().setAutoClockOutTime(time);
+        setClockOutAlarm(context,time);
+    }
+    static public void setDateToWipeDatabase (Context context, DateTime time){
+        accessDatabase().setAutoBackUpDate( time );
+        setDateToWipeDatabaseAlarm(context,time);
+    }
+
+    static private void setClockOutAlarm(Context context, DateTime time) {
+
+        Intent alarmIntent = new Intent(context, AlarmReceiver.class);
+        alarmIntent.putExtra("choice",AlarmReceiver.CLOCK_OUT_ALL);
+
+        pendingIntent = PendingIntent.getBroadcast(context, AlarmReceiver.CLOCK_OUT_ALL, alarmIntent, 0);
+        manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        int interval = Seconds.secondsBetween(time, time.plusDays(1)).getSeconds() * 1000 ; //MILLIS * SECS * MINUTE* HOUR = ONCE A DAY
+
+        //if time set has past already set changes to occur in future
+        //this ensures if they set a time that has gone this doesnt just automatically clock out everyone
+        //else we use whatever time was chosen i.e. do nothing
+        if(time.getMillis() < new DateTime().getMillis())  time = time.plusDays(1);
+          else {}
+
+
+        manager.setRepeating(AlarmManager.RTC_WAKEUP,time.getMillis(),interval,pendingIntent);
+    }
+    static private void setDateToWipeDatabaseAlarm(Context context, DateTime time) {
+
+        Intent alarmIntent = new Intent(context, AlarmReceiver.class);
+        alarmIntent.putExtra("choice",AlarmReceiver.WIPE_DATABASE);
+
+        pendingIntent = PendingIntent.getBroadcast(context, AlarmReceiver.WIPE_DATABASE, alarmIntent, 0);
+
+        manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        int interval = 1000 * 30;  // Seconds.secondsBetween(time,time.plusYears(1)).getSeconds() * 1000;
+
+        //if time set has past already set changes to occur in future
+        //this ensures if they set a time that has gone this doesnt just automatically backUp
+        //else we use whatever time was chosen i.e. do nothing
+         if(time.getMillis() < new DateTime().getMillis()) time = time.minus(1);  //time = time.plusYears(1);
+         else {}
+
+        manager.setRepeating(AlarmManager.RTC_WAKEUP,time.getMillis(),interval,pendingIntent);
     }
 
     static public void addEmployees(){
@@ -317,8 +379,7 @@ public class Global implements Serializable{
         addTimesForMay();
         addTimesForApril();
     }
-
-   static public void addTimesForMay (){
+    static public void addTimesForMay (){
 
         int dayOfMay=1;
         Employee emp;
@@ -386,7 +447,6 @@ public class Global implements Serializable{
 
         }
     }
-
     static public void clockIn8People () {
 
         for (int i = 0; i < 9; i++) {
@@ -402,4 +462,6 @@ public class Global implements Serializable{
 
         }
     }
+
+
 }

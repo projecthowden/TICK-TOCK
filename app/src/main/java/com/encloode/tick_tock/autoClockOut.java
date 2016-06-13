@@ -1,22 +1,20 @@
 package com.encloode.tick_tock;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.NumberPicker;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
 
-import java.lang.reflect.Array;
 import java.sql.Time;
 
 public class autoClockOut extends AppCompatActivity {
@@ -29,6 +27,8 @@ public class autoClockOut extends AppCompatActivity {
     DateTime backupDate = new DateTime();
     DateTime clockOutTime = new DateTime();
 
+    AlarmManager manager;
+    PendingIntent pendingClockOutIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,9 @@ public class autoClockOut extends AppCompatActivity {
 
         numberPicker.setMinValue(1);
         numberPicker.setWrapSelectorWheel(false);
+
+        Intent clockOutIntent = new Intent(this, AlarmReceiver.class);
+        pendingClockOutIntent = PendingIntent.getBroadcast(this, 0, clockOutIntent, 0);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -103,8 +106,8 @@ public class autoClockOut extends AppCompatActivity {
 
         /*If this condition is true, then the user intends to change only the date*/
         if(changeDate.isChecked() && !changeTime.isChecked()){
-            Global.accessDatabase().autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
-            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().autoBackUpDate.toString("MMM/dd"), Toast.LENGTH_SHORT).show();
+            Global.setDateToWipeDatabase(this, backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue()));
+            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().getAutoBackUpDate().toString("MMM/dd"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
@@ -112,8 +115,8 @@ public class autoClockOut extends AppCompatActivity {
         }
         /*If this condition is true, then the user intends to change only the time*/
         if(changeTime.isChecked() && !changeDate.isChecked()){
-            Global.accessDatabase().autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
-            Toast.makeText(autoClockOut.this, "Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
+            Global.setClockOutTime(this, clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0));
+            Toast.makeText(autoClockOut.this, "Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().getAutoClockOutTime().toString("hh:mm a"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
@@ -121,9 +124,9 @@ public class autoClockOut extends AppCompatActivity {
         }
         /*If this condition is true, then the user intends to change both the date and the time*/
         if(changeTime.isChecked()&& changeDate.isChecked()){
-            Global.accessDatabase().autoBackUpDate = backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue());
-            Global.accessDatabase().autoClockOutTime = clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0);
-            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().autoBackUpDate.toString("MMM/dd")+"." + "\n Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().autoClockOutTime.toString("hh:mm a"), Toast.LENGTH_SHORT).show();
+            Global.setDateToWipeDatabase(this, backupDate.withDate(2016,spinner.getSelectedItemPosition()+1,numberPicker.getValue()));
+            Global.setClockOutTime(this, clockOutTime.withTime(timePicker.getCurrentHour(),timePicker.getCurrentMinute(),0,0));
+            Toast.makeText(autoClockOut.this, "Automatic Yearly Backup Date has been set to: "+ Global.accessDatabase().getAutoBackUpDate().toString("MMM/dd")+"." + "\n Automatic Daily ClockOut time has been set to: " + Global.accessDatabase().getAutoClockOutTime().toString("hh:mm a"), Toast.LENGTH_SHORT).show();
             //done, so go back to owner menu after a toast to notify user.
             Intent intent = new Intent(this, ownermenu.class);
             startActivity(intent);
@@ -141,4 +144,5 @@ public class autoClockOut extends AppCompatActivity {
         * of starting a new activity when the user has not checked any of the boxes.*/
         return true;
     }
+
 }

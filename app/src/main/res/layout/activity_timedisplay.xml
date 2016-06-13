@@ -29,7 +29,7 @@
         android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="09:43 PM"
+        android:text="09:43 AM"
         android:textSize="80dp"
         android:textColor="#111111"
         android:layout_centerHorizontal="true"
