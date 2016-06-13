@@ -66,35 +66,26 @@ public class Global  extends AppCompatActivity  implements Serializable {
         catch (IOException e1) {}
 
 
-        //save also to SD card
-        saveDatabaseToSDCard(context);
+        //back up
+        backupCurrentDatabaseToExternalStorage();
+
     }
 
-    static public void saveDatabaseToSDCard (Context context) {
+    static public void backupCurrentDatabaseToExternalStorage() {
 
         File newFolder = null;
         File externalDatabaseFile = null;
         try {
-            newFolder = new File(Environment.getExternalStorageDirectory(),"hey");
-          //  if (!newFolder.exists())
-               if( newFolder.mkdirs()){
-
-            Toast m = Toast.makeText( context, "fdgfdf", Toast.LENGTH_LONG);
-               m.show();
-
-               }
-           // System.out.println("fsf");
+            newFolder = new File(Environment.getExternalStorageDirectory(),"DATABASE_BACKUP_TICK_TOCK");
+            newFolder.mkdirs();
 
             try {
                 externalDatabaseFile = new File(newFolder, "database_BACKUP.dat");
-              //  if(!externalDatabaseFile.exists()) externalDatabaseFile.createNewFile();
-            } catch (Exception ex) {
-             //   System.out.println("ex: " + ex);
-            }
-        } catch (Exception e) {
-          //  System.out.println("e: " + e);
-        }
-/*
+                if(!externalDatabaseFile.exists()) externalDatabaseFile.createNewFile();
+            } catch (Exception ex) {}
+
+        } catch (Exception e) {     }
+
         try {
             FileOutputStream outStream =  new FileOutputStream(externalDatabaseFile);
             ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
@@ -104,7 +95,45 @@ public class Global  extends AppCompatActivity  implements Serializable {
             outStream.close();
         }
         catch (FileNotFoundException e1) {}
-        catch (IOException e1) {}*/
+        catch (IOException e1) {}
+
+
+    }
+    static public String archiveDatabaseToExternalStorage() {
+
+        File newFolder = null;
+        File archivedDatabaseFile = null;
+        String archiveFileName = null;
+        try {
+                newFolder = new File(Environment.getExternalStorageDirectory(),"ARCHIVE_TICK_TOCK");
+                newFolder.mkdirs();
+            } catch (Exception ex) {}
+
+        //make string name Jan2015_to_Jan2016
+        archiveFileName = Global.accessDatabase().getAutoBackUpDate().toString("MMMyyy")
+                            + "_to_"
+                            + Global.accessDatabase().getAutoBackUpDate().toString("MMM")
+                            + (Global.accessDatabase().getAutoBackUpDate().getYear()+1);
+
+        try {
+                archivedDatabaseFile = new File(newFolder, archiveFileName + ".dat");
+                if(!archivedDatabaseFile.exists()) archivedDatabaseFile.createNewFile();
+            }   catch (Exception ex) {}
+
+        //make string name
+
+        try {
+            FileOutputStream outStream =  new FileOutputStream(archivedDatabaseFile);
+            ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);
+
+            objectOutStream.writeObject(Global.empDatabase);
+            objectOutStream.close();
+            outStream.close();
+        }
+        catch (FileNotFoundException e1) {}
+        catch (IOException e1) {}
+
+        return archivedDatabaseFile.getAbsolutePath();
     }
 
     /*static public void loadDatabaseFromSDCard() throws IOException {
