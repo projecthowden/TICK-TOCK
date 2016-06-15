@@ -22,7 +22,7 @@
         android:id="@+id/info"
         android:layout_width="800dp"
         android:layout_height="wrap_content"
-        android:text="@string/autoclockout"
+        tools:text="@string/autoclockout"
         android:textSize="15sp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"/>

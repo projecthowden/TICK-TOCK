@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -18,10 +20,11 @@ import org.joda.time.DateTime;
 import java.sql.Time;
 
 public class autoClockOut extends AppCompatActivity {
+    TextView info = null;
     NumberPicker numberPicker = null;
     CheckBox changeDate = null;
     CheckBox changeTime = null;
-    TimePicker timePicker =null;
+    TimePicker timePicker = null;
     Spinner spinner = null;
     Time time;
     DateTime backupDate = new DateTime();
@@ -37,6 +40,9 @@ public class autoClockOut extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.autoClockout_s_spinnerMonth);
         timePicker = (TimePicker) findViewById(R.id.autoClockout_T_timePicker);
         numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
+        info = (TextView) findViewById(R.id.info);
+        info.setText("The Auto clockout time is the time Tick-Tock will automatically clock out every employee in the system daily. The current clockout time is set to " + Global.accessDatabase().getAutoClockOutTime().toString("hh:mm a")+ " The Auto back up Date is the Date Tick-Tock will perform a yearly backup of all its data. The current back up date is set to " +Global.accessDatabase().getAutoBackUpDate().toString("MMM/dd") + ". You can change the default settings to suit your business.Click the checkbox corresponding to the setting you want to change");
+
 
         numberPicker.setMinValue(1);
         numberPicker.setWrapSelectorWheel(false);
