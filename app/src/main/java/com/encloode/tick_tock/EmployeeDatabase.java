@@ -17,7 +17,7 @@ public class EmployeeDatabase implements Serializable {
     public ArrayList<Employee> employees ;
     private DateTime autoClockOutTime;
     private DateTime autoBackUpDate;
-    static public int maxEmployeeSize = 60;
+    static public int maxEmployeeSize = 20;
     static public int listOfAvailableIDs[];
 
     public EmployeeDatabase() {
