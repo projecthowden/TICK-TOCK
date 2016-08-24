@@ -351,7 +351,7 @@ public class Global  extends AppCompatActivity  implements Serializable {
 
         manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        int interval = 1000 * 30;  // Seconds.secondsBetween(time,time.plusYears(1)).getSeconds() * 1000;
+        int interval = Seconds.secondsBetween(time,time.plusYears(1)).getSeconds() * 1000;
 
         //if time set has past already set changes to occur in future
         //this ensures if they set a time that has gone this doesnt just automatically backUp
