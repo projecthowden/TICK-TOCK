@@ -1,3 +1,4 @@
 # TICK-TOCK
 Authors: Riko hamblin & Ibukun Oluwayomi
-Android APlication still under construction.
+Android Application. 
+NOTE: This project is still underway.
